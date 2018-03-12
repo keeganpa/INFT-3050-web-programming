@@ -30,3 +30,4 @@ C:\Users\dubot\Documents\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Micro
 C:\Users\dubot\Documents\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\dubot\Documents\INFT-3050-web-programming\Japallum_Apparel\UL\obj\Debug\UL.dll
 C:\Users\dubot\Documents\INFT-3050-web-programming\Japallum_Apparel\UL\obj\Debug\UL.pdb
+C:\Users\dubot\Documents\INFT-3050-web-programming\Japallum_Apparel\UL\obj\Debug\UL.csprojResolveAssemblyReference.cache
