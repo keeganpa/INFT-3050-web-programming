@@ -43,5 +43,9 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
+    <hr />
+    <footer>
+        <p>this is where information goes</p>
+    </footer>
 </body>
 </html>

@@ -9142,3 +9142,7 @@ th {
 .card-title, .card-header {
   color: inherit;
 }
+
+footer {
+    text-align: center;
+}
