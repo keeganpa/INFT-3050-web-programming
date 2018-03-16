@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="shoppingCart.aspx.cs" Inherits="UL.shoppingCart" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/usermaster.Master" CodeBehind="shoppingCart.aspx.cs" Inherits="UL.shoppingCart" %>
 
 <!DOCTYPE html>
 
