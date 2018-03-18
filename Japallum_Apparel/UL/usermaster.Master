@@ -17,16 +17,16 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Search products <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/Customer/searchPage.aspx">Search products <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">History</a>
+            <a class="nav-link" href="/Customer/purchaseHistory.aspx">History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Shopping cart</a>
+            <a class="nav-link" href="/Customer/shoppingCart.aspx">Shopping cart</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login/Logout (register)</a>
+            <a class="nav-link" href="/Customer/login.aspx">Login/Logout (register)</a>
           </li>
         </ul>
       </div>
@@ -38,8 +38,8 @@
     </div>
     <hr />
     <footer>
-        <li><a runat="server" href="~/contact.aspx">contact</a></li>
-        <li><a runat="server" href="~/about.aspx">about</a></li>
+        <li><a runat="server" href="~/Customer/contact.aspx">contact</a></li>
+        <li><a runat="server" href="~/Customer/about.aspx">about</a></li>
         <p>copyrights</p>
     </footer>
 </body>

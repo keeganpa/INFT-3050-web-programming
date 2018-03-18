@@ -1,16 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="searchPage.aspx.cs" Inherits="UL.searchPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/usermaster.Master" CodeBehind="searchPage.aspx.cs" Inherits="UL.searchPage" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
+</asp:Content>
