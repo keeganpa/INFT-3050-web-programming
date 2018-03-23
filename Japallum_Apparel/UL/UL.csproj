@@ -106,6 +106,7 @@
     <Content Include="Customer\main.aspx" />
     <Content Include="Admin\manageAccounts.aspx" />
     <Content Include="Admin\manageItem.aspx" />
+    <Content Include="Images\japallum_logo.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
