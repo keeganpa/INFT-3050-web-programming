@@ -1,16 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="logout.aspx.cs" Inherits="UL.logout" %>
+﻿<%@ Page Title="Logout" Language="C#" AutoEventWireup="true" MasterPageFile="~/usermaster.Master" CodeBehind="logout.aspx.cs" Inherits="UL.logout" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
+    <small>you have successfully logged out</small>
+    <a href="/Customer/login.aspx">log in</a>
+</asp:Content>
