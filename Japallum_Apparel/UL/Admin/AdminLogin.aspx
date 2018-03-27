@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="paymentConfirmation.aspx.cs" Inherits="UL.paymentConfirmation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminLogin.aspx.cs" Inherits="UL.adminLogin" %>
 
 <!DOCTYPE html>
 

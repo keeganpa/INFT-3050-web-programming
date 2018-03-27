@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="postage.aspx.cs" Inherits="UL.postage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddBuy.aspx.cs" Inherits="UL.addBuy" %>
 
 <!DOCTYPE html>
 

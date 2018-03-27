@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="adminLogin.aspx.cs" Inherits="UL.adminLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Postage.aspx.cs" Inherits="UL.postage" %>
 
 <!DOCTYPE html>
 

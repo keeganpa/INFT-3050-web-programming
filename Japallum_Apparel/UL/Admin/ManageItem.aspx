@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="manageItem.aspx.cs" Inherits="UL.manageItem" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManageItem.aspx.cs" Inherits="UL.manageItem" %>
 
 <!DOCTYPE html>
 

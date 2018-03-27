@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="payment.aspx.cs" Inherits="UL.payment" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManageAccounts.aspx.cs" Inherits="UL.manageAccounts" %>
 
 <!DOCTYPE html>
 

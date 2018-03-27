@@ -18,7 +18,7 @@ namespace UL
                            EventArgs e)
         {
             //this.AddInvoice();
-            Response.Redirect("~/Customer/main.aspx");
+            Response.Redirect("~/Customer/Main.aspx");
         }
     }
 }

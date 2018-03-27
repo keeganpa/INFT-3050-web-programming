@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="usermaster.Master.cs" Inherits="UL.mysite" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Usermaster.Master.cs" Inherits="UL.mysite" %>
 
 <!DOCTYPE html>
 
@@ -8,38 +8,43 @@
     <title></title>
 </head>
 <body>
+    <!-- code inspired from bootswatch forms code examples https://bootswatch.com/lux/ -->
+    <!-- code for the navigation bar of the customer masterpage-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="About.aspx"> <img src="/Images/japallum_logo.png" alt="Japallum Logo" height= "100" width="100"/></a>
+      <!-- logo -->
+      <a class="navbar-brand" href="Customer/Main.aspx"> <img src="/Images/japallum_logo.png" alt="Japallum Logo" height= "100" width="100"/></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      <!-- navigation bar items -->
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/Customer/searchPage.aspx">Search products <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/Customer/SearchPage.aspx">Search products <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Customer/purchaseHistory.aspx">History</a>
+            <a class="nav-link" href="/Customer/PurchaseHistory.aspx">History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Customer/shoppingCart.aspx">Shopping cart</a>
+            <a class="nav-link" href="/Customer/ShoppingCart.aspx">Shopping cart</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Customer/login.aspx">Login/Logout (register)</a>
+            <a class="nav-link" href="/Customer/Login.aspx">Login/Logout (register)</a>
           </li>
         </ul>
       </div>
     </nav>
+    <!-- place holder for site pages-->
     <div>
         <asp:ContentPlaceHolder ID="BodyContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
     <hr />
+    <!-- footer of the master page-->
     <footer>
-        <li><a runat="server" href="~/Customer/contact.aspx">contact</a></li>
-        <li><a runat="server" href="~/Customer/about.aspx">about</a></li>
+        <li><a runat="server" href="~/Customer/Contact.aspx">contact</a></li>
+        <li><a runat="server" href="~/Customer/About.aspx">about</a></li>
         <p>copyrights</p>
     </footer>
 </body>

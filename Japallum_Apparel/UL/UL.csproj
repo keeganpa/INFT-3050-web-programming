@@ -94,24 +94,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Customer\about.aspx" />
-    <Content Include="Customer\addBuy.aspx" />
-    <Content Include="Admin\adminLogin.aspx" />
-    <Content Include="Admin\adminRegistration.aspx" />
-    <Content Include="Customer\contact.aspx" />
+    <Content Include="Customer\About.aspx">
+      <BrowseToURL>~/Customer/About.aspx</BrowseToURL>
+    </Content>
+    <Content Include="Customer\AddBuy.aspx" />
+    <Content Include="Admin\AdminLogin.aspx" />
+    <Content Include="Admin\AdminRegistration.aspx" />
+    <Content Include="Customer\Contact.aspx">
+      <BrowseToURL>~/Customer/Contact.aspx</BrowseToURL>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Customer\login.aspx" />
-    <Content Include="Customer\logout.aspx" />
-    <Content Include="Customer\main.aspx" />
-    <Content Include="Admin\manageAccounts.aspx" />
-    <Content Include="Admin\manageItem.aspx" />
+    <Content Include="Customer\Login.aspx" />
+    <Content Include="Customer\Logout.aspx" />
+    <Content Include="Customer\Main.aspx" />
+    <Content Include="Admin\ManageAccounts.aspx" />
+    <Content Include="Admin\ManageItem.aspx" />
     <Content Include="Images\japallum_logo.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="usermaster.Master" />
+    <Content Include="Usermaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -121,149 +125,149 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Customer\payment.aspx" />
-    <Content Include="Customer\paymentConfirmation.aspx" />
-    <Content Include="Admin\postage.aspx" />
-    <Content Include="Customer\purchaseHistory.aspx" />
-    <Content Include="Customer\registration.aspx" />
+    <Content Include="Customer\Payment.aspx" />
+    <Content Include="Customer\PaymentConfirmation.aspx" />
+    <Content Include="Admin\Postage.aspx" />
+    <Content Include="Customer\PurchaseHistory.aspx" />
+    <Content Include="Customer\Registration.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Customer\searchPage.aspx" />
-    <Content Include="Customer\shoppingCart.aspx" />
+    <Content Include="Customer\SearchPage.aspx" />
+    <Content Include="Customer\ShoppingCart.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer\about.aspx.cs">
-      <DependentUpon>about.aspx</DependentUpon>
+    <Compile Include="Customer\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\about.aspx.designer.cs">
-      <DependentUpon>about.aspx</DependentUpon>
+    <Compile Include="Customer\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\addBuy.aspx.cs">
-      <DependentUpon>addBuy.aspx</DependentUpon>
+    <Compile Include="Customer\AddBuy.aspx.cs">
+      <DependentUpon>AddBuy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\addBuy.aspx.designer.cs">
-      <DependentUpon>addBuy.aspx</DependentUpon>
+    <Compile Include="Customer\AddBuy.aspx.designer.cs">
+      <DependentUpon>AddBuy.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\adminLogin.aspx.cs">
-      <DependentUpon>adminLogin.aspx</DependentUpon>
+    <Compile Include="Admin\AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\adminLogin.aspx.designer.cs">
-      <DependentUpon>adminLogin.aspx</DependentUpon>
+    <Compile Include="Admin\AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\adminRegistration.aspx.cs">
-      <DependentUpon>adminRegistration.aspx</DependentUpon>
+    <Compile Include="Admin\AdminRegistration.aspx.cs">
+      <DependentUpon>AdminRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\adminRegistration.aspx.designer.cs">
-      <DependentUpon>adminRegistration.aspx</DependentUpon>
+    <Compile Include="Admin\AdminRegistration.aspx.designer.cs">
+      <DependentUpon>AdminRegistration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\contact.aspx.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
+    <Compile Include="Customer\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\contact.aspx.designer.cs">
-      <DependentUpon>contact.aspx</DependentUpon>
+    <Compile Include="Customer\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Customer\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="Customer\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="Customer\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\logout.aspx.cs">
-      <DependentUpon>logout.aspx</DependentUpon>
+    <Compile Include="Customer\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\logout.aspx.designer.cs">
-      <DependentUpon>logout.aspx</DependentUpon>
+    <Compile Include="Customer\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\main.aspx.cs">
-      <DependentUpon>main.aspx</DependentUpon>
+    <Compile Include="Customer\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\main.aspx.designer.cs">
-      <DependentUpon>main.aspx</DependentUpon>
+    <Compile Include="Customer\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\manageAccounts.aspx.cs">
-      <DependentUpon>manageAccounts.aspx</DependentUpon>
+    <Compile Include="Admin\ManageAccounts.aspx.cs">
+      <DependentUpon>ManageAccounts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\manageAccounts.aspx.designer.cs">
-      <DependentUpon>manageAccounts.aspx</DependentUpon>
+    <Compile Include="Admin\ManageAccounts.aspx.designer.cs">
+      <DependentUpon>ManageAccounts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\manageItem.aspx.cs">
-      <DependentUpon>manageItem.aspx</DependentUpon>
+    <Compile Include="Admin\ManageItem.aspx.cs">
+      <DependentUpon>ManageItem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\manageItem.aspx.designer.cs">
-      <DependentUpon>manageItem.aspx</DependentUpon>
+    <Compile Include="Admin\ManageItem.aspx.designer.cs">
+      <DependentUpon>ManageItem.aspx</DependentUpon>
     </Compile>
-    <Compile Include="usermaster.Master.cs">
-      <DependentUpon>usermaster.Master</DependentUpon>
+    <Compile Include="Usermaster.Master.cs">
+      <DependentUpon>Usermaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="usermaster.Master.designer.cs">
-      <DependentUpon>usermaster.Master</DependentUpon>
+    <Compile Include="Usermaster.Master.designer.cs">
+      <DependentUpon>Usermaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="Customer\payment.aspx.cs">
-      <DependentUpon>payment.aspx</DependentUpon>
+    <Compile Include="Customer\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\payment.aspx.designer.cs">
-      <DependentUpon>payment.aspx</DependentUpon>
+    <Compile Include="Customer\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\paymentConfirmation.aspx.cs">
-      <DependentUpon>paymentConfirmation.aspx</DependentUpon>
+    <Compile Include="Customer\PaymentConfirmation.aspx.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\paymentConfirmation.aspx.designer.cs">
-      <DependentUpon>paymentConfirmation.aspx</DependentUpon>
+    <Compile Include="Customer\PaymentConfirmation.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\postage.aspx.cs">
-      <DependentUpon>postage.aspx</DependentUpon>
+    <Compile Include="Admin\Postage.aspx.cs">
+      <DependentUpon>Postage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\postage.aspx.designer.cs">
-      <DependentUpon>postage.aspx</DependentUpon>
+    <Compile Include="Admin\Postage.aspx.designer.cs">
+      <DependentUpon>Postage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Customer\purchaseHistory.aspx.cs">
-      <DependentUpon>purchaseHistory.aspx</DependentUpon>
+    <Compile Include="Customer\PurchaseHistory.aspx.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\purchaseHistory.aspx.designer.cs">
-      <DependentUpon>purchaseHistory.aspx</DependentUpon>
+    <Compile Include="Customer\PurchaseHistory.aspx.designer.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\registration.aspx.cs">
-      <DependentUpon>registration.aspx</DependentUpon>
+    <Compile Include="Customer\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\registration.aspx.designer.cs">
-      <DependentUpon>registration.aspx</DependentUpon>
+    <Compile Include="Customer\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\searchPage.aspx.cs">
-      <DependentUpon>searchPage.aspx</DependentUpon>
+    <Compile Include="Customer\SearchPage.aspx.cs">
+      <DependentUpon>SearchPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\searchPage.aspx.designer.cs">
-      <DependentUpon>searchPage.aspx</DependentUpon>
+    <Compile Include="Customer\SearchPage.aspx.designer.cs">
+      <DependentUpon>SearchPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\shoppingCart.aspx.cs">
-      <DependentUpon>shoppingCart.aspx</DependentUpon>
+    <Compile Include="Customer\ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\shoppingCart.aspx.designer.cs">
-      <DependentUpon>shoppingCart.aspx</DependentUpon>
+    <Compile Include="Customer\ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
