@@ -13,6 +13,24 @@ namespace UL {
     public partial class mysite {
         
         /// <summary>
+        /// navbarColor01 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navbarColor01;
+        
+        /// <summary>
+        /// loggingButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button loggingButton;
+        
+        /// <summary>
         /// BodyContent control.
         /// </summary>
         /// <remarks>

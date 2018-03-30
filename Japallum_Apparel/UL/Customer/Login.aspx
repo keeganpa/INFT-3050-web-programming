@@ -2,7 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <!-- code inspired from bootswatch forms code examples https://bootswatch.com/lux/ -->
-    <form runat="server">
       <fieldset>
         <legend>Login Form</legend>
         <!-- email -->
@@ -20,5 +19,4 @@
       </fieldset>
       <!-- submit button -->
       <asp:Button CssClass="btn btn-primary" ID="submitButton" runat="server" Text="submit" OnClick="ReturnHome"/>
-    </form>
 </asp:Content>

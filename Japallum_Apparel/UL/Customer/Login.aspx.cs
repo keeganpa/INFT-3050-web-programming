@@ -17,7 +17,7 @@ namespace UL
         protected void ReturnHome(Object sender,
                            EventArgs e)
         {
-            //this.AddInvoice();
+            Session["log"] = "logged";
             Response.Redirect("~/Customer/Main.aspx");
         }
     }

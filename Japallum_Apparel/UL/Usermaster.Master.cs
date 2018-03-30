@@ -11,7 +11,21 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            loggingButton.Click += new EventHandler(this.Log);
+        }
 
+        protected void Log(Object sender,
+                           EventArgs e)
+        {
+            if (Session["log"] == null || Session["log"] == "notlogged")
+            {
+                Response.Redirect("~/Customer/Login.aspx");
+            } else
+            {
+                Session["log"] = "notlogged";
+                Response.Redirect("~/Customer/Logout.aspx");
+            }
+            
         }
     }
 }
