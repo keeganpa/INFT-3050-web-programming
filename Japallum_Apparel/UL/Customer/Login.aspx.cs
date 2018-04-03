@@ -11,7 +11,7 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            submitButton.Click += new EventHandler(this.ReturnHome);
+            btnLogin.Click += new EventHandler(this.ReturnHome);
         }
 
         protected void ReturnHome(Object sender,
