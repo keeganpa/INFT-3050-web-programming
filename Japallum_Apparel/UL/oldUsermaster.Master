@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Usermaster.Master.cs" Inherits="UL.mysite" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="oldUsermaster.Master.cs" Inherits="UL.mysite" %>
 
 <!DOCTYPE html>
 

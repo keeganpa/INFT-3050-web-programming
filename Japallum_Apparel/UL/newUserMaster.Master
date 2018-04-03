@@ -1,10 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="UL.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="newUserMaster.Master.cs" Inherits="UL.Site1" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="stylesheet" type="text/css" href="~/Content/New Boot.css" runat="server"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap.css" runat="server"/>
     <title></title>
    
 </head>
@@ -19,13 +19,13 @@
             <nav class="nav_style" id="menu" runat="server">
                 <ul runat="server">
                     <li runat="server">
-                        <a href="Customer/SearchPage.aspx">Search Products</a>
+                        <a href="SearchPage.aspx">Search Products</a>
                     </li>
                     <li runat="server">
-                        <a href="Customer/PurchaseHistory.aspx">History</a>
+                        <a href="PurchaseHistory.aspx">History</a>
                     </li>
                     <li runat="server">
-                        <a href="Customer/ShoppingCart.aspx">Shopping Cart</a>
+                        <a href="ShoppingCart.aspx">Shopping Cart</a>
                     </li>
                     <li runat="server">
                         <asp:Button  runat="server" Text="Login/Logout" OnClick="Log" />

@@ -94,7 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\New Boot.css" />
+    <Content Include="Content\Bootstrap.css" />
     <Content Include="Customer\About.aspx">
       <BrowseToURL>~/Customer/About.aspx</BrowseToURL>
     </Content>
@@ -104,8 +104,8 @@
     <Content Include="Customer\Contact.aspx">
       <BrowseToURL>~/Customer/Contact.aspx</BrowseToURL>
     </Content>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\old_bootstrap.css" />
+    <Content Include="Content\old_bootstrap.min.css" />
     <Content Include="Customer\Login.aspx" />
     <Content Include="Customer\Logout.aspx" />
     <Content Include="Customer\Main.aspx" />
@@ -116,8 +116,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Usermaster.Master" />
-    <Content Include="Site1.Master" />
+    <Content Include="oldUsermaster.Master" />
+    <Content Include="newUserMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -214,19 +214,19 @@
     <Compile Include="Admin\ManageItem.aspx.designer.cs">
       <DependentUpon>ManageItem.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
+    <Compile Include="newUserMaster.Master.cs">
+      <DependentUpon>newUserMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
+    <Compile Include="newUserMaster.Master.designer.cs">
+      <DependentUpon>newUserMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="Usermaster.Master.cs">
-      <DependentUpon>Usermaster.Master</DependentUpon>
+    <Compile Include="oldUsermaster.Master.cs">
+      <DependentUpon>oldUsermaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Usermaster.Master.designer.cs">
-      <DependentUpon>Usermaster.Master</DependentUpon>
+    <Compile Include="oldUsermaster.Master.designer.cs">
+      <DependentUpon>oldUsermaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Customer\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>

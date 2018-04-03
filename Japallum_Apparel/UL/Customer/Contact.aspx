@@ -1,4 +1,4 @@
-﻿<%@ Page title="Contact" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site1.Master" CodeBehind="Contact.aspx.cs" Inherits="UL.contact" %>
+﻿<%@ Page title="Contact" Language="C#" AutoEventWireup="true" MasterPageFile="~/newuserMaster.Master" CodeBehind="Contact.aspx.cs" Inherits="UL.contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <!-- contact are just our names for now -->
