@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="UL.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap.css" runat="server"/>
+    <title></title>
+   
+</head>
+<body runat="server">
+    <form runat="server">
+      <div class="wrapper" runat="server">
+        <div class="container" runat="server">
+            <header>
+                <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/japallum_logo.png" AlternateText="Japallum Logo" BorderStyle="NotSet" Height="100px" Width="100px" ImageAlign="Middle" />
+            </header>
+
+            <nav class="nav_style" id="menu" runat="server">
+                <ul runat="server">
+                    <li runat="server">
+                        <a href="ManageAccounts.aspx">Manage Accounts</a>
+                    </li>
+                    <li runat="server">
+                        <a href="ManageItem.aspx">Manage Items</a>
+                    </li>
+                    <li runat="server">
+                        <a href="Postage.aspx">Postage</a>
+                    </li>
+                    <li runat="server">
+                        <asp:Button  runat="server" Text="Login/Logout" OnClick="Log" />
+                    </li>
+                </ul>
+            </nav>
+        <asp:ContentPlaceHolder ID="BodyContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        
+        </div>
+          <footer> 
+            Property of Callum Findlay, Paul Dubot and James Bailey<br />
+            &copy; 2018
+        </footer>
+      </div>
+    </form>
+</body>
+</html>
