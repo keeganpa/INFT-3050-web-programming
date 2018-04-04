@@ -111,6 +111,9 @@
     <Content Include="Customer\Main.aspx" />
     <Content Include="Admin\ManageAccounts.aspx" />
     <Content Include="Admin\ManageItem.aspx" />
+    <Content Include="Customer\MenProducts.aspx" />
+    <Content Include="Customer\WomenProducts.aspx" />
+    <Content Include="Customer\YouthProducts.aspx" />
     <Content Include="Images\japallum_logo.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -175,6 +178,27 @@
     </Compile>
     <Compile Include="Customer\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\MenProducts.aspx.cs">
+      <DependentUpon>MenProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\MenProducts.aspx.designer.cs">
+      <DependentUpon>MenProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\WomenProducts.aspx.cs">
+      <DependentUpon>WomenProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\WomenProducts.aspx.designer.cs">
+      <DependentUpon>WomenProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\YouthProducts.aspx.cs">
+      <DependentUpon>YouthProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\YouthProducts.aspx.designer.cs">
+      <DependentUpon>YouthProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
