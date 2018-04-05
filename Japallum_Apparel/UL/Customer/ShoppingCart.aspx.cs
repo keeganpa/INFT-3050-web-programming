@@ -20,7 +20,6 @@ namespace UL
             clothes.Add(clothes2);
             clothes.Add(clothes3);
             Session["cart"] = clothes;
-            Session["sizeOfCart"] = 3;
         }
 
         public List<Clothes> GetShoppingCartItems()
