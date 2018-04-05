@@ -12,19 +12,35 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Clothes clothes1 = new Clothes(1, "large", 25, "sweater", "sweater for students", "male");
-            Clothes clothes2 = new Clothes(2, "large", 25, "sweater", "sweater for students", "male");
-            Clothes clothes3 = new Clothes(3, "large", 25, "sweater", "sweater for students", "male");
-            List<Clothes> clothes = new List<Clothes>();
-            clothes.Add(clothes1);
-            clothes.Add(clothes2);
-            clothes.Add(clothes3);
-            Session["cart"] = clothes;
+            
         }
 
         public List<Clothes> GetShoppingCartItems()
         {
             return (List<Clothes>)Session["cart"];
+        }
+
+        public void CartList_RowCommand(Object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Remove")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = CartList.Rows[index];
+                String iDToRemove = row.Cells[0].Text;
+                int IDToRemove = int.Parse(iDToRemove);
+                System.Diagnostics.Debug.WriteLine("ID", iDToRemove);
+                List<Clothes> clothes = (List<Clothes>)Session["cart"];
+                System.Diagnostics.Debug.WriteLine("bug", Session["cart"]);
+                for (int i=0; i < clothes.Count; i++)
+                {
+                    if (clothes[i].ID == IDToRemove)
+                    {
+                        clothes.RemoveAt(i);
+                        Session["cart"] = clothes;
+                    }
+                }
+                Response.Redirect("~/Customer/ShoppingCart.aspx");
+            }
         }
     }
 }

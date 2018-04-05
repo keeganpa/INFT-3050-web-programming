@@ -28,8 +28,8 @@
         </div>
     </div>-->
 
-    <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" ShowFooter="True" GridLines="Horizontal" CellPadding="20"
-        ItemType="UL.Classes.Clothes" SelectMethod="GetShoppingCartItems">
+    <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
+        ItemType="UL.Classes.Clothes" SelectMethod="GetShoppingCartItems" onrowcommand="CartList_RowCommand">
     <Columns>
         <asp:BoundField DataField="iD" HeaderText="ID"/>
         <asp:TemplateField HeaderText="Img">
@@ -37,11 +37,13 @@
                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/sweater.png" Height="100px" Width="100px"/>
             </ItemTemplate>
         </asp:TemplateField>
+        <asp:BoundField DataField="name" HeaderText="name"/>
         <asp:BoundField DataField="size" HeaderText="size"/>
         <asp:BoundField DataField="price" HeaderText="price"/>
         <asp:BoundField DataField="type" HeaderText="type"/>
         <asp:BoundField DataField="description" HeaderText="description"/>
         <asp:BoundField DataField="gender" HeaderText="gender"/>
+        <asp:ButtonField buttontype="Button" Text="remove" commandname="Remove"/>
     </Columns>
     </asp:GridView>
 </asp:Content>

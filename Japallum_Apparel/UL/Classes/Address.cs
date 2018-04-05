@@ -101,4 +101,5 @@ namespace UL.Classes
             state = s;
             postCode = pCode;
         }
+    }
 }

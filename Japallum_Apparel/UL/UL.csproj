@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="Admin\AdminLogout.aspx" />
     <Content Include="Content\Bootstrap.css" />
+    <Content Include="Content\Bootstrap.css" />
     <Content Include="Customer\About.aspx">
       <BrowseToURL>~/Customer/About.aspx</BrowseToURL>
     </Content>
@@ -161,7 +162,9 @@
     <Compile Include="Admin\AdminLogout.aspx.designer.cs">
       <DependentUpon>AdminLogout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Address.cs" />
     <Compile Include="Classes\Clothes.cs" />
+    <Compile Include="Classes\User.cs" />
     <Compile Include="Customer\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

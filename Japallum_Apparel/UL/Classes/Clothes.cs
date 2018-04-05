@@ -13,7 +13,33 @@ namespace UL.Classes
         private String type;
         private String description;
         private String gender;
+        private String name;
+        private Boolean active;
 
+        public Boolean Active
+        {
+            get
+            {
+                return active;
+            }
+
+            set
+            {
+                active = value;
+            }
+        }
+        public String Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
         public int ID
         {
             get
@@ -87,7 +113,7 @@ namespace UL.Classes
             }
         }
 
-        public Clothes(int id, String s, int p, String typ, String descr, String gend)
+        public Clothes(String n, int id, String s, int p, String typ, String descr, String gend)
         {
             ID = id;
             Size = s;
@@ -95,6 +121,8 @@ namespace UL.Classes
             Type = typ;
             Description = descr;
             Gender = gend;
+            Active = true;
+            Name = n;
         }
 
         
