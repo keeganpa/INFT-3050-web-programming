@@ -35,11 +35,7 @@
     <%-- set the content of each rows of the gridview (the list of data we need for each cart items) --%>
     <Columns>
         <asp:BoundField DataField="iD" HeaderText="ID"/>
-        <asp:TemplateField HeaderText="Img">
-            <ItemTemplate>
-                <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/sweater.png" Height="100px" Width="100px"/>
-            </ItemTemplate>
-        </asp:TemplateField>
+        <asp:ImageField DataImageUrlField="imagePath" HeaderText="image" ControlStyle-Width="100px" ControlStyle-Height = "100px"/>
         <asp:BoundField DataField="name" HeaderText="name"/>
         <asp:BoundField DataField="size" HeaderText="size"/>
         <asp:BoundField DataField="price" HeaderText="price in aud"/>

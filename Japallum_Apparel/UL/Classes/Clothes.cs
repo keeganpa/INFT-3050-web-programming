@@ -15,6 +15,7 @@ namespace UL.Classes
         private String gender;
         private String name;
         private Boolean active;
+        private String imagePath;
 
         public Boolean Active
         {
@@ -112,8 +113,20 @@ namespace UL.Classes
                 gender = value;
             }
         }
+        public string ImagePath
+        {
+            get
+            {
+                return imagePath;
+            }
 
-        public Clothes(String n, int id, String s, double p, String typ, String descr, String gend)
+            set
+            {
+                imagePath = value;
+            }
+        }
+
+        public Clothes(String n, int id, String s, double p, String typ, String descr, String gend, String path)
         {
             ID = id;
             Size = s;
@@ -123,6 +136,7 @@ namespace UL.Classes
             Gender = gend;
             Active = true;
             Name = n;
+            ImagePath = path;
         }
 
         
