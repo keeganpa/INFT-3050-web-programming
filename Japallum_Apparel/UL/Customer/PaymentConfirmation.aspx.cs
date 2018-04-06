@@ -11,7 +11,12 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Return.Click += new EventHandler(this.GoBackHome);
+        }
 
+        protected void GoBackHome(Object sender, EventArgs e)
+        {
+            Response.Redirect("~/Customer/Main.aspx");
         }
     }
 }
