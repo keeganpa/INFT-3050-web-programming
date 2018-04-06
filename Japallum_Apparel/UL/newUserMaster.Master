@@ -35,6 +35,9 @@
                         <a href="ShoppingCart.aspx">Shopping Cart</a>
                     </li>
                     <li runat="server">
+                        <a href="Registration.aspx">Register</a>
+                    </li>
+                    <li runat="server">
                         <asp:Button  runat="server" Text="Login/Logout" OnClick="Log" />
                     </li>
                 </ul>
