@@ -13,18 +13,15 @@ namespace UL
         {
 
         }
-        protected void Log(Object sender,
-                          EventArgs e)
+        protected void userLogin(Object sender, EventArgs e)
         {
-            if (Session["log"] == null || Session["log"] == "notlogged")
-            {
-                Response.Redirect("~/Customer/Login.aspx");
-            }
-            else
-            {
-                Session["log"] = "notlogged";
-                Response.Redirect("~/Customer/Logout.aspx");
-            }
+           Response.Redirect("Login.aspx");
+        }
+        protected void userLogout(object sender, EventArgs e)
+        {
+            Session["log"] = null;
+            Response.Redirect("Logout.aspx");
+        }
 
         }
     }

@@ -1,11 +1,32 @@
 ﻿<%@ Page Title="Registration" Language="C#" AutoEventWireup="true" MasterPageFile="~/newUserMaster.Master" CodeBehind="Registration.aspx.cs" Inherits="UL.registration" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('input:checkbox[id*=cbSameAddress]').change(function() {
+                if ($(this).is(':checked')) {
+                    $('input:text[id*=txtStreetNumberBill]').val($('input:text[id*=txtStreetNumber]').val());
+                    $('input:text[id*=txtStreetNameBill]').val($('input:text[id*=txtStreetName]').val());
+                    $('input:text[id*=txtCityBill]').val($('input:text[id*=txtCity]').val());
+                    $('input:text[id*=txtStateBill]').val($('input:text[id*=txtState]').val());
+                    $('input:text[id*=txtPostcodeBill]').val($('input:text[id*=txtPostcode]').val());
+                }
+                else {
+                    $('input:text[id*=txtStreetNumberBill]').val('');
+                    $('input:text[id*=txtStreetNameBill]').val('');
+                    $('input:text[id*=txtCityBill]').val('');
+                    $('input:text[id*=txtStateBill]').val('');
+                    $('input:text[id*=txtPostcodeBill]').val('');
+                }
+            });
+        });
+    </script>
     <div class="content">
         <table class="tableCentre">
             <tr>
                 <th colspan="3">
-                    Registration
+                    <h2>Registration</h2>
                 </th>
             </tr>
             <tr>
@@ -33,6 +54,15 @@
                 </td>
             </tr>
             <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><hr /></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
                 <th colspan="3">
                     Residential Address
                 </th>
@@ -42,7 +72,7 @@
                     Street Number:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtStreetNumber" runat="server" TextMode="Number" />
+                    <asp:TextBox ID="txtStreetNumber" runat="server" />
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ControlToValidate="txtStreetNumber"
@@ -90,7 +120,7 @@
                     Post Code:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPostcode" runat="server" TextMode="Number" />
+                    <asp:TextBox ID="txtPostcode" runat="server" />
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ControlToValidate="txtPostcode"
@@ -102,7 +132,7 @@
                     Use same Address?
                 </td>
                 <td>
-                    <asp:RadioButton runat="server" ID="rbSameAddress" />
+                    <asp:CheckBox ID="cbSameAddress" runat="server" />
                 </td>
             </tr>
             <tr>
@@ -115,7 +145,7 @@
                     Street Number:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtStreetNumberBill" runat="server" TextMode="Number" />
+                    <asp:TextBox ID="txtStreetNumberBill" runat="server" />
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ControlToValidate="txtStreetNumberBill"
@@ -163,12 +193,21 @@
                     Post Code:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPostcodeBill" runat="server" TextMode="Number" />
+                    <asp:TextBox ID="txtPostcodeBill" runat="server" />
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ControlToValidate="txtPostcodeBill"
                         runat="server" />
                 </td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><hr /></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <td>
@@ -218,6 +257,8 @@
                 </td>
             </tr>
         </table>
+        <br />
+        <br />
     </div>
     <!-- </form> RegisterUser -->
     

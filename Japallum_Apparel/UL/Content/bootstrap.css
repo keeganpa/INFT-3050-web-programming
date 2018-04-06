@@ -88,6 +88,8 @@ footer{
 	color: #717070;
 	cursor: pointer;
 }
+
+
 /* used for large text that goes at the top of the page*/
 .text_container{
     width:100%;
@@ -120,8 +122,12 @@ footer{
 	text-align: justify;
 }
 a {
-	text-decoration: none;
+	text-decoration:underline;
 	color: inherit;
+}
+
+a:hover{
+    font-size: 120%;
 }
 
 .centre{

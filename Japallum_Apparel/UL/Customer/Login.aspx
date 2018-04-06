@@ -2,29 +2,49 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <div class="content">
-        <div class="text_container">
-            <h2>Login</h2>
-        </div>
-        <div class="text_container_2col">
-            <fieldset>
-                <!--
-                <asp:Login ID="Login1" runat="server" UserNameRequiredErrorMessage="Email is required." UserNameLabelText="Email:">
-                </asp:Login>
-                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="Login1" />
-                -->
-                <asp:ValidationSummary ID="ValidationSummaryCust" runat="server" ValidationGroup="LoginCustom" />
-                <asp:Label ID="lblLoginEmail" runat="server" Text="Email: "></asp:Label>
-                <asp:TextBox ID="tbxLoginEmail" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="loginEmail" runat="server" ErrorMessage="You must enter your email" ControlToValidate="tbxLoginEmail" Font-Bold="False" ValidationGroup="LoginCustom"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="EmailExpressionValidator" runat="server" ErrorMessage="Invalid Email Address" ControlToValidate="tbxLoginEmail" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" ValidationGroup="LoginCustom"></asp:RegularExpressionValidator>
-                <br />
-                <asp:Label ID="lblLoginPassword" runat="server" Text="Password: "></asp:Label>
-                <asp:TextBox ID="tbxLoginPassword" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="loginPassword" runat="server" ErrorMessage="You must enter a password" ValidationGroup="LoginCustom"></asp:RequiredFieldValidator>
-                
-                <asp:Button ID="btnLogin" runat="server" Text="Login" />
-            </fieldset>
-        </div>
-    </div>
-      
+        <table class="tableCentre">
+            <tr>
+                <th colspan="3">
+                    <h2>Login</h2>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    <asp:TextBox ID="txtEmail" runat="server" />
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ErrorMessage="Required" Display="Dynamic" ForeColor="Red"
+                        ControlToValidate="txtEmail" runat="server" />
+                    <asp:RegularExpressionValidator runat="server" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                        ControlToValidate="txtEmail" ForeColor="Red" ErrorMessage="Invalid email address." />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" />
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ControlToValidate="txtPassword"
+                        runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <asp:Button Text="Login" runat="server" OnClick="userLogin" />
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+    </div>  
 </asp:Content>
