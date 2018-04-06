@@ -1,16 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="UL.payment" %>
+﻿<%@ Page Title="Payment" Language="C#" AutoEventWireup="true" MasterPageFile="~/newuserMaster.Master" CodeBehind="Payment.aspx.cs" Inherits="UL.payment" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
+    <!-- display the total amount to pay -->
+    <div class="text_container"><h1><asp:label ID="amount" runat="server"></asp:label></h1></div>
+    <!-- button to pay and go to payment confirmation -->
+    <div style="text-align: center; margin-top: 20px;"><asp:Button ID="Pay" runat="server" Text="Pay"/></div>
+</asp:Content>

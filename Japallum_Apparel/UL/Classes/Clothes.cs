@@ -9,7 +9,7 @@ namespace UL.Classes
     {
         private int iD;
         private String size;
-        private int price;
+        private double price;
         private String type;
         private String description;
         private String gender;
@@ -64,7 +64,7 @@ namespace UL.Classes
                 size = value;
             }
         }
-        public int Price
+        public double Price
         {
             get
             {
@@ -113,7 +113,7 @@ namespace UL.Classes
             }
         }
 
-        public Clothes(String n, int id, String s, int p, String typ, String descr, String gend)
+        public Clothes(String n, int id, String s, double p, String typ, String descr, String gend)
         {
             ID = id;
             Size = s;
