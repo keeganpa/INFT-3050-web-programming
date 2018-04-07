@@ -31,8 +31,11 @@ namespace UL
         //methode to reinitialize cart and go to payment confirmation page
         protected void FinalizePayment(Object sender, EventArgs e)
         {
-            Session["cart"] = new List<Clothes>();
-            Response.Redirect("~/Customer/PaymentConfirmation.aspx");
+            if (IsValid)
+            {
+                Session["cart"] = new List<Clothes>();
+                Response.Redirect("~/Customer/PaymentConfirmation.aspx");
+            }
         }
     }
 }
