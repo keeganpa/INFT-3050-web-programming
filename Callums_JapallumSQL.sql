@@ -29,11 +29,10 @@ CREATE TABLE tblAdmin(
 	adminID int IDENTITY(600,1) PRIMARY KEY,
 	fName varchar(60),
 	lName varchar(60),
-	email varchar(60)
+	adminEmail varchar(60)
 )
 
 CREATE TABLE tblCustomer_Login(
-	customerLoginID int IDENTITY(200,1) PRIMARY KEY,
 	customerPassword varchar(60),
 	customerEmail varchar(100),
 	customerID int,
@@ -41,7 +40,6 @@ CREATE TABLE tblCustomer_Login(
 )
 
 CREATE TABLE tblAdmin_Login(
-	adminLoginID int IDENTITY(300,1) PRIMARY KEY,
 	admninPassword varchar(60),
 	adminEmail varchar(100),
 	adminID int,
@@ -57,7 +55,9 @@ CREATE TABLE tblProduct(
 	prodGender char(3),
 	imageFile varchar(300),
 	prodStock int,
-	active bit
+	lastEdited int,
+	active bit,
+	FOREIGN KEY (lastEdited) REFERENCES tblAdmin(adminID)
 )
 
 CREATE TABLE tblOrder(
@@ -82,5 +82,9 @@ CREATE TABLE junctionProd_Order(
 	prodPrice Money,
 	Quantity smallint,
 	FOREIGN KEY(orderID) REFERENCES tblOrder(orderID),
-	FOREIGN KEY(productID) REFERENCES tblProduct(productID)
+	FOREIGN KEY(productID) REFERENCES tblProduct(productID),
+	CONSTRAINT PK_PRod_Order PRIMARY KEY(
+		orderID,
+		productID
+	)
 )

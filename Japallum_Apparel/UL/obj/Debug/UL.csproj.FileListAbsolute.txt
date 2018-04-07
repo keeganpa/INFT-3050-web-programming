@@ -47,14 +47,6 @@ C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL
 C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\UL.dll.config
 C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\UL.dll
 C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\UL.pdb
-C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.AI.Web.dll
-C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.ApplicationInsights.dll
-C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Monolith\Desktop\Projects\INFT-3050-web-programming\Japallum_Apparel\UL\bin\Microsoft.AI.Web.xml

@@ -15,7 +15,7 @@ namespace UL
         }
         protected void userLogin(Object sender, EventArgs e)
         {
-           Response.Redirect("Login.aspx");
+            Response.Redirect("Login.aspx");
         }
         protected void userLogout(object sender, EventArgs e)
         {
@@ -23,6 +23,5 @@ namespace UL
             Response.Redirect("Logout.aspx");
         }
 
-        }
     }
 }
