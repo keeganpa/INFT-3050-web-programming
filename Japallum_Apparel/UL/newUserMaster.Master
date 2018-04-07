@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="newUserMaster.Master.cs" Inherits="UL.Site1" %>
 
 <!DOCTYPE html>
-
+<!--This is the master page for the standard webpages on Japallum-->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap.css" runat="server"/>
@@ -13,9 +13,10 @@
       <div class="wrapper" runat="server">
         <div class="container" runat="server">
             <header>
+                <!--Logo made in photoshop-->
                 <a href="Main.aspx"><asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/New-Japallum-Logo.png" AlternateText="Japallum Logo" BorderStyle="NotSet" Height="100px" Width="399px" ImageAlign="Middle" /></a>
             </header>
-
+            <!--The Navbar is mostly organised through an unordered list and the css code behind it with an extra element for a dropdown list-->
             <nav class="nav_style" id="menu" runat="server">
                 <ul runat="server">
                     <li runat="server">
@@ -37,6 +38,7 @@
                     <li runat="server">
                         <a href="Registration.aspx">Register</a>
                     </li>
+                    <!--Checks wether or not the session "log" variable has anything in it to either display the login or logout button respectively -->
                     <li runat="server">
                         <% if (Session["log"] == null){ %>
                             <asp:Button  runat="server" Text="Login" OnClick="userLogin" />
@@ -46,14 +48,15 @@
                     </li>
                 </ul>
             </nav>
+            <!--All the content goes into here and are on seperate pages-->
         <asp:ContentPlaceHolder ID="BodyContent" runat="server">
         
         </asp:ContentPlaceHolder>
         
         </div>
           <footer> 
-            Property of Callum Findlay, Paul Dubot and James Bailey<br />
-            &copy; 2018
+            Property of Callum Findlay(C32235468), Paul Dubot and James Bailey<br />
+            &copy; 2018, made for INFT3050
         </footer>
       </div>
     </form>

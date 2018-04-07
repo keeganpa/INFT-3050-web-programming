@@ -18,6 +18,7 @@
                 <td>
                     <asp:RequiredFieldValidator ErrorMessage="Required" Display="Dynamic" ForeColor="Red"
                         ControlToValidate="txtEmail" runat="server" />
+                    <!--Regular expression to ensure that the email is valid, expression found courtesy of RegExlib.com-->
                     <asp:RegularExpressionValidator runat="server" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                         ControlToValidate="txtEmail" ForeColor="Red" ErrorMessage="Invalid email address." />
                 </td>
