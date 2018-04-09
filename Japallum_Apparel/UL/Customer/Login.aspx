@@ -5,7 +5,23 @@
         <table class="tableCentre">
             <tr>
                 <th colspan="3">
-                    <h2>Login</h2>
+                    <div>
+                        <h2><a class="centre link" href="../Admin/AdminLogin.aspx">Admin Login</a></h2>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><hr /></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <th colspan="3">
+                    <h2>User Login</h2>
                 </th>
             </tr>
             <tr>

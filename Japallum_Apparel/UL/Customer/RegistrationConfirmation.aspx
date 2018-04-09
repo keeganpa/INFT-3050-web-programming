@@ -8,7 +8,7 @@
             <br />
             <p class="centre">You have successfully created a User Account.</p>
             <br />
-            <div class="centre">
+            <div class="centre link">
                 <a href="About.aspx">Return home</a> or <a href="Login.aspx">Login</a>
             </div>
         </div>

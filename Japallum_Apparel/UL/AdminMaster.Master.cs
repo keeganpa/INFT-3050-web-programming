@@ -13,18 +13,15 @@ namespace UL
         {
 
         }
-        protected void Log(Object sender,
+        protected void adLogin(Object sender,
                           EventArgs e)
         {
-            if (Session["log"] == null || Session["log"] == "notlogged")
-            {
-                Response.Redirect("~/Admin/AdminLogin.aspx");
-            }
-            else
-            {
-                Session["log"] = "notlogged";
-                Response.Redirect("~/Admin/AdminLogout.aspx");
-            }
+                Response.Redirect("AdminLogin.aspx");
+        }
+        protected void adLogout(object sender, EventArgs e)
+        {
+            Session["log"] = null;
+            Response.Redirect("AdminLogout.aspx");
         }
     }
 }

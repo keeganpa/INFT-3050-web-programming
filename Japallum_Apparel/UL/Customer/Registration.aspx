@@ -3,6 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
+        <!-- JQuery Script used to duplicate addresses if same -->
         $(document).ready(function() {
             $('input:checkbox[id*=cbSameAddress]').change(function() {
                 if ($(this).is(':checked')) {
@@ -29,6 +30,7 @@
                     <h2>Registration</h2>
                 </th>
             </tr>
+            <!-- First name textbox with validators -->
             <tr>
                 <td>
                     First Name:
@@ -41,6 +43,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Last name textbox with validators -->
             <tr>
                 <td>
                     Last Name:
@@ -67,6 +70,7 @@
                     Residential Address
                 </th>
             </tr>
+            <!-- Residential street number textbox with validators -->
             <tr>
                 <td>
                     Street Number:
@@ -79,6 +83,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Residential street name textbox with validators -->
             <tr>
                 <td>
                     Street Name:
@@ -91,6 +96,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Residential city textbox with validators -->
             <tr>
                 <td>
                     City:
@@ -103,6 +109,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Residential state textbox with validators -->
             <tr>
                 <td>
                     State:
@@ -115,6 +122,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Residential postcode textbox with validators -->
             <tr>
                 <td>
                     Post Code:
@@ -127,6 +135,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Same address checkbox used to duplicate residential address to billing address if checked -->
             <tr>
                 <td>
                     Use same Address?
@@ -140,6 +149,7 @@
                     Billing Address
                 </th>
             </tr>
+            <!-- Billing street number textbox with validators -->
             <tr>
                 <td>
                     Street Number:
@@ -152,6 +162,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Billing street name textbox with validators -->
             <tr>
                 <td>
                     Street Name:
@@ -164,6 +175,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Billing city textbox with validators -->
             <tr>
                 <td>
                     City:
@@ -176,6 +188,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Billing state textbox with validators -->
             <tr>
                 <td>
                     State:
@@ -188,6 +201,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Billing postcode textbox with validators -->
             <tr>
                 <td>
                     Post Code:
@@ -209,6 +223,7 @@
             <tr>
                 <td colspan="3"></td>
             </tr>
+            <!-- Password textbox with validators -->
             <tr>
                 <td>
                     Password
@@ -221,6 +236,7 @@
                         runat="server" />
                 </td>
             </tr>
+            <!-- Confirm password textbox with validators -->
             <tr>
                 <td>
                     Confirm Password
@@ -233,6 +249,7 @@
                         ControlToValidate="txtConfirmPassword" runat="server" />
                 </td>
             </tr>
+            <!-- Email address textbox with validators -->
             <tr>
                 <td>
                     Email
@@ -250,6 +267,7 @@
             <tr>
                 <td>
                 </td>
+                <!-- Submit button runs RegisterUser method when clicked -->
                 <td>
                     <asp:Button Text="Submit" runat="server" OnClick="RegisterUser" />
                 </td>
@@ -260,6 +278,5 @@
         <br />
         <br />
     </div>
-    <!-- </form> RegisterUser -->
     
 </asp:Content>

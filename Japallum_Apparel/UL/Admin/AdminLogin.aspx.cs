@@ -11,14 +11,13 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnLogin.Click += new EventHandler(this.ReturnHome);
         }
 
-        protected void ReturnHome(Object sender,
+        protected void adLogin(Object sender,
                            EventArgs e)
         {
             Session["log"] = "logged";
-            Response.Redirect("~/Admin/ManageItem.aspx");
+            Response.Redirect("ManageItem.aspx");
         }
     }
 }
