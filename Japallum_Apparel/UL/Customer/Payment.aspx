@@ -16,7 +16,7 @@
             <!-- name on card textbox with validator -->
             <tr>
                 <td>
-                    Name on Card (no accents or special caraters):
+                    Name on Card (no accents or special charaters):
                 </td>
                 <!-- textbox -->
                 <td>
