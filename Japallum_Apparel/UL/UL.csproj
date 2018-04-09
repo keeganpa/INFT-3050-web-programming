@@ -173,7 +173,6 @@
     <Content Include="Customer\Registration.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Customer\SearchPage.aspx" />
     <Content Include="Customer\ShoppingCart.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -347,13 +346,6 @@
     </Compile>
     <Compile Include="Customer\Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\SearchPage.aspx.cs">
-      <DependentUpon>SearchPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\SearchPage.aspx.designer.cs">
-      <DependentUpon>SearchPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\ShoppingCart.aspx.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>

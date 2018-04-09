@@ -12,6 +12,7 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Just to initialize data since we don't have access to the database for now
             Clothes clothes1 = new Clothes("sweater", 4, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
             Clothes clothes2 = new Clothes("sweater", 5, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
             Clothes clothes3 = new Clothes("sweater", 6, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
@@ -21,6 +22,7 @@ namespace UL
             clothes.Add(clothes3);
             Session["cart"] = clothes;
             Session["addCart"] = clothes1;
+            Session["adminSearch"] = clothes;
         }
     }
 }
