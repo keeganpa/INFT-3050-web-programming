@@ -38,6 +38,9 @@
                     <li runat="server">
                         <a href="Registration.aspx">Register</a>
                     </li>
+                    <li>
+                        <a href="About.aspx">About Us</a>
+                    </li>
                     <!--Checks wether or not the session "log" variable has anything in it to either display the login or logout button respectively -->
                     <li runat="server">
                         <% if (Session["log"] == null){ %>
@@ -56,7 +59,8 @@
         </div>
           <footer> 
             Property of Callum Findlay(C32235468), Paul Dubot and James Bailey<br />
-            &copy; 2018, made for INFT3050
+            <a href="Contact.aspx">Contact Us</a><br />
+              &copy; 2018, made for INFT3050
         </footer>
       </div>
     </form>

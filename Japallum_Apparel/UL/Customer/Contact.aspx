@@ -4,19 +4,32 @@
     <!-- contact are just our names for now -->
     <div class="content">
         <div class="text_container">
-            <h1>Kill Me</h1>
+            <h1>Contact Us</h1>
         </div>
         <div class="text_container_2col">
+            <h3>For all Order or personal Enquiries</h3>
             <p>
-                Callum Findlay<br />
-                Paul Dubot<br />
-                James Bailey<br />
+                <strong>For all enquiries pertaining to Orders</strong><br />
+                Phone: 754142254689<br />
+                or Email: Orders@Japallum.com.au<br />
+
+                <strong>For all other personal enquiries</strong><br />
+                Email: Enquiries@Japallum.com.au
+                <br /><br />
+                <strong>If you are returning an order to us please use the following address</strong> 
             </p>
+            <address>
+                149 Swiss Drive<br />
+                Otamatane<br />
+                New South Wales <br />
+                2560
+            </address>
         </div>
         <div class="text_container_2col">
             <p>
-                Please work<br />
-                just please do
+                <strong>For all business enquiries</strong><br />
+                Please Email: Japallumbiz@Japallum.com<br />
+                We would love to hear from you about any possibvle business opportunities that might be advantageous for both ourselves and you.
             </p>
         </div>
     </div>

@@ -13,5 +13,20 @@ namespace UL
         {
 
         }
+
+        protected void imgBtnMainMens_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("MenProducts.aspx");
+        }
+
+        protected void imgBtnMainWomens_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("WomenProducts.aspx");
+        }
+
+        protected void imgBtnMainKids_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("YouthProducts.aspx");
+        }
     }
 }

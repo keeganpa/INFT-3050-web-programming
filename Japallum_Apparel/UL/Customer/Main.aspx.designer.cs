@@ -11,5 +11,32 @@ namespace UL {
     
     
     public partial class main {
+        
+        /// <summary>
+        /// imgBtnMainMens control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnMainMens;
+        
+        /// <summary>
+        /// imgBtnMainWomens control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnMainWomens;
+        
+        /// <summary>
+        /// imgBtnMainKids control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnMainKids;
     }
 }
