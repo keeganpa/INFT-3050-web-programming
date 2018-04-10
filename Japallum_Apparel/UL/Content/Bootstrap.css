@@ -21,7 +21,6 @@ body {
     min-height: 600px;
     margin-left:auto;
     margin-right:auto;
-
     background-color: #fff;
     color:#333
 }
@@ -38,10 +37,12 @@ header {
     width:100%;
     min-height:10px;
     margin: 10px 0px 10px 0px;
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 /*For the things at the bottom of the page*/
 footer{
-    position:fixed;
+    position:page;
     bottom:0;
     width:100%;
     color:white;

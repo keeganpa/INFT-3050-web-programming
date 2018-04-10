@@ -20,9 +20,9 @@
                 <br />
                 <asp:Label ID="lblLoginPassword" runat="server" Text="Password: "></asp:Label>
                 <asp:TextBox ID="tbxLoginPassword" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="loginPassword" runat="server" ErrorMessage="You must enter a password" ValidationGroup="LoginCustom"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="loginPassword" runat="server" ErrorMessage="You must enter a password" ValidationGroup="LoginCustom" ControlToValidate="tbxLoginPassword"></asp:RequiredFieldValidator>
                 
-                <asp:Button ID="btnLogin" runat="server" Text="Login" />
+                <%--<asp:Button ID="btnLogin" runat="server" Text="Login" />--%>
             </fieldset>
         </div>
     </div>
