@@ -15,7 +15,7 @@ body {
     width:100%;
     height:100%;
 }
-/* container is what all of the text actually appears in, so put everything under this*/
+/* The container for all elements on the page*/
 .container {
     width: 1000px;
     min-height: 600px;
@@ -24,7 +24,7 @@ body {
     background-color: #fff;
     color:#333
 }
-/*header is used for anything above the navbar, which should only really be a website logo or title really*/
+/*header is used for anything above the navbar, which should only really be a website logo or title*/
 header {
 	height:100px;
 	text-align: center;
@@ -32,7 +32,7 @@ header {
 	font-family: 'Righteous', cursive;
 }
 
-/*content keeps everything within the body and makes sure everything doesnt collapse in on itself*/
+/*content keeps everything within the body and controls the white box of the container*/
 .content{
     width:100%;
     min-height:10px;
@@ -40,7 +40,7 @@ header {
     overflow-y:auto;
     overflow-x:hidden;
 }
-/*For the things at the bottom of the page*/
+/*For the things that we want to be at the bottom of the page*/
 footer{
     position:page;
     bottom:0;
@@ -71,7 +71,7 @@ footer{
 	padding-left: 0px;
 	width: 100%;
 }
-/*for the individual elements of the navbar, the transitionon point is for when it changes state how long it takes to transition to the new version*/
+/*for the individual elements of the navbar, the transitionon point is for when it changes state how long it takes to transition to the new colour*/
 .nav_style ul li {
 	list-style: none;
 	float: left;
@@ -100,7 +100,7 @@ footer{
 	padding: 5px 10px 5px 10px;
 	text-align: center;
 }
-/*for the regulat text containers*/
+/*for the regular text containers, 2 columns can be used that will both take up half of the content container */
 .text_container_2col {
 	width:50%;
 	margin:0;

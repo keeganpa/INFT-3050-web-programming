@@ -11,6 +11,7 @@
                 <strong> What kind of apparel you ask?</strong><br />
                 Well! We have plenty to choose from for all kinds including<br />
                 <br />
+                <!-- This format is used so that if the images dont load there is still the hyperlinks on the text for the customers to use to naviagte unless they use the navbar-->
                 <a href="MenProducts.aspx">Mens Clothing</a><br />
                 <asp:ImageButton ID="imgBtnMainMens" runat="server" ImageUrl="~/Images/Main_mens.jpg" Height="250px" BorderColor="Silver" BorderStyle="Ridge" OnClick="imgBtnMainMens_Click" AlternateText="Mens Clothes" />
                 <br /><br />

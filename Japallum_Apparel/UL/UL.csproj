@@ -120,6 +120,7 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="bin\UL.dll" />
     <Content Include="bin\UL.pdb" />
+    <Content Include="Content\adminBootstrap.css" />
     <Content Include="Content\Bootstrap.css" />
     <Content Include="Content\Bootstrap.css" />
     <Content Include="Customer\About.aspx">

@@ -21,6 +21,7 @@ CREATE TABLE tblCustomer(
 	bAddress int,
 	customerEmail varchar(100),
 	customerPhoneNum int,
+	customerActive bit DEFAULT "True",
 	FOREIGN KEY(rAddress) REFERENCES tbladdress(addressID),
 	FOREIGN KEY(bAddress) REFERENCES tbladdress(addressID)
 )
@@ -56,7 +57,7 @@ CREATE TABLE tblProduct(
 	imageFile varchar(300),
 	prodStock int,
 	lastEdited int,
-	active bit,
+	active bit DEFAULT 1,
 	FOREIGN KEY (lastEdited) REFERENCES tblAdmin(adminID)
 )
 --Order table
