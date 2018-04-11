@@ -23,6 +23,16 @@ namespace UL
             Session["cart"] = clothes;
             Session["addCart"] = clothes1;
             Session["adminSearch"] = clothes;
+
+            Address address = new Address(1, 63, "milkyroad", "Newcastle", "NSW", 76560);
+            User users1 = new Classes.User(4, "Paul", "Dubot", address, address, "keeganpa76@hotmail.fr", "yolo");
+            User users2 = new Classes.User(5, "James", "Baley", address, address, "keeganpa76@hotmail.fr", "yolo");
+            User users3 = new Classes.User(6, "Callum", "Findlay", address, address, "keeganpa76@hotmail.fr", "yolo");
+            List<User> users = new List<User>();
+            users.Add(users1);
+            users.Add(users2);
+            users.Add(users3);
+            Session["adminUserSearch"] = users;
         }
     }
 }

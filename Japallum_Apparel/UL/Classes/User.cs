@@ -14,7 +14,20 @@ namespace UL.Classes
         private Address bAddress;
         private String emailAddress;
         private String password;
+        private Boolean active;
 
+        public Boolean Active
+        {
+            get
+            {
+                return active;
+            }
+
+            set
+            {
+                active = value;
+            }
+        }
         public int ID
         {
             get
@@ -115,6 +128,7 @@ namespace UL.Classes
             bAddress = bA;
             emailAddress = email;
             password = pass;
+            active = true;
         }
     }
 }

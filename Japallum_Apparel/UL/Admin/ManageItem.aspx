@@ -10,7 +10,6 @@
                     <h2>Item Data</h2>
                 </th>
             </tr>
-            </tr>
             <!-- ID textbox -->
             <tr>
                 <td>
@@ -82,7 +81,6 @@
                 <td>
                     <asp:TextBox ID="txtPath" runat="server" />
                 </td>
-            </tr>
             </tr>
             <!-- Buttons -->
             <tr>
