@@ -12,6 +12,12 @@ CREATE TABLE tbladdress(
 	postCode smallint,
 CHECK (postCode>=999 AND postCode<=9999)
 )
+--Postage Table
+CREATE TABLE tblPostage(
+	postageID int IDENTITY(1500,1) PRIMARY KEY,
+	postageDesc varchar(30),
+	postageCost Money
+)
 --Customer Table
 CREATE TABLE tblCustomer(
 	customerID int IDENTITY(1000,1) PRIMARY KEY,
@@ -20,8 +26,9 @@ CREATE TABLE tblCustomer(
 	rAddress int,
 	bAddress int,
 	customerEmail varchar(100),
+	customerPassword varchar(60),
 	customerPhoneNum int,
-	customerActive bit DEFAULT "True",
+	customerActive bit DEFAULT 1,
 	FOREIGN KEY(rAddress) REFERENCES tbladdress(addressID),
 	FOREIGN KEY(bAddress) REFERENCES tbladdress(addressID)
 )
@@ -30,21 +37,8 @@ CREATE TABLE tblAdmin(
 	adminID int IDENTITY(600,1) PRIMARY KEY,
 	fName varchar(60),
 	lName varchar(60),
-	adminEmail varchar(60)
-)
---Customer login Table
-CREATE TABLE tblCustomer_Login(
-	customerPassword varchar(60),
-	customerEmail varchar(100),
-	customerID int,
-	FOREIGN KEY(customerID) REFERENCES tblCustomer(customerID),
-)
--- Admin Login Table
-CREATE TABLE tblAdmin_Login(
-	admninPassword varchar(60),
-	adminEmail varchar(100),
-	adminID int,
-	FOREIGN KEY (adminID) REFERENCES tblAdmin(adminID)
+	adminEmail varchar(60),
+	adminPassword varchar(60)
 )
 -- Product table
 CREATE TABLE tblProduct(
@@ -67,14 +61,15 @@ CREATE TABLE tblOrder(
 	subTotal Money,
 	customerID int,
 	customerAddress int,
-	shipMethod varchar(40),
+	postage int,
 	tax float,
 	orderTotal Money,
 	cardType varchar(40),
 	cardNo varchar(16),
 	expirationMonth int,
 	expirationYear int,
-	FOREIGN KEY (customerID) REFERENCES tblCustomer(customerID)
+	FOREIGN KEY (customerID) REFERENCES tblCustomer(customerID),
+	FOREIGN KEY (Postage) REFERENCES tblPostage(postageID)
 )
 --Junction table so that the many to many relationship between Order and Product will work, uses a contraint primary key that uses the two foreign keys to function, this may change later but for now it works.
 CREATE TABLE junctionProd_Order(
