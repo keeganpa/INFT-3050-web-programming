@@ -12,6 +12,10 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["log"] == null || Session["log"] == "notlogged")
+            {
+                Response.Redirect("Login.aspx");
+            }
             amount.Text = "Amount to pay: $" + getTotalAmount();
             Pay.Click += new EventHandler(this.FinalizePayment);
         }

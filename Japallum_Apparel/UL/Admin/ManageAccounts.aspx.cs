@@ -12,7 +12,10 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["log"] == null || Session["log"] == "notlogged")
+            {
+                Response.Redirect("AdminLogin.aspx");
+            }
         }
 
         //method need by the gridview to construct its rows for each items
