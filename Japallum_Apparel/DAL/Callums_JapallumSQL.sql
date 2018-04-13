@@ -29,8 +29,8 @@ CREATE TABLE tblCustomer(
 	customerPassword varchar(60),
 	customerPhoneNum int,
 	customerActive bit DEFAULT 1,
-	FOREIGN KEY(rAddress) REFERENCES tbladdress(addressID),
-	FOREIGN KEY(bAddress) REFERENCES tbladdress(addressID)
+	FOREIGN KEY(rAddress) REFERENCES tbladdress(addressID) ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY(bAddress) REFERENCES tbladdress(addressID) ON UPDATE NO ACTION ON DELETE NO ACTION
 )
 --Admin information table
 CREATE TABLE tblAdmin(
@@ -52,7 +52,7 @@ CREATE TABLE tblProduct(
 	prodStock int,
 	lastEdited int,
 	active bit DEFAULT 1,
-	FOREIGN KEY (lastEdited) REFERENCES tblAdmin(adminID)
+	FOREIGN KEY (lastEdited) REFERENCES tblAdmin(adminID) ON UPDATE CASCADE ON DELETE NO ACTION
 )
 --Order table
 CREATE TABLE tblOrder(
@@ -68,8 +68,8 @@ CREATE TABLE tblOrder(
 	cardNo varchar(16),
 	expirationMonth int,
 	expirationYear int,
-	FOREIGN KEY (customerID) REFERENCES tblCustomer(customerID),
-	FOREIGN KEY (Postage) REFERENCES tblPostage(postageID)
+	FOREIGN KEY (customerID) REFERENCES tblCustomer(customerID)ON UPDATE NO ACTION ON DELETE NO ACTION,
+	FOREIGN KEY (Postage) REFERENCES tblPostage(postageID) ON UPDATE CASCADE ON DELETE NO ACTION
 )
 --Junction table so that the many to many relationship between Order and Product will work, uses a contraint primary key that uses the two foreign keys to function, this may change later but for now it works.
 CREATE TABLE junctionProd_Order(
