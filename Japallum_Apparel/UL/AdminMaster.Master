@@ -28,6 +28,9 @@
                         <a href="Postage.aspx">Postage</a>
                     </li>
                     <li runat="server">
+                        <a href="AdminRegistration.aspx">Register</a>
+                    </li>
+                    <li runat="server">
                         <% if (Session["log"] == null){ %>
                             <asp:Button  runat="server" Text="Login" OnClick="adLogin" />
                         <%} else { %> 
