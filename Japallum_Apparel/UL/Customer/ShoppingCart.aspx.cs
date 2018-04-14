@@ -60,9 +60,15 @@ namespace UL
         {
             double total = 0;
             List<Clothes> clothes = (List<Clothes>)Session["cart"];
-            for (int i = 0; i < clothes.Count; i++)
+            if (clothes == null)
             {
-                total += clothes[i].Price;
+                total = 0;
+            } else
+            {
+                for (int i = 0; i < clothes.Count; i++)
+                {
+                    total += clothes[i].Price;
+                }
             }
             return total;
         }
