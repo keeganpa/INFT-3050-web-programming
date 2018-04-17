@@ -6,7 +6,7 @@
             <h2>you have successfully logged out!</h2>
             <br />
             <div class="centre link">
-                <a href="../Customer/About.aspx">Return home</a> or <a href="AdminLogin.aspx">Login</a>
+                <a href="../Customer/Main.aspx">Return home</a> or <a href="AdminLogin.aspx">Login</a>
             </div>
         </div>
     </div>

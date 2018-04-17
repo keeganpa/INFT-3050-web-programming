@@ -17,7 +17,7 @@ namespace UL
                            EventArgs e)
         {
             Session["log"] = "logged";
-            Response.Redirect("About.aspx");
+            Response.Redirect("Main.aspx");
         }
     }
 }
