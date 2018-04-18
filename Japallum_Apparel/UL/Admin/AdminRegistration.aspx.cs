@@ -19,7 +19,7 @@ namespace UL
         {
             if (IsValid)
             {
-                Admin admin1 = new Admin(000001, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtConfirmPassword.Text);
+                UL.Classes.Admin admin1 = new UL.Classes.Admin(000001, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtConfirmPassword.Text);
                 Response.Redirect("adminLogin.aspx");
             }
         }

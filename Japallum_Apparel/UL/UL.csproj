@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AdminLogout.aspx" />
+    <Content Include="Admin\AdminPostage.aspx" />
     <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
     <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
     <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
@@ -172,7 +173,6 @@
     <Content Include="Global.asax" />
     <Content Include="Customer\Payment.aspx" />
     <Content Include="Customer\PaymentConfirmation.aspx" />
-    <Content Include="Admin\Postage.aspx" />
     <Content Include="Customer\PurchaseHistory.aspx" />
     <Content Include="Customer\Registration.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -197,7 +197,15 @@
     <Compile Include="Admin\AdminLogout.aspx.designer.cs">
       <DependentUpon>AdminLogout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminPostage.aspx.cs">
+      <DependentUpon>AdminPostage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminPostage.aspx.designer.cs">
+      <DependentUpon>AdminPostage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Address.cs" />
+    <Compile Include="Classes\Admin.cs" />
     <Compile Include="Classes\Clothes.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Customer\About.aspx.cs">
@@ -328,13 +336,6 @@
     </Compile>
     <Compile Include="Customer\PaymentConfirmation.aspx.designer.cs">
       <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Postage.aspx.cs">
-      <DependentUpon>Postage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Postage.aspx.designer.cs">
-      <DependentUpon>Postage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Customer\PurchaseHistory.aspx.cs">

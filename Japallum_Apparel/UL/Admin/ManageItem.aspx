@@ -105,7 +105,7 @@
         </table>
         <br />
         <br />
-    </div>
+    
 
 
     <!-- gridview to show search result -->
@@ -122,7 +122,8 @@
         <asp:BoundField DataField="description" HeaderText="description"/>
         <asp:BoundField DataField="gender" HeaderText="gender"/>
         <asp:BoundField DataField="active" HeaderText="active"/>
-        <asp:ButtonField buttontype="Button" Text="activate/desactivate" commandname="Remove"/>
+        <asp:ButtonField buttontype="Button" Text="activate/deactivate" commandname="Remove"/>
     </Columns>
     </asp:GridView>
+   </div>
 </asp:Content>

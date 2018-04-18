@@ -16,7 +16,8 @@ CHECK (postCode>=999 AND postCode<=9999)
 CREATE TABLE tblPostage(
 	postageID int IDENTITY(1500,1) PRIMARY KEY,
 	postageDesc varchar(30),
-	postageCost Money
+	postageCost Money,
+	postageactive bit DEFAULT 1
 )
 --Customer Table
 CREATE TABLE tblCustomer(
