@@ -52,7 +52,11 @@ namespace UL
         //method to go to the payment page
         protected void GoToPayment(Object sender, EventArgs e)
         {
-            Response.Redirect("~/Customer/Payment.aspx");
+            List<Clothes> clothes = (List<Clothes>)Session["cart"];
+            if (clothes != null && getTotalAmount() != 0)
+            {
+                Response.Redirect("~/Customer/Payment.aspx");
+            }
         }
 
         //method to get the total amount of the cart
