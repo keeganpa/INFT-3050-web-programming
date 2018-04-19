@@ -3,7 +3,7 @@
 
 
 --Address Table
-CREATE TABLE tbladdress(
+CREATE TABLE tblAddress(
 	addressID int IDENTITY(500,1) PRIMARY KEY,
 	streetNum varchar(10),
 	streetName varchar(255),
@@ -65,10 +65,6 @@ CREATE TABLE tblOrder(
 	postage int,
 	tax float,
 	orderTotal Money,
-	cardType varchar(40),
-	cardNo varchar(16),
-	expirationMonth int,
-	expirationYear int,
 	FOREIGN KEY (customerID) REFERENCES tblCustomer(customerID)ON UPDATE NO ACTION ON DELETE NO ACTION,
 	FOREIGN KEY (Postage) REFERENCES tblPostage(postageID) ON UPDATE CASCADE ON DELETE NO ACTION
 )
@@ -85,3 +81,33 @@ CREATE TABLE junctionProd_Order(
 		productID
 	)
 )
+--Test Data for the final server
+
+--Address Data
+INSERT INTO tblAddress VALUES(10,'Long st','Chiswick', 'New South Wales',2375);
+INSERT INTO tblAddress VALUES(39,'Azure Lane','Otamatane', 'Victoria',3640);
+
+--Postage Data
+INSERT INTO tblPostage VALUES('Express Postage',15.00,1);
+INSERT INTO tblPostage VALUES('Air Mail',25.00,1);
+
+--Customer Data
+INSERT INTO tblCustomer VALUES('Laura', 'Kinsman',501,501,'Lkins@gmail.com','Butterflies',54828109,1);
+INSERT INTO tblCustomer VALUES('James', 'Duveaux',500,501,'IfightDragons@gmail.com','Avalon',54862700,1);
+
+--Admin Data
+INSERT INTO tblAdmin VALUES('Jeremy','Clarkson','TopGear@Japallum.com','howdousehammer');
+INSERT INTO tblAdmin VALUES('Callum','Haddock','Calhad@Japallum.com','TinTinReference');
+
+--Product Data
+INSERT INTO tblProduct VALUES( 'Lrg',25.00,'Winter Sweater','A winter sweater with insulated interior','M','/Images/Sweater.png',50,600,1);
+INSERT INTO tblProduct VALUES( 'Med',20.00,'winter Stockings','Thick and warm stockings to get you though the winter','F','/Images/Stockings.png',27,601,1);
+
+--Order Data
+INSERT INTO tblOrder VALUES( GETDATE(), 75.00, 1001, 501, 1500, 0.14, 85.05);
+INSERT INTO tblOrder VALUES( GETDATE(), 45.00, 1000, 501, 1501, 0.14, 51.30);
+
+--Junction Box between the two data
+INSERT INTO junctionProd_Order VALUES(2378, 1500,25.00,3);
+INSERT INTO junctionProd_Order VALUES(2379, 1500,25.00,1);
+INSERT INTO junctionProd_Order VALUES(2379, 1501,20.00,1);
