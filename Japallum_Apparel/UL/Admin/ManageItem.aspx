@@ -111,7 +111,7 @@
     <!-- gridview to show search result -->
     <asp:GridView ID="SearchResult" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
         ItemType="UL.Classes.Clothes" SelectMethod="GetSearchResult" onrowcommand="SearchResult_RowCommand">
-    <%-- set the content of each rows of the gridview (the list of data we need for each cart items) --%>
+    <%-- set the content of each rows of the gridview (the list of data we need for each items) --%>
     <Columns>
         <asp:BoundField DataField="iD" HeaderText="ID"/>
         <asp:ImageField DataImageUrlField="imagePath" HeaderText="image" ControlStyle-Width="100px" ControlStyle-Height = "100px"/>

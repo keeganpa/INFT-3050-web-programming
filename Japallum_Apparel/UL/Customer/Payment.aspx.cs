@@ -12,11 +12,14 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //you need to be logged for this page, this is the redirection if your not
             if (Session["log"] == null || Session["log"] == "notlogged")
             {
                 Response.Redirect("Login.aspx");
             }
             amount.Text = "Amount to pay: $" + getTotalAmount();
+
+            //listener for the finalize payment button
             Pay.Click += new EventHandler(this.FinalizePayment);
         }
 
@@ -25,6 +28,7 @@ namespace UL
         {
             double total = 0;
             List<Clothes> clothes = (List<Clothes>)Session["cart"];
+            //of course if the cart isn't initialized, we consider it's empty and the amount is 0
             if (clothes == null)
             {
                 total = 0;

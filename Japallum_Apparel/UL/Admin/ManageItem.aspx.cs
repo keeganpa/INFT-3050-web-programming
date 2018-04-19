@@ -12,6 +12,7 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //you need to be logged for this page, this is the redirection if your not
             if (Session["log"] == null || Session["log"] == "notlogged")
             {
                 Response.Redirect("AdminLogin.aspx");
@@ -25,6 +26,7 @@ namespace UL
         }
 
         //method to use action in gridview
+        //thanks https://stackoverflow.com/questions/14254880/how-to-get-row-data-by-clicking-a-button-in-a-row-in-an-asp-net-gridview for the help
         public void SearchResult_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
             //when the admin wan't to activate/desactivate a product

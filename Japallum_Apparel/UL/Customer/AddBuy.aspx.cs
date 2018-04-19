@@ -15,13 +15,29 @@ namespace UL
             //setting all the data label for the clothes
             Clothes clothes = (Clothes)Session["addCart"];
             img.ImageUrl = getPathName();
-            id.Text = "ID: " + clothes.ID;
-            name.Text = "name: " + clothes.Name;
-            price.Text = "price: $" + clothes.Price;
-            size.Text = "size: " + clothes.Size;
-            type.Text = "type: " + clothes.Type;
-            description.Text = "description: " + clothes.Description;
-            gender.Text = "gender: " + clothes.Gender;
+            //filling empty data if clothes not initialized
+            if (clothes == null)
+            {
+                id.Text = "ID: ";
+                name.Text = "name: ";
+                price.Text = "price: $";
+                size.Text = "size: ";
+                type.Text = "type: ";
+                description.Text = "description: ";
+                gender.Text = "gender: ";
+            }
+            //if we have initialized the dummy data
+            else
+            {
+                id.Text = "ID: " + clothes.ID;
+                name.Text = "name: " + clothes.Name;
+                price.Text = "price: $" + clothes.Price;
+                size.Text = "size: " + clothes.Size;
+                type.Text = "type: " + clothes.Type;
+                description.Text = "description: " + clothes.Description;
+                gender.Text = "gender: " + clothes.Gender;
+            }
+
 
             //setting handler for addToCart button
             Add.Click += new EventHandler(this.AddToCart);
@@ -44,9 +60,14 @@ namespace UL
         }
 
         // from https://stackoverflow.com/questions/29212447/dynamic-imageurl-in-asp-net-c-sharp
+        //to get the path of the image we need
         public string getPathName()
         {
             Clothes clothes = (Clothes)Session["addCart"];
+            if (clothes == null)
+            {
+                return "~/Images/no.png";
+            }
             return clothes.ImagePath;
         }
     }

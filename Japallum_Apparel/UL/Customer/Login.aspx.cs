@@ -16,6 +16,7 @@ namespace UL
         protected void userLogin(Object sender,
                            EventArgs e)
         {
+            //when we log, the session is changed and we are redirected to the main page
             Session["log"] = "logged";
             Response.Redirect("Main.aspx");
         }
