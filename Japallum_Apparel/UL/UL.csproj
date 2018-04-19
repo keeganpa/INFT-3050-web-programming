@@ -147,6 +147,7 @@
     <Content Include="Images\Main_children.jpg" />
     <Content Include="Images\Main_mens.jpg" />
     <Content Include="Images\Main_womens.jpg" />
+    <Content Include="Images\no.png" />
     <Content Include="Images\old_japallum_logo.png" />
     <Content Include="Images\New-Japallum-Logo.png" />
     <Content Include="Images\sweater.png" />
