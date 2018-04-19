@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <div class="content">
-        <!-- just few comments for now -->
+        <!-- just few text to explain the web site to customers -->
         <div class="text_container">
             <h2>We are an apparel business that puts quality and quantity on the same level</h2>
         </div>

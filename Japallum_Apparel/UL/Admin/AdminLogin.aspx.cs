@@ -16,6 +16,7 @@ namespace UL
         protected void adLogin(Object sender,
                            EventArgs e)
         {
+            //when we log, the session is changed and we are redirected to the manageItem page
             Session["log"] = "logged";
             Response.Redirect("ManageItem.aspx");
         }

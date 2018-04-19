@@ -29,6 +29,9 @@
         </div>
     </div>-->
 
+
+
+
     <!-- gridview to organize the presentation of cart items -->
     <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
         ItemType="UL.Classes.Clothes" SelectMethod="GetShoppingCartItems" onrowcommand="CartList_RowCommand">
