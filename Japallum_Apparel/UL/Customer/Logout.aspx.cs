@@ -11,7 +11,11 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // When user logs out the the cart is emptied
+            if (Session["log"] == null)
+            {
+                Session["cart"] = null;
+            }
         }
     }
 }

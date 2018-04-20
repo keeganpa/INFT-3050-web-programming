@@ -11,12 +11,14 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void userLogin(Object sender,
                            EventArgs e)
         {
             //when we log, the session is changed and we are redirected to the main page
+
             Session["log"] = "logged";
             Response.Redirect("Main.aspx");
         }

@@ -22,6 +22,14 @@ namespace UL
         //method need by the gridview to construct its rows for each items
         public List<Clothes> GetSearchResult()
         {
+            List<Clothes> tempClothes = new List<Clothes>();
+            List<Clothes> tempMens = (List<Clothes>)Session["MensClothing"];
+            List<Clothes> tempWomens = (List<Clothes>)Session["WomensClothing"];
+            List<Clothes> tempYouth = (List<Clothes>)Session["YouthClothing"];
+            tempClothes.AddRange(tempMens);
+            tempClothes.AddRange(tempWomens);
+            tempClothes.AddRange(tempYouth);
+            Session["adminSearch"] = tempClothes;
             return (List<Clothes>)Session["adminSearch"];
         }
 

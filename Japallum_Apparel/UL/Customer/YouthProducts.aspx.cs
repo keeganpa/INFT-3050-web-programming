@@ -17,20 +17,20 @@ namespace UL.Customer
             {
                 Response.Redirect("Login.aspx");
             }
-            else
-            {
-                // Shirt image sourced from - http://cdn.sweatband.com/Mr%20Strong%20Kids%20T-Shirt_Mr_Strong_Kids_T-Shirt_2000x2000.jpg
-                Clothes shirt1 = new Clothes("Playful shirt", 000007, "Large", 5.00, "shirt" ,"fun in the sun with this awesome shirt!", "male", "~/Images/Youth_shirt.jpg");
-                // Pants image sourced from - http://robinsjean.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/p/sp2024-fuch-b.jpg
-                Clothes pants1 = new Clothes("Happy pants", 000008, "36", 10.00, "pants", "These pants will make you play all day!", "female", "~/Images/Youth_pants.jpg");
-                // Footwear image sourced from - http://fallinginstyle.net/wp-content/uploads/2013/08/Reebok-Kids-ATV19-shoes-2.jpg
-                Clothes footwear1 = new Clothes("Kids shoes", 000009, "11", 25.00, "footwear", "You'll be the coolest kid in school with these!", "male", "~/Images/Youth_footwear.jpg");
-                List<Clothes> youthClothes = new List<Clothes>();
-                youthClothes.Add(shirt1);
-                youthClothes.Add(pants1);
-                youthClothes.Add(footwear1);
-                Session["YouthClothing"] = youthClothes;
-            }
+            //else
+            //{
+            //    // Shirt image sourced from - http://cdn.sweatband.com/Mr%20Strong%20Kids%20T-Shirt_Mr_Strong_Kids_T-Shirt_2000x2000.jpg
+            //    Clothes shirt1 = new Clothes("Playful shirt", 000007, "Large", 5.00, "shirt" ,"fun in the sun with this awesome shirt!", "male", "~/Images/Youth_shirt.jpg");
+            //    // Pants image sourced from - http://robinsjean.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/p/sp2024-fuch-b.jpg
+            //    Clothes pants1 = new Clothes("Happy pants", 000008, "36", 10.00, "pants", "These pants will make you play all day!", "female", "~/Images/Youth_pants.jpg");
+            //    // Footwear image sourced from - http://fallinginstyle.net/wp-content/uploads/2013/08/Reebok-Kids-ATV19-shoes-2.jpg
+            //    Clothes footwear1 = new Clothes("Kids shoes", 000009, "11", 25.00, "footwear", "You'll be the coolest kid in school with these!", "male", "~/Images/Youth_footwear.jpg");
+            //    List<Clothes> youthClothes = new List<Clothes>();
+            //    youthClothes.Add(shirt1);
+            //    youthClothes.Add(pants1);
+            //    youthClothes.Add(footwear1);
+            //    Session["YouthClothing"] = youthClothes;
+            //}
         }
 
         // Method is used to display a gridview of products
