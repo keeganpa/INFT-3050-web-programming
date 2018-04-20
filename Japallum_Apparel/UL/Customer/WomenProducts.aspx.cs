@@ -36,7 +36,15 @@ namespace UL.Customer
         // Method is used to display a gridview of products
         public List<Clothes> GetWomensClothes()
         {
-            return (List<Clothes>)Session["WomensClothing"];
+            List<Clothes> tempClothes = new List<Clothes>();
+            foreach (Clothes element in (List<Clothes>)Session["WomensClothing"])
+            {
+                if (element.Active == true)
+                {
+                    tempClothes.Add(element);
+                }
+            }
+            return tempClothes;
         }
 
         public void SearchResult_RowCommand(Object sender, GridViewCommandEventArgs e)

@@ -45,9 +45,51 @@ namespace UL
                 if (clothes[index].Active == false)
                 {
                     clothes[index].Active = true;
+                    foreach(Clothes element in (List<Clothes>)Session["YouthClothing"])
+                    {
+                        if (element.ID == clothes[index].ID)
+                        {
+                            element.Active = true;
+                        }
+                    }
+                    foreach (Clothes element in (List<Clothes>)Session["MensClothing"])
+                    {
+                        if (element.ID == clothes[index].ID)
+                        {
+                            element.Active = true;
+                        }
+                    }
+                    foreach (Clothes element in (List<Clothes>)Session["WomensClothing"])
+                    {
+                        if (element.ID == clothes[index].ID)
+                        {
+                            element.Active = true;
+                        }
+                    }
                 } else
                 {
                     clothes[index].Active = false;
+                    foreach (Clothes element in (List<Clothes>)Session["YouthClothing"])
+                    {
+                        if (element.ID == clothes[index].ID)
+                        {
+                            element.Active = false;
+                        }
+                    }
+                    foreach (Clothes element in (List<Clothes>)Session["MensClothing"])
+                    {
+                        if (element.ID == clothes[index].ID)
+                        {
+                            element.Active = false;
+                        }
+                    }
+                    foreach (Clothes element in (List<Clothes>)Session["WomensClothing"])
+                    {
+                        if (element.ID == clothes[index].ID)
+                        {
+                            element.Active = false;
+                        }
+                    }
                 }
                 Session["adminSearch"] = clothes;
 
