@@ -121,9 +121,9 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="bin\UL.dll" />
     <Content Include="bin\UL.pdb" />
-    <Content Include="Content\adminBootstrap.css" />
+    <Content Include="Content\adminStyle.css" />
     <Content Include="Content\Bootstrap.css" />
-    <Content Include="Content\Bootstrap.css" />
+    <Content Include="Content\CustomerStyle.css" />
     <Content Include="Customer\About.aspx">
       <BrowseToURL>~/Customer/About.aspx</BrowseToURL>
     </Content>
@@ -133,8 +133,6 @@
     <Content Include="Customer\Contact.aspx">
       <BrowseToURL>~/Customer/Contact.aspx</BrowseToURL>
     </Content>
-    <Content Include="Content\old_bootstrap.css" />
-    <Content Include="Content\old_bootstrap.min.css" />
     <Content Include="Customer\Login.aspx" />
     <Content Include="Customer\Logout.aspx" />
     <Content Include="Customer\Main.aspx" />
@@ -147,15 +145,23 @@
     <Content Include="Images\Main_children.jpg" />
     <Content Include="Images\Main_mens.jpg" />
     <Content Include="Images\Main_womens.jpg" />
+    <Content Include="Images\Mens_footwear.png" />
+    <Content Include="Images\Mens_pants.png" />
+    <Content Include="Images\Mens_shirt.png" />
     <Content Include="Images\no.png" />
     <Content Include="Images\old_japallum_logo.png" />
     <Content Include="Images\New-Japallum-Logo.png" />
     <Content Include="Images\sweater.png" />
+    <Content Include="Images\Womens_footwear.png" />
+    <Content Include="Images\Womens_pants.png" />
+    <Content Include="Images\Womens_shirt.png" />
+    <Content Include="Images\Youth_footwear.png" />
+    <Content Include="Images\Youth_pants.png" />
+    <Content Include="Images\Youth_shirt.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="oldUsermaster.Master" />
     <Content Include="newUserMaster.Master" />
     <Content Include="AdminMaster.Master" />
     <Content Include="bin\ApplicationInsights.config" />
@@ -316,13 +322,6 @@
     </Compile>
     <Compile Include="newUserMaster.Master.designer.cs">
       <DependentUpon>newUserMaster.Master</DependentUpon>
-    </Compile>
-    <Compile Include="oldUsermaster.Master.cs">
-      <DependentUpon>oldUsermaster.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="oldUsermaster.Master.designer.cs">
-      <DependentUpon>oldUsermaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Customer\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
