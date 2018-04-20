@@ -44,6 +44,11 @@ namespace UL.Customer
             //when the user clicks to add the product to their cart
             if (e.CommandName == "AddToCart")
             {
+                if (Session["cart"] == null)
+                {
+                    List<Clothes> cart = new List<Clothes>();
+                    Session["cart"] = cart;
+                }
                 int index = Convert.ToInt32(e.CommandArgument);
                 List<Clothes> tempClothes = (List<Clothes>)Session["YouthClothing"];
                 List<Clothes> tempCart = (List<Clothes>)Session["cart"];

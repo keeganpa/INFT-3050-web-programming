@@ -6,6 +6,7 @@
         <asp:GridView ID="SearchResult" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
         ItemType="UL.Classes.Clothes" SelectMethod="GetWomensClothes" onrowcommand="SearchResult_RowCommand">
     <%-- set the content of each rows of the gridview (the list of data we need for each product) --%>
+     <%-- Code for gridview sourced from - https://docs.microsoft.com/en-us/aspnet/web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart --%>
         <Columns>
             <asp:ImageField DataImageUrlField="imagePath" HeaderText="image" ControlStyle-Width="100px" ControlStyle-Height = "100px"/>
             <asp:BoundField DataField="name" HeaderText="name"/>
