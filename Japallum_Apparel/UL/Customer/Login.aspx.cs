@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
 
 namespace UL
 {
@@ -18,9 +19,26 @@ namespace UL
                            EventArgs e)
         {
             //when we log, the session is changed and we are redirected to the main page
+            LoginProcedures bl = new LoginProcedures();
+            int logResult = bl.tryToLog(txtEmail.Text, txtPassword.Text);
+            if (logResult == 2)
+            {
+                Session["log"] = "logged";
+                Session["loggedemail"] = txtEmail.Text;
+                Session["loggedpassword"] = txtPassword.Text;
+                Response.Redirect("Main.aspx");
+            } else if (logResult == 1)
+            {
+                errorMessage.Text = "password didn't match";
+            }
+            else if (logResult == 0)
+            {
+                errorMessage.Text = "Account not found";
+            }
 
-            Session["log"] = "logged";
-            Response.Redirect("Main.aspx");
+
+            //Session["log"] = "logged";
+            //Response.Redirect("Main.aspx");
         }
     }
 }

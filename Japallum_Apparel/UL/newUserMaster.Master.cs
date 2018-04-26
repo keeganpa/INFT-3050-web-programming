@@ -20,6 +20,8 @@ namespace UL
         protected void userLogout(object sender, EventArgs e)
         {
             Session["log"] = null;
+            Session["loggedemail"] = null;
+            Session["loggedpassword"] = null;
             Response.Redirect("Logout.aspx");
         }
 
