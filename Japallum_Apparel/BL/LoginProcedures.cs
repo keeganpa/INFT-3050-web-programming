@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using UL.Classes;
 
 namespace BL
 {
@@ -44,10 +45,7 @@ namespace BL
         }
 
         //method triggered when someone try to create an account
-        public Boolean createAccount(String firstName, String lastName, String email, String password//,
-                                    //todo address 1
-                                    //todo address 2
-                                    )
+        public Boolean createAccount(String firstName, String lastName, Address address1, Address address2, String email, String password)
         {
             Boolean canCreate = tryRegistration(email);
             if (canCreate == false)
