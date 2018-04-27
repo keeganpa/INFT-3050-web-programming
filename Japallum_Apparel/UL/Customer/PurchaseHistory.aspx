@@ -6,7 +6,8 @@
             <h1>Purchase History</h1>
         </div>
         <!--A very basic idea of what purchase history will most likely look like as we have no data to input in here at the moment-->
-        <asp:GridView ID="grdOrderhistory" runat="server" GridLines="Horizontal" AutoGenerateColumns="False" CellPadding="4">
+        <asp:GridView ID="grdOrderhistory" runat="server" GridLines="Horizontal" AutoGenerateColumns="False" CellPadding="4"
+            ItemType="UL.Classes.Order" SelectMethod="GetOrderFromGridView">
             <Columns>
                 <asp:BoundField HeaderText="ID No."/>
                 <asp:BoundField HeaderText="Order Date" />

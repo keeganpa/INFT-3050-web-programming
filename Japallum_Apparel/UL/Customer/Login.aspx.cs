@@ -36,9 +36,9 @@ namespace UL
                 errorMessage.Text = "Account not found";
             }
 
-
-            //Session["log"] = "logged";
-            //Response.Redirect("Main.aspx");
+            //todo temporary will login isn't fully fonctional
+            Session["log"] = "logged";
+            Response.Redirect("Main.aspx");
         }
     }
 }

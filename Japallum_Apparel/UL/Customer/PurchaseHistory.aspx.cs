@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,17 @@ namespace UL
             {
                 Response.Redirect("Login.aspx");
             }
+        }
+
+        public List<Order> getOrderHistory(String email, String password)
+        {
+            //todo get orderHistory from DAL
+            return null;
+        }
+
+        public List<Order> getOrderForGridView()
+        {
+            return getOrderHistory((String)Session["loggedemail"], (String)Session["loggedpassword"]);
         }
     }
 }
