@@ -26,7 +26,7 @@ CREATE TABLE tblCustomer(
 	lName varchar(60),
 	rAddress int,
 	bAddress int,
-	customerEmail varchar(100),
+	customerEmail varchar(100)UNIQUE,
 	customerPassword varchar(60),
 	customerPhoneNum int,
 	customerActive bit DEFAULT 1,
@@ -38,7 +38,7 @@ CREATE TABLE tblAdmin(
 	adminID int IDENTITY(600,1) PRIMARY KEY,
 	fName varchar(60),
 	lName varchar(60),
-	adminEmail varchar(60),
+	adminEmail varchar(60)UNIQUE,
 	adminPassword varchar(60)
 )
 -- Product table
@@ -46,8 +46,8 @@ CREATE TABLE tblProduct(
 	productID int IDENTITY(1500,1) PRIMARY KEY,
 	prodSize char(3),
 	prodPrice Money,
-	shortDesc varchar(255),
-	longDesc varchar(3000),
+	shortDesc varchar(255)UNIQUE,
+	longDesc varchar(3000)UNIQUE,
 	prodGender char(3),
 	imageFile varchar(300),
 	prodStock int,
