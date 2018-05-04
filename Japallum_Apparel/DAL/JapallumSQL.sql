@@ -1,6 +1,13 @@
-
-
-
+-- Execute this line first then switch to JapallumDB to do the rest of the data
+USE master
+GO
+IF NOT EXISTS (
+	SELECT name
+	FROM sys.databases
+	WHERE name = N'JapallumDB'
+	)
+CREATE DATABASE JapallumDB
+GO
 
 --Address Table
 CREATE TABLE tblAddress(
@@ -46,14 +53,15 @@ CREATE TABLE tblProduct(
 	productID int IDENTITY(1500,1) PRIMARY KEY,
 	prodSize char(3),
 	prodPrice Money,
-	shortDesc varchar(255)UNIQUE,
-	longDesc varchar(3000)UNIQUE,
+	shortDesc varchar(100)UNIQUE,
+	longDesc varchar(500)UNIQUE,
 	prodGender char(3),
 	imageFile varchar(300),
 	prodStock int,
 	lastEdited int,
 	active bit DEFAULT 1,
-	FOREIGN KEY (lastEdited) REFERENCES tblAdmin(adminID) ON UPDATE CASCADE ON DELETE NO ACTION
+	FOREIGN KEY (lastEdited) REFERENCES tblAdmin(adminID) ON UPDATE CASCADE ON DELETE NO ACTION,
+	CHECK (prodGender= 'Y' OR prodGender='M' OR prodGender='F')
 )
 --Order table
 CREATE TABLE tblOrder(
@@ -100,8 +108,22 @@ INSERT INTO tblAdmin VALUES('Jeremy','Clarkson','TopGear@Japallum.com','howdouse
 INSERT INTO tblAdmin VALUES('Callum','Haddock','Calhad@Japallum.com','TinTinReference');
 
 --Product Data
-INSERT INTO tblProduct VALUES( 'Lrg',25.00,'Winter Sweater','A winter sweater with insulated interior','M','/Images/Sweater.png',50,600,1);
-INSERT INTO tblProduct VALUES( 'Med',20.00,'winter Stockings','Thick and warm stockings to get you though the winter','F','/Images/Stockings.png',27,601,1);
+
+--Mens products
+INSERT INTO tblProduct VALUES( 'Lrg', 25.00, 'Sweater', 'A Sweater for students','M', '~/Images/Sweater.png',134,600,1);
+INSERT INTO tblProduct VALUES( 'Lrg', 10.00, 'Plain Shirt', 'A nice plain shirt that will always be in season','M', '~/Images/Mens_shirt.png', 50,601,1);
+INSERT INTO tblProduct VALUES( '36', 20.00, 'Generic Pants', 'They have pockets','M', '~/Images/Mens_pants.png', 74,600,1);
+INSERT INTO tblProduct VALUES( '11', 50.00, 'Generic Shoes',  'You will be running everywhere in these', 'M', '~/Images/Mens_footwear.png',20,601,1);
+
+--Womens Products
+INSERT INTO tblProduct VALUES('Sml', 10.00,'Pretty Shirt', 'It is very pretty','F', '~/Images/Womens_shirt.png',74, 601,1);
+INSERT INTO tblProduct VALUES('Sml', 20.00,'Pretty Pants', 'It is just dying to be the newest additon to your collection','F', '~/Images/Womens_pants.png',44, 600,1);
+INSERT INTO tblProduct VALUES('6', 50.00,'High Heel Shoes', 'For you to tower over your enemies','F', '~/Images/Womens_footwear.png',15, 601,1);
+
+-- Childrens Products
+INSERT INTO tblProduct VALUES('Lrg', 5.00,'Playful Shirt', 'Go have some fun in the sun','Y', '~/Images/Youth_Shirt.png',34, 600,1);
+INSERT INTO tblProduct VALUES('36', 10.00,'Happy Pants', 'These pants will be able to resist even the roughest of playing','Y', '~/Images/Youth_pants.png',120, 600,1);
+INSERT INTO tblProduct VALUES('11', 25.00,'Kids Shoes', 'Look Cool and have shoes tp help you do so','Y', '~/Images/Youth_footwear.png',10, 601,1);
 
 --Order Data
 INSERT INTO tblOrder VALUES( GETDATE(), 75.00, 1001, 501, 1500, 0.14, 85.05);
@@ -111,6 +133,7 @@ INSERT INTO tblOrder VALUES( GETDATE(), 45.00, 1000, 501, 1501, 0.14, 51.30);
 INSERT INTO junctionProd_Order VALUES(2378, 1500,25.00,3);
 INSERT INTO junctionProd_Order VALUES(2379, 1500,25.00,1);
 INSERT INTO junctionProd_Order VALUES(2379, 1501,20.00,1);
+
 
 CREATE LOGIN Calhad
 	WITH PASSWORD = 'TinTinReferences'
