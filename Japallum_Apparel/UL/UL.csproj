@@ -127,7 +127,6 @@
     <Content Include="Customer\About.aspx">
       <BrowseToURL>~/Customer/About.aspx</BrowseToURL>
     </Content>
-    <Content Include="Customer\AddBuy.aspx" />
     <Content Include="Admin\AdminLogin.aspx" />
     <Content Include="Admin\AdminRegistration.aspx" />
     <Content Include="Customer\Contact.aspx">
@@ -217,13 +216,6 @@
     </Compile>
     <Compile Include="Customer\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\AddBuy.aspx.cs">
-      <DependentUpon>AddBuy.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\AddBuy.aspx.designer.cs">
-      <DependentUpon>AddBuy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>

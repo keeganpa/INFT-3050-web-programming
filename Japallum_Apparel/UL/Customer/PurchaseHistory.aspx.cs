@@ -21,7 +21,7 @@ namespace UL
 
         public List<Order> getOrderHistory(String email, String password)
         {
-            //todo get orderHistory from DAL
+            //todo get orderHistory from BL
             return null;
         }
 

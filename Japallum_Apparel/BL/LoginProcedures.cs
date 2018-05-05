@@ -36,7 +36,7 @@ namespace BL
         }
 
         //method triggered to check if you can create the account CUSTOMER
-        public Boolean tryRegistration(String email)
+        private Boolean tryRegistration(String email)
         {
             //return true if email is free to use
             //todo use DAL to get data about the email
@@ -95,7 +95,7 @@ namespace BL
         }
 
         //method triggered to check if you can create the account ADMIN
-        public Boolean adminTryRegistration(String email)
+        private Boolean adminTryRegistration(String email)
         {
             //return true if email is free to use
             //todo use DAL to get data about the email
