@@ -21,24 +21,24 @@ namespace UL
             //when we log, the session is changed and we are redirected to the main page
             LoginProcedures bl = new LoginProcedures();
             int logResult = bl.tryToLog(txtEmail.Text, txtPassword.Text);
-            if (logResult == 2)
+            // Succesfully logged in
+            if (logResult == 0)
             {
                 Session["log"] = "logged";
                 Session["loggedemail"] = txtEmail.Text;
                 Session["loggedpassword"] = txtPassword.Text;
                 Response.Redirect("Main.aspx");
-            } else if (logResult == 1)
-            {
-                errorMessage.Text = "password didn't match";
             }
-            else if (logResult == 0)
+            // Password is incorrect
+            else if (logResult == 1)
             {
-                errorMessage.Text = "Account not found";
+                errorMessage.Text = "Password is not valid";
             }
-
-            //todo temporary will login isn't fully fonctional
-            Session["log"] = "logged";
-            Response.Redirect("Main.aspx");
+            // Email is not valid
+            else if (logResult == 2)
+            {
+                errorMessage.Text = "Email is not valid";
+            }
         }
     }
 }
