@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BL;
+using BL.Models;
 
 namespace UL
 {
@@ -34,10 +34,6 @@ namespace UL
             {
                 errorMessage.Text = "Account not found";
             }
-
-            //todo temporary will login isn't fully fonctional
-            Session["log"] = "logged";
-            Response.Redirect("Main.aspx");
         }
     }
 }

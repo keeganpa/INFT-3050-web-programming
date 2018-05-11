@@ -61,6 +61,7 @@
                 </td>
             </tr>
         </table>
+        <div class="warning"><asp:Label Text="" ID="errorMessage" runat="server" /></div>
         <br />
         <br />
     </div>

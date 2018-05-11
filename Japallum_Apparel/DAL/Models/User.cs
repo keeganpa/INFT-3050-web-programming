@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace UL.Classes
+namespace DAL.Models
 {
     public class User
     {
         private int iD;
         private String firstName;
         private String lastName;
-        private Address rAddress;
-        private Address bAddress;
+        private int rAddress;
+        private int bAddress;
         private String emailAddress;
         private String password;
         private Boolean active;
@@ -67,7 +67,7 @@ namespace UL.Classes
             }
         }
 
-        public Address rAdd
+        public int rAdd
         {
             get
             {
@@ -80,7 +80,7 @@ namespace UL.Classes
             }
         }
 
-        public Address bAdd
+        public int bAdd
         {
             get
             {
@@ -119,7 +119,19 @@ namespace UL.Classes
             }
         }
 
-        public User(int id, String fN, String lN, Address rA, Address bA, String email, String pass)
+        public User()
+        {
+            iD = 0;
+            firstName = null;
+            lastName = null;
+            rAddress = 0;
+            bAddress = 0;
+            emailAddress = null;
+            password = null;
+            active = true;
+        }
+
+        public User(int id, String fN, String lN, int rA, int bA, String email, String pass)
         {
             iD = id;
             firstName = fN;

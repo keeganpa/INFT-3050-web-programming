@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace UL.Classes
+namespace DAL.Models
 {
     public class Address
     {

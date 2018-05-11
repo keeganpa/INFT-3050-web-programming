@@ -36,16 +36,21 @@ namespace BL.Models
                 //Is a valid email address
                 //Create instance of DAL CheckLogin
                 RetrieveAccount rA = new RetrieveAccount();
+                Boolean temp = false;
                 //Use a method to retieve User Data from database
                 if (userOrAdmin == "user")
                 {
-                    rA.getUserAccount(tempEmail, tempPassword);
+                    temp = rA.getUserAccount(tempEmail, tempPassword);
                 }
                 else if (userOrAdmin == "admin")
                 {
-                    rA.getAdminAccount(tempEmail, tempPassword);
+                    temp = rA.getAdminAccount(tempEmail, tempPassword);
                 }
                 //Pass email and password to DAL method to access account
+                if (temp == false)
+                {
+                    return 1;
+                }
                 return 0;
             }
             else if (tempPassword == null || tempPassword != password)
