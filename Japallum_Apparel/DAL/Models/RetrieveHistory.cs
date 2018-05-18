@@ -13,18 +13,19 @@ namespace DAL.Models
         public List<Order> getHistory()
         {
             List<Order> orders = new List<Order>();
-            String sql = "SELECT * FROM tblOrder JOIN tblCustomer ON tblOrder.customerID = tblCustomer.customerID WHERE customerEmail LIKE 'Lkins@gmail.com'";
+            String sql = "SELECT * FROM tblOrder JOIN tblCustomer ON tblOrder.customerID = tblCustomer.customerID WHERE customerEmail LIKE @email";
             var con = ConfigurationManager.ConnectionStrings["JapallumConnectionString"].ToString();
             using (var myCon = new SqlConnection(con))
             {
                 SqlCommand cmd = new SqlCommand(sql, myCon);
-                //cmd.Parameters.AddWithValue("@email", (String)HttpContext.Current.Session["loggedemail"]);
-
+                cmd.Parameters.AddWithValue("@email", (String)HttpContext.Current.Session["loggedemail"]);
+                System.Diagnostics.Debug.WriteLine(cmd);
                 myCon.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
+                        System.Diagnostics.Debug.WriteLine("sql");
                         Order order = new Order((int)reader["orderID"],
                                                 (DateTime)reader["orderDate"],
                                                 (decimal)reader["orderTotal"],

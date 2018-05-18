@@ -9,14 +9,11 @@ namespace BL.Models
     public class History
     {
         //method to get the history of an user
-        public List<Order> getHistory(String email, String password)
+        public List<Order> getHistory()
         {
             List<Order> orders = null;
-            checkLogin log = new checkLogin();
-            if (log.checkCustomerLog(email, password)){
-                //todo use DAL
-
-            }
+            RetrieveHistory hist = new RetrieveHistory();
+            orders = hist.getHistory();
             return orders;
         }
     }
