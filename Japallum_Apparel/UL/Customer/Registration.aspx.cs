@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using UL.Classes;
 using UL.Customer;
+using BL.Models;
 
 namespace UL
 {
@@ -21,16 +22,40 @@ namespace UL
         {
             if (IsValid)
             {
-                int sNum = Convert.ToInt32(txtStreetNumber.Text);
-                int sNum2 = Convert.ToInt32(txtStreetNumberBill.Text);
+
+                String fName = txtFirstName.Text;
+                String lName = txtLastName.Text;
+                String email = txtEmail.Text;
+                String password = txtPassword.Text;
+                int rAddress = 0;
+                int bAddress = 0;
+                String sNum = txtStreetNumber.Text;
+                String sName = txtStreetName.Text;
+                String city = txtCity.Text;
+                String state = txtState.Text;
                 int pCode = Convert.ToInt32(txtPostcode.Text);
-                int pCode2 = Convert.ToInt32(txtPostcodeBill.Text);
-                // Creating new residential address and billing address for user
-                // Will need to create a method that checks if address already exists before adding it to database
-                Address resAddress = new Address(000001, sNum, txtStreetName.Text, txtCity.Text, txtState.Text, pCode);
-                Address billAddress = new Address(000002, sNum2, txtStreetNameBill.Text, txtCityBill.Text, txtStateBill.Text, pCode2);
-                // New User is created using user inputs and address objects created
-                User user1 = new User(0000001, txtFirstName.Text, txtLastName.Text, resAddress, billAddress, txtEmail.Text, txtConfirmPassword.Text);
+                RegistrationProcedures reg = new RegistrationProcedures();
+                if (cbSameAddress.Checked)
+                {
+                    String billing_sNum = sNum;
+                    String billing_sName = sName;
+                    String billing_city = city;
+                    String billing_state = state;
+                    int billing_pCode = pCode;
+                    rAddress = reg.createAddress(sNum, sName,city, state, pCode);
+                    bAddress = rAddress;
+                }
+                else
+                {
+                    String billing_sNum = txtStreetNumberBill.Text;
+                    String billing_sName = txtStreetNameBill.Text;
+                    String billing_city = txtCityBill.Text;
+                    String billing_state = txtStateBill.Text;
+                    int billing_pCode = Convert.ToInt32(txtPostcodeBill.Text);
+                    rAddress = reg.createAddress(sNum, sName, city, state, pCode);
+                    bAddress = reg.createAddress(billing_sNum, billing_sName, billing_city, billing_state, billing_pCode);
+                }
+                reg.createUser(fName, lName, rAddress, bAddress, email, password, true);
                 Response.Redirect("RegistrationConfirmation.aspx");
             }
         }

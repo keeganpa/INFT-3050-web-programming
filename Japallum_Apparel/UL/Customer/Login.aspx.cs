@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BL;
+using BL.Models;
 
 namespace UL
 {
@@ -20,7 +20,7 @@ namespace UL
         {
             //when we log, the session is changed and we are redirected to the main page
             LoginProcedures bl = new LoginProcedures();
-            int logResult = bl.tryToLog(txtEmail.Text, txtPassword.Text);
+            int logResult = bl.tryToLog(txtEmail.Text, txtPassword.Text, "user");
             // Succesfully logged in
             if (logResult == 0)
             {

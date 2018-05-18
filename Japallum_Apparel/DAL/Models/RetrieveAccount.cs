@@ -19,9 +19,9 @@ namespace DAL.Models
             //Create new User object and apply data to it
             //Put User object in the session
             SqlConnection connection = new SqlConnection(getConnectionString());
-            String sql = "SELECT * FROM tblCustomer WHERE customerEmail = @email";
-            SqlCommand cmd = new SqlCommand(sql, connection);
-            cmd.Parameters.AddWithValue("@email", email);
+            String query = "SELECT * FROM tblCustomer WHERE customerEmail = @email";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
             connection.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             User tempUser = new User();
@@ -53,9 +53,9 @@ namespace DAL.Models
             //Create new Admin object and apply data to it
             //Put Admin object in the session
             SqlConnection connection = new SqlConnection(getConnectionString());
-            String sql = "SELECT * FROM tblAdmin WHERE adminEmail = @email";
-            SqlCommand cmd = new SqlCommand(sql, connection);
-            cmd.Parameters.AddWithValue("@email", email);
+            String query = "SELECT * FROM tblAdmin WHERE adminEmail = @email";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
             connection.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             User tempAdmin = new User();

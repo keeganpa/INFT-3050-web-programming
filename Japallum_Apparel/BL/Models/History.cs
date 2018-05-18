@@ -13,7 +13,7 @@ namespace BL.Models
         {
             List<Order> orders = null;
             checkLogin log = new checkLogin();
-            if (log.checkLog(email, password)){
+            if (log.checkCustomerLog(email, password)){
                 //todo use DAL
 
             }

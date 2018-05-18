@@ -116,11 +116,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\AddressActions.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\checkLogin.cs" />
     <Compile Include="Models\Clothes.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\RetrieveAccount.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
