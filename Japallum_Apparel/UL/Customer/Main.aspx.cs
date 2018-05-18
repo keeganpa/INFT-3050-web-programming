@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -76,7 +77,7 @@ namespace UL
                 Session["YouthClothing"] = youthClothes;
             }
 
-            //adding 3 users (with there address) for the search in admin manageAccount page
+            /*adding 3 users (with there address) for the search in admin manageAccount page
             Address address = new Address(1, 63, "milkyroad", "Newcastle", "NSW", 76560);
             User users1 = new User(4, "Paul", "Dubot", address, address, "keeganpa76@hotmail.fr", "yolo");
             User users2 = new User(5, "James", "Baley", address, address, "keeganpa76@hotmail.fr", "yolo");
@@ -85,7 +86,7 @@ namespace UL
             users.Add(users1);
             users.Add(users2);
             users.Add(users3);
-            Session["adminUserSearch"] = users;
+            Session["adminUserSearch"] = users;*/
         }
 
         protected void imgBtnMainMens_Click(object sender, ImageClickEventArgs e)

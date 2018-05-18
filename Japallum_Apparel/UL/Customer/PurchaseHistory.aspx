@@ -7,13 +7,13 @@
         </div>
         <!--A very basic idea of what purchase history will most likely look like as we have no data to input in here at the moment-->
         <asp:GridView ID="grdOrderhistory" runat="server" GridLines="Horizontal" AutoGenerateColumns="False" CellPadding="4"
-            ItemType="UL.Classes.Order" SelectMethod="GetOrderFromGridView">
+            ItemType="DAL.Models.Order" SelectMethod="GetOrderForGridView">
             <Columns>
-                <asp:BoundField HeaderText="ID No."/>
-                <asp:BoundField HeaderText="Order Date" />
-                <asp:BoundField HeaderText="Products" />
-                <asp:BoundField HeaderText="Postage" />
-                <asp:BoundField HeaderText="Cost" />
+                <asp:BoundField DataField="iD" HeaderText="ID No."/>
+                <asp:BoundField DataField="date" HeaderText="Order Date" />
+                <asp:BoundField DataField="total" HeaderText="Total" />
+                <asp:BoundField DataField="postage" HeaderText="Postage" />
+                <asp:BoundField DataField="tax" HeaderText="Tax" />
                 <asp:ButtonField ButtonType="Button" Text="View Full Order" />
             </Columns>
         </asp:GridView>

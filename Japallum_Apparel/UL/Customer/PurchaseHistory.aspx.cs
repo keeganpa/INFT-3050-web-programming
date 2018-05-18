@@ -1,10 +1,13 @@
 ﻿using DAL.Models;
+using BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL.Models;
+using UL.Classes;
 
 namespace UL
 {
@@ -19,15 +22,17 @@ namespace UL
             }
         }
 
-        public List<Order> getOrderHistory(String email, String password)
+        public List<Order> getOrderHistory()
         {
-            //todo get orderHistory from BL
-            return null;
+            History h = new History();
+            List<Order> history = h.getHistory();
+            return history;
         }
 
+        //todo, useless
         public List<Order> getOrderForGridView()
         {
-            return getOrderHistory((String)Session["loggedemail"], (String)Session["loggedpassword"]);
+            return getOrderHistory();
         }
     }
 }
