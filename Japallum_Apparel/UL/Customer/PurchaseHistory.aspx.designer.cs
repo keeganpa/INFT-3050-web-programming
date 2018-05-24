@@ -13,12 +13,21 @@ namespace UL {
     public partial class purchaseHistory {
         
         /// <summary>
-        /// grdOrderhistory control.
+        /// grdOrderHistory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdOrderhistory;
+        protected global::System.Web.UI.WebControls.GridView grdOrderHistory;
+        
+        /// <summary>
+        /// grdOrderDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdOrderDetails;
     }
 }

@@ -121,6 +121,7 @@
     <Compile Include="Models\checkLogin.cs" />
     <Compile Include="Models\Clothes.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\RetrieveAccount.cs" />
     <Compile Include="Models\RetrieveHistory.cs" />
     <Compile Include="Models\User.cs" />

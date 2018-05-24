@@ -19,7 +19,7 @@ namespace UL
         {
             //when we log, the session is changed and we are redirected to the main page
             LoginProcedures bl = new LoginProcedures();
-            int logResult = bl.tryToLog(txtEmail.Text, txtPassword.Text);
+            int logResult = bl.tryToLog(txtEmail.Text, txtPassword.Text, "admin");
             if (logResult == 2)
             {
                 Session["log"] = "logged";

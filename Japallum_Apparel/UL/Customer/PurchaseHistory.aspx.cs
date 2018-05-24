@@ -29,10 +29,28 @@ namespace UL
             return history;
         }
 
-        //todo, useless
-        public List<Order> getOrderForGridView()
+        public List<Product> getOrderDetails()
         {
-            return getOrderHistory();
+            History h = new History();
+            List<Product> products = new List<Product>();
+            if (Session["prodID"] != null)
+            {
+                products = h.getProducts((int)Session["prodID"]);
+            }
+            return products;
+        }
+
+        //method to use action in gridview
+        //thanks https://stackoverflow.com/questions/14254880/how-to-get-row-data-by-clicking-a-button-in-a-row-in-an-asp-net-gridview for the help
+        public void History_RowCommand(Object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Select")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                Session["prodID"] = Convert.ToInt32(grdOrderHistory.Rows[index].Cells[0].Text);
+
+                Response.Redirect("~/Customer/PurchaseHistory.aspx");
+            }
         }
     }
 }

@@ -11,10 +11,15 @@ namespace BL.Models
         //method to get the history of an user
         public List<Order> getHistory()
         {
-            List<Order> orders = null;
             RetrieveHistory hist = new RetrieveHistory();
-            orders = hist.getHistory();
-            return orders;
+            return hist.getHistory();
+        }
+
+        //method to get the product of an order
+        public List<Product> getProducts(int id)
+        {
+            RetrieveHistory prod = new RetrieveHistory();
+            return prod.getProducts(id);
         }
     }
 }

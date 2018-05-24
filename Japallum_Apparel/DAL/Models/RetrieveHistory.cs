@@ -40,5 +40,41 @@ namespace DAL.Models
             }
             return orders;
         }
+
+        public List<Product> getProducts(int id)
+        {
+            List<Product> products = new List<Product>();
+            String sql = "SELECT * FROM tblOrder JOIN (tblProduct JOIN junctionProd_Order AS junction ON tblProduct.productID = junction.productID)"
+                        + "ON tblOrder.orderID = junction.orderID WHERE tblOrder.orderID = @id";
+            var con = ConfigurationManager.ConnectionStrings["JapallumConnectionString"].ToString();
+            using (var myCon = new SqlConnection(con))
+            {
+                SqlCommand cmd = new SqlCommand(sql, myCon);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                myCon.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        System.Diagnostics.Debug.WriteLine("sql");
+                        Product product = new Product((int)reader["productID"],
+                                                (String)reader["prodSize"],
+                                                (decimal)reader["prodPrice"],
+                                                (String)reader["shortDesc"],
+                                                (String)reader["longDesc"],
+                                                (String)reader["prodGender"],
+                                                (Boolean)reader["active"],
+                                                (String)reader["imageFile"],
+                                                (int)reader["prodStock"],
+                                                (int)reader["lastEdited"]);
+                        product.Quantity = (Int16)reader["Quantity"];
+                        products.Add(product);
+                    }
+                }
+                myCon.Close();
+            }
+            return products;
+        }
     }
 }

@@ -6,15 +6,26 @@
             <h1>Purchase History</h1>
         </div>
         <!--A very basic idea of what purchase history will most likely look like as we have no data to input in here at the moment-->
-        <asp:GridView ID="grdOrderhistory" runat="server" GridLines="Horizontal" AutoGenerateColumns="False" CellPadding="4"
-            ItemType="DAL.Models.Order" SelectMethod="GetOrderForGridView">
+        <asp:GridView ID="grdOrderHistory" runat="server" GridLines="Horizontal" AutoGenerateColumns="False" HorizontalAlign="center" CellPadding="4"
+            ItemType="DAL.Models.Order" SelectMethod="GetOrderHistory"  OnRowCommand="History_RowCommand">
             <Columns>
                 <asp:BoundField DataField="iD" HeaderText="ID No."/>
                 <asp:BoundField DataField="date" HeaderText="Order Date" />
                 <asp:BoundField DataField="total" HeaderText="Total" />
                 <asp:BoundField DataField="postage" HeaderText="Postage" />
                 <asp:BoundField DataField="tax" HeaderText="Tax" />
-                <asp:ButtonField ButtonType="Button" Text="View Full Order" />
+                <asp:ButtonField ButtonType="Button" Text="View Full Order" commandname="Select"/>
+            </Columns>
+        </asp:GridView>
+        <asp:GridView ID="grdOrderDetails" runat="server" GridLines="Horizontal" AutoGenerateColumns="False" HorizontalAlign="center" CellPadding="4"
+            ItemType="DAL.Models.Product" SelectMethod="GetOrderDetails">
+            <Columns>
+                <asp:BoundField DataField="iD" HeaderText="ID No."/>
+                <asp:BoundField DataField="size" HeaderText="Size"/>
+                <asp:BoundField DataField="price" HeaderText="Price"/>
+                <asp:BoundField DataField="shortDesc" HeaderText="Description"/>
+                <asp:BoundField DataField="gender" HeaderText="Gender"/>
+                <asp:BoundField DataField="quantity" HeaderText="Quantity"/>
             </Columns>
         </asp:GridView>
     </div>
