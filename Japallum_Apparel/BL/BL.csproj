@@ -118,6 +118,7 @@
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\LoginProcedures.cs" />
     <Compile Include="Models\RegistrationProcedures.cs" />
+    <Compile Include="Models\ValidateOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

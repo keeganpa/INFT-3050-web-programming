@@ -33,6 +33,7 @@ namespace DAL.Models
         public int getAddressID(String sNum, String sName, int pCode)
         {
             // get ID from address that matches given variables
+            int addressID = 0;
             SqlConnection connection = new SqlConnection(getConnectionString());
             String query = "SELECT * FROM tblAddress WHERE streetNumber = @sNum AND streetName = @sName AND postCode = @pCode";
             SqlCommand cmd = new SqlCommand(query, connection);
@@ -40,10 +41,30 @@ namespace DAL.Models
             cmd.Parameters.Add("@sName", SqlDbType.VarChar, 255).Value = sName;
             cmd.Parameters.Add("@pcode", SqlDbType.SmallInt).Value = pCode;
             connection.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            User tempUser = new User();
-            String tempPassword = dr["customerPassword"].ToString();
-            return 0;
+            addressID = (int)cmd.ExecuteScalar();
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //User tempUser = new User();
+            //String tempPassword = dr["customerPassword"].ToString();
+            return addressID;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public int getAddressID(String customerEmail)
+        {
+            // get ID from address that matches given variables
+            int addressID = 0;
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "SELECT rAddress FROM tblCustomer WHERE customerEmail = @customerEmail";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@customerEmail", SqlDbType.VarChar, 50).Value = customerEmail;
+            connection.Open();
+            System.Diagnostics.Debug.WriteLine(cmd.ExecuteScalar());
+            addressID = (int)cmd.ExecuteScalar();
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //User tempUser = new User();
+            //String tempPassword = dr["customerPassword"].ToString();
+            connection.Close();
+            return addressID;
         }
 
         public string getConnectionString()

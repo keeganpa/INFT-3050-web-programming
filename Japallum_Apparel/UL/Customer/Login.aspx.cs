@@ -40,7 +40,6 @@ namespace UL
                 errorMessage.Text = "Email is not valid";
             }
 
-            //todo to remove
             Session["log"] = "logged";
             Session["loggedemail"] = txtEmail.Text;
             Session["loggedpassword"] = txtPassword.Text;

@@ -66,5 +66,14 @@ namespace BL.Models
             //in any other case, by security you can't log
             return 3;
         }
+
+        public Boolean checkPassword(String password)
+        {
+            if ((String)HttpContext.Current.Session["loggedpassword"] == password)
+            {
+                return true;
+            }
+            else return false;
+        }
     }
 }

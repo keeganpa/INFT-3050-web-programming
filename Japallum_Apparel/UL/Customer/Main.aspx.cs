@@ -18,9 +18,9 @@ namespace UL
             - 3 sweaters to the cart
             - 1 sweater to add to the cart in the AddBuy page
             - 3 sweaters for the search in admin manageItem page*/
-            Clothes clothes1 = new Clothes("sweater", 4, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
-            Clothes clothes2 = new Clothes("sweater", 5, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
-            Clothes clothes3 = new Clothes("sweater", 6, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
+            Clothes clothes1 = new Clothes("sweater", 1500, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
+            Clothes clothes2 = new Clothes("sweater", 1501, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
+            Clothes clothes3 = new Clothes("sweater", 1502, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
             List<Clothes> clothes = new List<Clothes>();
             clothes.Add(clothes1);
             clothes.Add(clothes2);

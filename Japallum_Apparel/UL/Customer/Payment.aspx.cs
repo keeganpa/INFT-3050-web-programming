@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,30 +18,11 @@ namespace UL
             {
                 Response.Redirect("Login.aspx");
             }
-            amount.Text = "Amount to pay: $" + getTotalAmount();
+            ValidateOrder vO = new ValidateOrder();
+            amount.Text = "Amount to pay: $" + vO.getTotalAmount();
 
             //listener for the finalize payment button
             Pay.Click += new EventHandler(this.FinalizePayment);
-        }
-
-        //compute the total amount in the cart
-        protected double getTotalAmount()
-        {
-            double total = 0;
-            List<Clothes> clothes = (List<Clothes>)Session["cart"];
-            //of course if the cart isn't initialized, we consider it's empty and the amount is 0
-            if (clothes == null)
-            {
-                total = 0;
-            }
-            else
-            {
-                for (int i = 0; i < clothes.Count; i++)
-                {
-                    total += clothes[i].Price;
-                }
-            }
-            return total;
         }
         
         //methode to reinitialize cart and go to payment confirmation page
@@ -48,8 +30,18 @@ namespace UL
         {
             if (IsValid)
             {
-                Session["cart"] = new List<Clothes>();
-                Response.Redirect("~/Customer/PaymentConfirmation.aspx");
+                LoginProcedures lP = new LoginProcedures();
+                if (lP.checkPassword(txtPassword.Text))
+                {
+                    //so if the password is correct:
+                    //- we create an order in the database
+                    //- we empty the cart
+                    //- we redirect the customer to the payment confirmation page
+                    ValidateOrder vO = new ValidateOrder();
+                    vO.createOrder();
+                    Session["cart"] = new List<Clothes>();
+                    Response.Redirect("~/Customer/PaymentConfirmation.aspx");
+                }
             }
         }
     }

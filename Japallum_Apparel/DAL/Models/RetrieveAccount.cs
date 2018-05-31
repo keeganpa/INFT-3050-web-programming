@@ -45,6 +45,28 @@ namespace DAL.Models
             return true;
         }
 
+        /*[DataObjectMethod(DataObjectMethodType.Select)]
+        public Boolean checkUserAccount(String email, String password)
+        {
+            //Check if username and email match database
+            //Get User data for matching email address from database
+            //Create new User object and apply data to it
+            //Put User object in the session
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "SELECT * FROM tblCustomer WHERE customerEmail = @email AND customerPassword=@password";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
+            cmd.Parameters.Add("@password", SqlDbType.VarChar, 100).Value = password;
+            connection.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            User tempUser = new User();
+            while (dr.Read())
+            {
+                return true;
+            }
+            return false;
+        }*/
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public Boolean getAdminAccount(String email, String password)
         {
