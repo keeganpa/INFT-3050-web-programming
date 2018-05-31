@@ -44,9 +44,9 @@
                     <!--Checks wether or not the session "log" variable has anything in it to either display the login or logout button respectively -->
                     <li runat="server">
                         <% if (Session["log"] == null){ %>
-                            <asp:Button  runat="server" Text="Login" OnClick="userLogin" />
+                            <asp:Button  runat="server" Text="Login" OnClick="userLogin" UseSubmitBehavior="false"/>
                         <%} else { %> 
-                            <asp:Button  runat="server" Text="Logout" OnClick="userLogout" />   
+                            <asp:Button  runat="server" Text="Logout" OnClick="userLogout" UseSubmitBehavior="false"/>   
                         <%} %>
                     </li>
                 </ul>
