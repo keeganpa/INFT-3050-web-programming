@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DAL.Models
+namespace BL.Models
 {
-    public class Admin
+    public class User
     {
         private int iD;
         private String firstName;
         private String lastName;
+        private int rAddress;
+        private int bAddress;
         private String emailAddress;
         private String password;
         private Boolean active;
@@ -65,6 +67,32 @@ namespace DAL.Models
             }
         }
 
+        public int rAdd
+        {
+            get
+            {
+                return rAddress;
+            }
+
+            set
+            {
+                rAddress = value;
+            }
+        }
+
+        public int bAdd
+        {
+            get
+            {
+                return bAddress;
+            }
+
+            set
+            {
+                bAddress = value;
+            }
+        }
+
         public String eAdd
         {
             get
@@ -91,21 +119,25 @@ namespace DAL.Models
             }
         }
 
-        public Admin()
+        public User()
         {
             iD = 0;
             firstName = null;
             lastName = null;
+            rAddress = 0;
+            bAddress = 0;
             emailAddress = null;
             password = null;
             active = true;
         }
 
-        public Admin(int id, String fN, String lN, String email, String pass)
+        public User(int id, String fN, String lN, int rA, int bA, String email, String pass)
         {
             iD = id;
             firstName = fN;
             lastName = lN;
+            rAddress = rA;
+            bAddress = bA;
             emailAddress = email;
             password = pass;
             active = true;

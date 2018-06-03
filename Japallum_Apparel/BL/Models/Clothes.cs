@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DAL.Models
+namespace BL.Models
 {
     public class Clothes
     {
@@ -185,6 +185,6 @@ namespace DAL.Models
             lastEdit = last;
         }
 
-        
+
     }
 }

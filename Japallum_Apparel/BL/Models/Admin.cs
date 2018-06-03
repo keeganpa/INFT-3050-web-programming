@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DAL.Models
+namespace BL.Models
 {
     public class Admin
     {
@@ -89,16 +89,6 @@ namespace DAL.Models
             {
                 password = value;
             }
-        }
-
-        public Admin()
-        {
-            iD = 0;
-            firstName = null;
-            lastName = null;
-            emailAddress = null;
-            password = null;
-            active = true;
         }
 
         public Admin(int id, String fN, String lN, String email, String pass)

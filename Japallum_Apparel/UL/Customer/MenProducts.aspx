@@ -1,10 +1,10 @@
 ﻿<%@ Page  Title="Mens Products" Language="C#" AutoEventWireup="true" MasterPageFile="~/newuserMaster.Master" CodeBehind="MenProducts.aspx.cs" Inherits="UL.Customer.MenProducts" %>
-<%@ Import Namespace="UL.Classes" %>
+<%@ Import Namespace="BL.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <div class="content">
         <!-- just few comments for now -->
       <asp:GridView ID="SearchResult" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
-        ItemType="UL.Classes.Clothes" SelectMethod="GetMensClothes" onrowcommand="SearchResult_RowCommand">
+        ItemType="BL.Models.Clothes" SelectMethod="GetMensClothes" onrowcommand="SearchResult_RowCommand">
     <%-- set the content of each rows of the gridview (the list of data we need for each product) --%>
      <%-- Code for gridview sourced from - https://docs.microsoft.com/en-us/aspnet/web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart --%>
         <Columns>
