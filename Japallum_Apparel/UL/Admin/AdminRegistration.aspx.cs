@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL.Models;
+using System.Configuration;
 
 namespace UL
 {
@@ -12,7 +13,12 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] + "Admin/AdminRegistration.aspx";
+                Response.Redirect(url);
+            }
         }
 
         protected void RegisterAdmin(object sender, EventArgs e)

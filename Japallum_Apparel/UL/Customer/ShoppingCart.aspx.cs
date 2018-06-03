@@ -1,10 +1,12 @@
-﻿using System;
+﻿using BL.Models;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UL.Classes;
+
 
 namespace UL
 {
@@ -15,6 +17,13 @@ namespace UL
             //Set the button listener and value
             btnPayment.Click += new EventHandler(this.GoToPayment);
             btnPayment.Text = "Payment: $" + getTotalAmount();
+
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] + "Customer/ShoppingCart.aspx";
+                Response.Redirect(url);
+            }
         }
 
         //method need by the gridview to construct its rows for each items
@@ -23,7 +32,12 @@ namespace UL
             return (List<Clothes>)Session["cart"];
         }
 
-        public List<Postage>
+/*
+        public List<Postage> GetPostageOptions()
+        {
+            return (List<Postage>);
+        }
+        */
         //method to use action in gridview
         //thanks https://stackoverflow.com/questions/14254880/how-to-get-row-data-by-clicking-a-button-in-a-row-in-an-asp-net-gridview for the help
         public void CartList_RowCommand(Object sender, GridViewCommandEventArgs e)
