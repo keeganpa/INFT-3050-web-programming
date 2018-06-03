@@ -23,6 +23,7 @@ namespace UL
             return (List<Clothes>)Session["cart"];
         }
 
+        public List<Postage>
         //method to use action in gridview
         //thanks https://stackoverflow.com/questions/14254880/how-to-get-row-data-by-clicking-a-button-in-a-row-in-an-asp-net-gridview for the help
         public void CartList_RowCommand(Object sender, GridViewCommandEventArgs e)
