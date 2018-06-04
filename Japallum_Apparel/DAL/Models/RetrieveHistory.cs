@@ -19,20 +19,18 @@ namespace DAL.Models
             {
                 SqlCommand cmd = new SqlCommand(sql, myCon);
                 cmd.Parameters.AddWithValue("@email", (String)HttpContext.Current.Session["loggedemail"]);
-                System.Diagnostics.Debug.WriteLine(cmd);
                 myCon.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        System.Diagnostics.Debug.WriteLine("sql");
-                        Order order = new Order((int)reader["orderID"],
-                                                (DateTime)reader["orderDate"],
-                                                (decimal)reader["orderTotal"],
-                                                (int)reader["postage"],
-                                                (double)reader["tax"],
-                                                (decimal)reader["subTotal"],
-                                                (int)reader["customerAddress"]);
+                        Order order = new Order(Convert.ToInt32(reader["orderID"]),
+                                                Convert.ToDateTime(reader["orderDate"]),
+                                                Convert.ToDecimal(reader["orderTotal"]),
+                                                Convert.ToInt32(reader["postage"]),
+                                                Convert.ToDouble(reader["tax"]),
+                                                Convert.ToDecimal(reader["subTotal"]),
+                                                Convert.ToInt32(reader["customerAddress"]));
                         orders.Add(order);
                     }
                 }
@@ -57,7 +55,6 @@ namespace DAL.Models
                 {
                     while (reader.Read())
                     {
-                        System.Diagnostics.Debug.WriteLine("sql");
                         Product product = new Product((int)reader["productID"],
                                                 (String)reader["prodSize"],
                                                 (decimal)reader["prodPrice"],
