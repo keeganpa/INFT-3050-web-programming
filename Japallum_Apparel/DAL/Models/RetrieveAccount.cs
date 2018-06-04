@@ -41,6 +41,31 @@ namespace DAL.Models
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
+        public string getUserPassword(String email, String Password)
+        {
+            //Check if Email matches one in database
+            //Gets Password for said user
+            //returns it to BL for emailing
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "SELECT customerPassword FROM tblCustomer WHERE customerEmail = @email";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
+            connection.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {
+                while (dr.Read())
+                {
+                    Password = dr["customerPassword"].ToString();
+                }
+            }
+            catch
+            {
+
+            }
+            return Password;
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public Boolean getAdminAccount(String email, String password)
         {
             //Check if username and email match database
