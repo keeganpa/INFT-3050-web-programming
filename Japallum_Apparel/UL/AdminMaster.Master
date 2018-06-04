@@ -32,9 +32,9 @@
                     </li>
                     <li runat="server">
                         <% if (Session["log"] == null){ %>
-                            <asp:Button  runat="server" Text="Login" OnClick="adLogin" />
+                            <asp:Button  runat="server" Text="Login" OnClick="adLogin" UseSubmitBehavior="False" />
                         <%} else { %> 
-                            <asp:Button  runat="server" Text="Logout" OnClick="adLogout" />   
+                            <asp:Button  runat="server" Text="Logout" OnClick="adLogout" UseSubmitBehavior="False" />   
                         <%} %>
                     </li>
                 </ul>

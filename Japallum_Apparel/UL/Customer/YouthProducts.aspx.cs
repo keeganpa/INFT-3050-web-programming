@@ -35,29 +35,24 @@ namespace UL.Customer
         }
 
         // Method is used to display a gridview of products
-        ProductProcedures product = new ProductProcedures();
-        public List<Clothes> GetYouthClothes()
+        
+        public List<Clothes> getYouthClothes()
         {
-            List<Clothes> tempClothes = (List<Clothes>)product.getClothes("youth");
+            ProductProcedures product = new ProductProcedures();
+            List<Clothes> tempClothes = (List<Clothes>)product.getClothes("Y");
             return tempClothes;
         }
 
         public void SearchResult_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
-            //when the user clicks to add the product to their cart
-            if (e.CommandName == "AddToCart")
+            //when the user clicks to view item
+            if (e.CommandName == "ViewProductPage")
             {
-                if (Session["cart"] == null)
-                {
-                    List<Clothes> cart = new List<Clothes>();
-                    Session["cart"] = cart;
-                }
                 int index = Convert.ToInt32(e.CommandArgument);
-                List<Clothes> tempClothes = (List<Clothes>)Session["YouthClothing"];
-                List<Clothes> tempCart = (List<Clothes>)Session["cart"];
-                tempCart.Add(tempClothes[index]);
-                Session["cart"] = tempCart;
-                Response.Redirect("YouthProducts.aspx");
+                List<Clothes> tempClothes = getYouthClothes();
+                Clothes tempProduct = tempClothes[index];
+                Session["selectedProduct"] = tempProduct;
+                Response.Redirect("ProductPage.aspx");
             }
         }
     }

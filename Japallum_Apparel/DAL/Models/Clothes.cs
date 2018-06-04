@@ -10,7 +10,6 @@ namespace DAL.Models
         private int iD;
         private String size;
         private double price;
-        private String type;
         private String description;
         private String gender;
         private String name;
@@ -106,18 +105,6 @@ namespace DAL.Models
                 price = value;
             }
         }
-        public string Type
-        {
-            get
-            {
-                return type;
-            }
-
-            set
-            {
-                type = value;
-            }
-        }
         public string Description
         {
             get
@@ -160,7 +147,6 @@ namespace DAL.Models
             iD = 0;
             size = null;
             price = 0.0;
-            type = null;
             description = null;
             gender = null;
             active = true;
@@ -170,12 +156,11 @@ namespace DAL.Models
             lastEdit = 0;
         }
 
-        public Clothes(String n, int id, String s, double p, String typ, String descr, String gend, String path, int stock, int last)
+        public Clothes(String n, int id, String s, double p, String descr, String gend, String path, int stock, int last)
         {
             iD = id;
             size = s;
             price = p;
-            type = typ;
             description = descr;
             gender = gend;
             active = true;

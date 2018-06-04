@@ -26,7 +26,6 @@ namespace DAL.Models
                 tempProduct.ID = Convert.ToInt32(reader["productID"]);
                 tempProduct.Size = reader["prodSize"].ToString();
                 tempProduct.Price = Convert.ToDouble(reader["prodPrize"]);
-                tempProduct.Type = reader["prodType"].ToString();
                 tempProduct.Description = reader["longDesc"].ToString();
                 tempProduct.Gender = reader["prodGender"].ToString();
                 tempProduct.Name = reader["shortDesc"].ToString();
@@ -49,20 +48,19 @@ namespace DAL.Models
             connection.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             List<Clothes> tempClothes = new List<Clothes>();
-            Clothes tempProduct = new Clothes();
             while (reader.Read())
             {
-                tempProduct.ID = Convert.ToInt32(reader["productID"]);
-                tempProduct.Size = reader["prodSize"].ToString();
-                tempProduct.Price = Convert.ToDouble(reader["prodPrize"]);
-                tempProduct.Type = reader["prodType"].ToString();
-                tempProduct.Description = reader["longDesc"].ToString();
-                tempProduct.Gender = reader["prodGender"].ToString();
-                tempProduct.Name = reader["shortDesc"].ToString();
-                tempProduct.Active = Convert.ToBoolean(reader["active"]);
-                tempProduct.ImagePath = reader["imageFile"].ToString();
-                tempProduct.StockCount = Convert.ToInt32(reader["prodStock"]);
-                tempProduct.LastEdit = Convert.ToInt32(reader["lastEdited"]);
+                int ID = Convert.ToInt32(reader["productID"]);
+                String Size = reader["prodSize"].ToString();
+                Double Price = Convert.ToDouble(reader["prodPrice"]);
+                String Description = reader["longDesc"].ToString();
+                String Gender = reader["prodGender"].ToString();
+                String Name = reader["shortDesc"].ToString();
+                Boolean Active = Convert.ToBoolean(reader["active"]);
+                String ImagePath = reader["imageFile"].ToString();
+                int StockCount = Convert.ToInt32(reader["prodStock"]);
+                int LastEdit = Convert.ToInt32(reader["lastEdited"]);
+                Clothes tempProduct = new Clothes(Name, ID, Size, Price, Description, Gender, ImagePath, StockCount, LastEdit);
                 tempClothes.Add(tempProduct);
             }
             connection.Close();

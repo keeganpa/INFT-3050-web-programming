@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL.Models;
+using BL.Models;
 using System.Configuration;
 
 namespace UL
@@ -29,7 +30,9 @@ namespace UL
         //method need by the gridview to construct its rows for each items
         public List<User> GetSearchResult()
         {
-            return (List<User>)Session["adminUserSearch"];
+            UserProcedures uP = new UserProcedures();
+            List<User> users = (List<User>)uP.displayUserList();
+            return users;
         }
 
         //method to use action in gridview

@@ -83,7 +83,7 @@
 
     <!-- gridview to show search result -->
     <asp:GridView ID="SearchResult" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
-        ItemType="BL.Models.User" SelectMethod="GetSearchResult" onrowcommand="SearchResult_RowCommand">
+        ItemType="DAL.Models.User" SelectMethod="GetSearchResult" onrowcommand="SearchResult_RowCommand">
     <%-- set the content of each rows of the gridview (the list of data we need for each user) --%>
     <Columns>
         <asp:BoundField DataField="iD" HeaderText="ID"/>
