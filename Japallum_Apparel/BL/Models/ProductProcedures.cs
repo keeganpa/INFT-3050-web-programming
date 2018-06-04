@@ -9,7 +9,7 @@ namespace BL.Models
     public class ProductProcedures
     {
         RetrieveProduct rP = new RetrieveProduct();
-        public IEnumerable<Clothes> getClothes(String gen)
+        public List<Clothes> getClothes(String gen)
         {
             List<Clothes> tempClothes = (List<Clothes>)rP.getGenderProducts(gen);
             return tempClothes;

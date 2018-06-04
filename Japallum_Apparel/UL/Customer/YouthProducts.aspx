@@ -4,7 +4,7 @@
     <div class="content">
         <!-- just few comments for now -->
         <asp:GridView ID="SearchResult" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
-        ItemType="UL.Classes.Clothes" SelectMethod="GetYouthClothes" onrowcommand="SearchResult_RowCommand">
+        ItemType="DAL.Models.Clothes" SelectMethod="GetYouthClothes" onrowcommand="SearchResult_RowCommand">
     <%-- set the content of each rows of the gridview (the list of data we need for each product) --%>
     <%-- Code for gridview sourced from - https://docs.microsoft.com/en-us/aspnet/web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart --%>
         <Columns>
