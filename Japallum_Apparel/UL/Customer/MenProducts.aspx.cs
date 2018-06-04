@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UL.Classes;
+using DAL.Models;
+using BL.Models;
 
 namespace UL.Customer
 {
@@ -34,16 +35,10 @@ namespace UL.Customer
         }
 
         // Method is used to display a gridview of products
+        ProductProcedures product = new ProductProcedures();
         public List<Clothes> GetMensClothes()
         {
-            List<Clothes> tempClothes = new List<Clothes>();
-            foreach (Clothes element in (List<Clothes>)Session["MensClothing"])
-            {
-                if (element.Active == true)
-                {
-                    tempClothes.Add(element);
-                }
-            }
+            List<Clothes> tempClothes = (List<Clothes>)product.getClothes("mens");
             return tempClothes;
         }
 

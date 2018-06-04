@@ -1,11 +1,12 @@
-﻿using BL.Models;
+﻿using DAL.Models;
+using BL.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UL.Classes;
 
 namespace UL
 {
@@ -13,6 +14,14 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] + "Customer/Payment.aspx";
+                Response.Redirect(url);
+            }
+
             //you need to be logged for this page, this is the redirection if your not
             if (Session["log"] == null || Session["log"] == "notlogged")
             {

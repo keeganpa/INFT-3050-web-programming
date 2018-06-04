@@ -1,11 +1,11 @@
-﻿using DAL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UL.Classes;
+using DAL.Models;
+using System.Configuration;
 
 namespace UL
 {
@@ -14,9 +14,15 @@ namespace UL
         protected void Page_Load(object sender, EventArgs e)
         {
             //you need to be logged for this page, this is the redirection if your not
-            if (Session["log"] == null || Session["log"] == "notlogged")
+            if (Session["log"] == null)
             {
                 Response.Redirect("AdminLogin.aspx");
+            }
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] + "Admin/ManageAccounts.aspx";
+                Response.Redirect(url);
             }
         }
 

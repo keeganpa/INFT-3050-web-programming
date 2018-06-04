@@ -48,7 +48,8 @@
         <asp:ButtonField buttontype="Button" Text="remove" commandname="Remove"/>
     </Columns>
     </asp:GridView>
-
+    <asp:DropDownList ID="ddlPostage" runat="server" DataSourceID="postageSelect"></asp:DropDownList>
+    <asp:ObjectDataSource ID="postageSelect" runat="server"></asp:ObjectDataSource>
     <!-- button to go to payment with total amount written-->
     <div style="text-align: center; margin-top: 20px;"><asp:Button ID="btnPayment" runat="server" /></div>
 </asp:Content>

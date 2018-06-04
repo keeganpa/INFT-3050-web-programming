@@ -25,11 +25,6 @@ namespace DAL.Models
             connection.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             User tempUser = new User();
-            String tempPassword = dr["customerPassword"].ToString();
-            if (tempPassword != password)
-            {
-                return false;
-            }
             while (dr.Read())
             {
                 tempUser.ID = Convert.ToInt32(dr["customerID"]);
@@ -45,28 +40,6 @@ namespace DAL.Models
             return true;
         }
 
-        /*[DataObjectMethod(DataObjectMethodType.Select)]
-        public Boolean checkUserAccount(String email, String password)
-        {
-            //Check if username and email match database
-            //Get User data for matching email address from database
-            //Create new User object and apply data to it
-            //Put User object in the session
-            SqlConnection connection = new SqlConnection(getConnectionString());
-            String query = "SELECT * FROM tblCustomer WHERE customerEmail = @email AND customerPassword=@password";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
-            cmd.Parameters.Add("@password", SqlDbType.VarChar, 100).Value = password;
-            connection.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            User tempUser = new User();
-            while (dr.Read())
-            {
-                return true;
-            }
-            return false;
-        }*/
-
         [DataObjectMethod(DataObjectMethodType.Select)]
         public Boolean getAdminAccount(String email, String password)
         {
@@ -79,24 +52,46 @@ namespace DAL.Models
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
             connection.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            User tempAdmin = new User();
-            String tempPassword = dr["adminPassword"].ToString();
-            if (tempPassword != password)
+            SqlDataReader reader = cmd.ExecuteReader();
+            Admin tempAdmin = new Admin();
+            while (reader.Read())
             {
-                return false;
-            }
-            while (dr.Read())
-            {
-                tempAdmin.ID = Convert.ToInt32(dr["adminID"]);
-                tempAdmin.fName = dr["fName"].ToString();
-                tempAdmin.lName = dr["lName"].ToString();
-                tempAdmin.eAdd = dr["adminEmail"].ToString();
-                tempAdmin.Password = dr["adminPassword"].ToString();
+                tempAdmin.ID = Convert.ToInt32(reader["adminID"]);
+                tempAdmin.fName = reader["fName"].ToString();
+                tempAdmin.lName = reader["lName"].ToString();
+                tempAdmin.eAdd = reader["adminEmail"].ToString();
+                tempAdmin.Password = reader["adminPassword"].ToString();
+                tempAdmin.Active = Convert.ToBoolean(reader["adminActive"]);
+
             }
             HttpContext.Current.Session["currentAdmin"] = tempAdmin;
             return true;
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public IEnumerable<User> getUserList()
+        {
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "SELECT * FROM tblCustomer";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            List<User> users = new List<User>();
+            SqlDataReader reader = cmd.ExecuteReader();
+            connection.Open();
+            while (reader.Read())
+            {
+                User user = new User(Convert.ToInt32(reader["customerID"]), 
+                                    reader["fName"].ToString(), 
+                                    reader["lName"].ToString(),
+                                    Convert.ToInt32(reader["rAddress"]),
+                                    Convert.ToInt32(reader["bAddress"]),
+                                    reader["customerEmail"].ToString(),
+                                    reader["customerPassword"].ToString(),
+                                    Convert.ToBoolean(reader["customerActive"]));
+            }
+            connection.Close();
+            return users;
+        }
+
         public string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["JapallumConnectionString"].ConnectionString;

@@ -4,16 +4,30 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using DAL.Models;
+using System.Net.Mail;
 
 namespace BL.Models
 {
     public class LoginProcedures
     {
+        public Boolean checkPassword(String password)
+        {
+            User tempUser = (User)HttpContext.Current.Session["currentSession"];
+            if (tempUser.Password == password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         //Method checks if valid email address
         public bool IsValidEmail(String email)
         {
-            Regex emailRegex = new Regex(@"\w + ([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
-            if (emailRegex.IsMatch(email))
+            var addr = new System.Net.Mail.MailAddress(email);
+            if (addr.Address == email)
             {
                 //Email is valid
                 return true;
@@ -47,11 +61,11 @@ namespace BL.Models
                     temp = rA.getAdminAccount(tempEmail, tempPassword);
                 }
                 //Pass email and password to DAL method to access account
-                if (temp == false)
+                if (temp == true)
                 {
-                    return 1;
+                    return 0;
                 }
-                return 0;
+                return 2;
             }
             else if (tempPassword == null || tempPassword != password)
             {
@@ -64,16 +78,7 @@ namespace BL.Models
                 return 2;
             }
             //in any other case, by security you can't log
-            return 3;
-        }
-
-        public Boolean checkPassword(String password)
-        {
-            if ((String)HttpContext.Current.Session["loggedpassword"] == password)
-            {
-                return true;
-            }
-            else return false;
+            return 0;
         }
     }
 }

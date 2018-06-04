@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL.Models;
-using BL;
+using System.Configuration;
 
 namespace UL
 {
@@ -13,6 +13,12 @@ namespace UL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] + "Admin/AdminLogin.aspx";
+                Response.Redirect(url);
+            }
         }
 
         protected void adLogin(Object sender, EventArgs e)
@@ -20,18 +26,18 @@ namespace UL
             //when we log, the session is changed and we are redirected to the main page
             LoginProcedures bl = new LoginProcedures();
             int logResult = bl.tryToLog(txtEmail.Text, txtPassword.Text, "admin");
-            if (logResult == 2)
+            if (logResult == 0)
             {
                 Session["log"] = "logged";
                 Session["loggedemail"] = txtEmail.Text;
                 Session["loggedpassword"] = txtPassword.Text;
-                Response.Redirect("Main.aspx");
+                Response.Redirect("ManageAccounts.aspx");
             }
             else if (logResult == 1)
             {
                 errorMessage.Text = "password didn't match";
             }
-            else if (logResult == 0)
+            else if (logResult == 2)
             {
                 errorMessage.Text = "Account not found";
             }

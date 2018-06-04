@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UL.Classes;
+using DAL.Models;
+using System.Configuration;
 
 namespace UL
 {
@@ -16,6 +17,12 @@ namespace UL
             if (Session["log"] == null || Session["log"] == "notlogged")
             {
                 Response.Redirect("AdminLogin.aspx");
+            }
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] + "Admin/ManageItems.aspx";
+                Response.Redirect(url);
             }
         }
 

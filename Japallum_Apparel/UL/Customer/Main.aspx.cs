@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UL.Classes;
 
 namespace UL
 {
@@ -17,7 +16,7 @@ namespace UL
             adding: 
             - 3 sweaters to the cart
             - 1 sweater to add to the cart in the AddBuy page
-            - 3 sweaters for the search in admin manageItem page*/
+            - 3 sweaters for the search in admin manageItem page
             Clothes clothes1 = new Clothes("sweater", 1500, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
             Clothes clothes2 = new Clothes("sweater", 1501, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");
             Clothes clothes3 = new Clothes("sweater", 1502, "large", 25, "sweater", "sweater for students", "male", "~/Images/sweater.png");

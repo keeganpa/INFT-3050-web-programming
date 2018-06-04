@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DAL.Models
+namespace BL.Models
 {
     public class User
     {
@@ -131,7 +131,7 @@ namespace DAL.Models
             active = true;
         }
 
-        public User(int id, String fN, String lN, int rA, int bA, String email, String pass, Boolean act)
+        public User(int id, String fN, String lN, int rA, int bA, String email, String pass)
         {
             iD = id;
             firstName = fN;
@@ -140,7 +140,7 @@ namespace DAL.Models
             bAddress = bA;
             emailAddress = email;
             password = pass;
-            active = act;
+            active = true;
         }
     }
 }

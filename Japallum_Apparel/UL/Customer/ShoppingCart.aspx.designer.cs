@@ -49,6 +49,15 @@ namespace UL {
         protected global::System.Web.UI.WebControls.GridView CartList;
         
         /// <summary>
+        /// PostageChoices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PostageChoices;
+        
+        /// <summary>
         /// btnPayment control.
         /// </summary>
         /// <remarks>

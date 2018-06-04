@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using UL.Classes;
 using UL.Customer;
 using BL.Models;
 
@@ -55,7 +54,7 @@ namespace UL
                     rAddress = reg.createAddress(sNum, sName, city, state, pCode);
                     bAddress = reg.createAddress(billing_sNum, billing_sName, billing_city, billing_state, billing_pCode);
                 }
-                reg.createUser(fName, lName, rAddress, bAddress, email, password, true);
+                reg.createUser(fName, lName, rAddress, bAddress, email, password);
                 Response.Redirect("RegistrationConfirmation.aspx");
             }
         }
