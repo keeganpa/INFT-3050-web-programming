@@ -28,7 +28,7 @@ namespace UL
         }
 
         //method need by the gridview to construct its rows for each items
-        public List<User> GetSearchResult()
+        public List<User> getUserList()
         {
             UserProcedures uP = new UserProcedures();
             List<User> users = (List<User>)uP.displayUserList();
@@ -40,10 +40,10 @@ namespace UL
         public void SearchResult_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
             //when the admin wan't to activate/desactivate a user account
-            if (e.CommandName == "Remove")
+            if (e.CommandName == "changeStatus")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
-                List<User> users = (List<User>)Session["adminUserSearch"];
+                List<User> users = getUserList();
                 if (users[index].Active == false)
                 {
                     users[index].Active = true;
@@ -52,8 +52,8 @@ namespace UL
                 {
                     users[index].Active = false;
                 }
-                Session["adminUserSearch"] = users;
-
+                UserProcedures uP = new UserProcedures();
+                uP.changeStatus(users[index].Active, users[index].ID);
                 Response.Redirect("~/Admin/ManageAccounts.aspx");
             }
         }

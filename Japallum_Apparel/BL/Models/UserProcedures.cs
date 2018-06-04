@@ -14,5 +14,11 @@ namespace BL.Models
             List<User> users = (List<User>)accounts.getUserList();
             return users;
         }
+
+        public void changeStatus(Boolean active, int id)
+        {
+            UserActions uA = new UserActions();
+            uA.updateUserActive(active, id);
+        }
     }
 }

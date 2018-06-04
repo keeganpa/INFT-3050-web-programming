@@ -83,7 +83,7 @@
 
     <!-- gridview to show search result -->
     <asp:GridView ID="SearchResult" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
-        ItemType="DAL.Models.User" SelectMethod="GetSearchResult" onrowcommand="SearchResult_RowCommand">
+        ItemType="DAL.Models.User" SelectMethod="GetUserList" onrowcommand="SearchResult_RowCommand">
     <%-- set the content of each rows of the gridview (the list of data we need for each user) --%>
     <Columns>
         <asp:BoundField DataField="iD" HeaderText="ID"/>
@@ -92,7 +92,7 @@
         <asp:BoundField DataField="eadd" HeaderText="email address"/>
         <asp:BoundField DataField="password" HeaderText="password"/>
         <asp:BoundField DataField="active" HeaderText="active"/>
-        <asp:ButtonField buttontype="Button" Text="activate/desactivate" commandname="Remove"/>
+        <asp:ButtonField buttontype="Button" Text="activate/deactivate" commandname="changeStatus"/>
     </Columns>
     </asp:GridView>
 </asp:Content>
