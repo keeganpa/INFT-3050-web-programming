@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BL.Models;
+using DAL.Models;
 using System.Configuration;
 
 namespace UL

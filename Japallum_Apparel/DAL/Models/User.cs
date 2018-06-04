@@ -131,7 +131,7 @@ namespace DAL.Models
             active = true;
         }
 
-        public User(int id, String fN, String lN, int rA, int bA, String email, String pass)
+        public User(int id, String fN, String lN, int rA, int bA, String email, String pass, Boolean act)
         {
             iD = id;
             firstName = fN;
@@ -140,7 +140,7 @@ namespace DAL.Models
             bAddress = bA;
             emailAddress = email;
             password = pass;
-            active = true;
+            active = act;
         }
     }
 }

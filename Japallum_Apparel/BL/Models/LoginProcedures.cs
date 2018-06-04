@@ -10,6 +10,19 @@ namespace BL.Models
 {
     public class LoginProcedures
     {
+        public Boolean checkPassword(String password)
+        {
+            User tempUser = (User)HttpContext.Current.Session["currentSession"];
+            if (tempUser.Password == password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         //Method checks if valid email address
         public bool IsValidEmail(String email)
         {

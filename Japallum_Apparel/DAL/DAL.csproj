@@ -118,6 +118,7 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AddressActions.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\AdminActions.cs" />
     <Compile Include="Models\checkLogin.cs" />
     <Compile Include="Models\Clothes.cs" />
     <Compile Include="Models\Junction.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\RetrieveAccount.cs" />
     <Compile Include="Models\RetrieveHistory.cs" />
+    <Compile Include="Models\RetrieveProduct.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
