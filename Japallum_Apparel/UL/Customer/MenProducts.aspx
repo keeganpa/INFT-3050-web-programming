@@ -12,11 +12,10 @@
             <asp:BoundField DataField="name" HeaderText="name"/>
             <asp:BoundField DataField="size" HeaderText="size"/>
             <asp:BoundField DataField="price" HeaderText="price in aud"/>
-            <asp:BoundField DataField="type" HeaderText="type"/>
             <asp:BoundField DataField="description" HeaderText="description"/>
             <asp:BoundField DataField="gender" HeaderText="gender"/>
             <asp:BoundField DataField="active" HeaderText="active"/>
-            <asp:ButtonField buttontype="Button" Text="Add to cart" commandname="AddToCart"/>
+            <asp:ButtonField buttontype="Button" Text="View Item" commandname="ViewProductPage"/>
         </Columns>
     </asp:GridView>
     </div>

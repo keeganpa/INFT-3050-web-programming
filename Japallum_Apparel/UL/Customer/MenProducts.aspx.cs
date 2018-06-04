@@ -23,26 +23,20 @@ namespace UL.Customer
         public List<Clothes> getMensClothes()
         {
             ProductProcedures product = new ProductProcedures();
-            List<Clothes> tempClothes = (List<Clothes>)product.getClothes("mens");
+            List<Clothes> tempClothes = (List<Clothes>)product.getClothes("M");
             return tempClothes;
         }
 
         public void SearchResult_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
-            //when the user clicks to add the product to their cart
-            if (e.CommandName == "AddToCart")
+            //when the user clicks to view item
+            if (e.CommandName == "ViewProductPage")
             {
-                if (Session["cart"] == null)
-                {
-                    List<Clothes> cart = new List<Clothes>();
-                    Session["cart"] = cart;
-                }
                 int index = Convert.ToInt32(e.CommandArgument);
-                List<Clothes> tempClothes = (List<Clothes>)Session["MensClothing"];
-                List<Clothes> tempCart = (List<Clothes>)Session["cart"];
-                tempCart.Add(tempClothes[index]);
-                Session["cart"] = tempCart;
-                Response.Redirect("MenProducts.aspx");
+                List<Clothes> tempClothes = getMensClothes();
+                Clothes tempProduct = tempClothes[index];
+                Session["selectedProduct"] = tempProduct;
+                Response.Redirect("ProductPage.aspx");
             }
         }
     }

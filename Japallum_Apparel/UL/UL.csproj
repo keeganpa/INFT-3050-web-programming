@@ -17,7 +17,7 @@
     <AssemblyName>UL</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -138,6 +138,7 @@
     <Content Include="Admin\ManageAccounts.aspx" />
     <Content Include="Admin\ManageItem.aspx" />
     <Content Include="Customer\MenProducts.aspx" />
+    <Content Include="Customer\ProductPage.aspx" />
     <Content Include="Customer\RegistrationConfirmation.aspx" />
     <Content Include="Customer\WomenProducts.aspx" />
     <Content Include="Customer\YouthProducts.aspx" />
@@ -244,6 +245,13 @@
     </Compile>
     <Compile Include="Customer\MenProducts.aspx.designer.cs">
       <DependentUpon>MenProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\ProductPage.aspx.cs">
+      <DependentUpon>ProductPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\ProductPage.aspx.designer.cs">
+      <DependentUpon>ProductPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\RegistrationConfirmation.aspx.cs">
       <DependentUpon>RegistrationConfirmation.aspx</DependentUpon>
