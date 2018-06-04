@@ -40,7 +40,7 @@ namespace DAL.Models
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public IEnumerable<Clothes> getGenderProducts(String gen)
+        public List<Clothes> getGenderProducts(String gen)
         {
             SqlConnection connection = new SqlConnection(getConnectionString());
             String query = "SELECT * FROM tblProduct WHERE prodGender = @gen";
