@@ -14,6 +14,19 @@ namespace DAL.Models
         {
             // Add user to database
             // INSERT INTO tblCustomer VALUES()
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "INSERT into tblCustomer VALUES (@fName, @lName, @rAddress, @bAdress, @emailAddress, @password, @active)";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@fName", SqlDbType.VarChar, 60).Value = fName;
+            cmd.Parameters.Add("@lName", SqlDbType.VarChar, 60).Value = lName;
+            cmd.Parameters.Add("@rAddress", SqlDbType.Int).Value = rAddress;
+            cmd.Parameters.Add("@bAddress", SqlDbType.Int).Value = bAddress;
+            cmd.Parameters.Add("@emailAddress", SqlDbType.VarChar, 100).Value = emailAddress;
+            cmd.Parameters.Add("@password", SqlDbType.VarChar, 60).Value = password;
+            cmd.Parameters.Add("@active", SqlDbType.Bit).Value = active;
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            connection.Close();
         }
 
         public int getUserID()
@@ -37,6 +50,18 @@ namespace DAL.Models
                 }
             }*/
             return userID;
+        }
+
+        public void updateUserActive(Boolean active, int id)
+        {
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "UPDATE tblCustomer SET customerActive = @active WHERE customerID = @id";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@active", SqlDbType.Bit).Value = active;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            connection.Close();
         }
 
         public string getConnectionString()

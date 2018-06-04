@@ -36,8 +36,41 @@ namespace DAL.Models
                 tempUser.Password = dr["customerPassword"].ToString();
                 tempUser.Active = Convert.ToBoolean(dr["customerActive"]);
             }
-            HttpContext.Current.Session["currentUser"] = tempUser;
-            return true;
+            if (tempUser.eAdd == email)
+            {
+                HttpContext.Current.Session["currentUser"] = tempUser;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public string getUserPassword(String email, String Password)
+        {
+            //Check if Email matches one in database
+            //Gets Password for said user
+            //returns it to BL for emailing
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "SELECT customerPassword FROM tblCustomer WHERE customerEmail = @email";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
+            connection.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {
+                while (dr.Read())
+                {
+                    Password = dr["customerPassword"].ToString();
+                }
+            }
+            catch
+            {
+
+            }
+            return Password;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
@@ -89,12 +122,19 @@ namespace DAL.Models
                 tempAdmin.Active = Convert.ToBoolean(reader["adminActive"]);
 
             }
-            HttpContext.Current.Session["currentAdmin"] = tempAdmin;
-            return true;
+            if (tempAdmin.eAdd == email)
+            {
+                HttpContext.Current.Session["currentAdmin"] = tempAdmin;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public IEnumerable<User> getUserList()
+        public List<User> getUserList()
         {
             SqlConnection connection = new SqlConnection(getConnectionString());
             String query = "SELECT * FROM tblCustomer";
@@ -112,6 +152,7 @@ namespace DAL.Models
                                     reader["customerEmail"].ToString(),
                                     reader["customerPassword"].ToString(),
                                     Convert.ToBoolean(reader["customerActive"]));
+                users.Add(user);
             }
             connection.Close();
             return users;
