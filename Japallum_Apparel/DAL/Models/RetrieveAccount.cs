@@ -74,9 +74,9 @@ namespace DAL.Models
             SqlConnection connection = new SqlConnection(getConnectionString());
             String query = "SELECT * FROM tblCustomer";
             SqlCommand cmd = new SqlCommand(query, connection);
+            connection.Open();
             List<User> users = new List<User>();
             SqlDataReader reader = cmd.ExecuteReader();
-            connection.Open();
             while (reader.Read())
             {
                 User user = new User(Convert.ToInt32(reader["customerID"]), 
