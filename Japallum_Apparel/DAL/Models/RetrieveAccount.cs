@@ -95,8 +95,6 @@ namespace DAL.Models
                 tempAdmin.lName = reader["lName"].ToString();
                 tempAdmin.eAdd = reader["adminEmail"].ToString();
                 tempAdmin.Password = reader["adminPassword"].ToString();
-                tempAdmin.Active = Convert.ToBoolean(reader["adminActive"]);
-
             }
             if (tempAdmin.eAdd == email)
             {
