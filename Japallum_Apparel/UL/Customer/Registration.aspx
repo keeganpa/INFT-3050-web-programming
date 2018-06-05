@@ -249,6 +249,13 @@
                         ControlToValidate="txtConfirmPassword" runat="server" />
                 </td>
             </tr>
+            <tr>
+                <td colspan="3">
+                    <p>Please enter your Email and then press validate email,<br />
+                        We will email you a code which you must input below for the registration to work.
+                    </p>
+                </td>
+            </tr>
             <!-- Email address textbox with validators -->
             <tr>
                 <td>
@@ -262,6 +269,19 @@
                         ControlToValidate="txtEmail" runat="server" />
                     <asp:RegularExpressionValidator runat="server" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                         ControlToValidate="txtEmail" ForeColor="Red" ErrorMessage="Invalid email address." />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <asp:Button ID="btnValidation" runat="server" Text="Send Validation Code" OnClick="sendValidation" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Validation Code</p>
+                </td>
+                <td>
+                    <asp:TextBox ID="tbxValidation" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>

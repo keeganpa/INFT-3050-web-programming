@@ -19,6 +19,8 @@ namespace UL
         // This method creates a new user based on the information input by the user on the client side
         protected void RegisterUser(object sender, EventArgs e)
         {
+            string validCode = Convert.ToString(Session["validationCode"]);
+            if (validCode.Equals(tbxValidation.Text)) { 
             if (IsValid)
             {
 
@@ -57,6 +59,17 @@ namespace UL
                 reg.createUser(fName, lName, rAddress, bAddress, email, password);
                 Response.Redirect("RegistrationConfirmation.aspx");
             }
+            }
         }
+
+        protected void sendValidation(object sender, EventArgs e)
+        {
+            string Email = txtEmail.Text;
+            EmailProcedures bl = new EmailProcedures();
+            string emailSent = bl.sendValidation(Email);
+            Session["validationCode"] = emailSent;
+        }
+
+        
     }
 }
