@@ -28,6 +28,20 @@ namespace DAL.Models
             cmd.ExecuteNonQuery();
             connection.Close();
         }
+
+        public int getAdminID()
+        {
+            // get ID from customer that matches given variables
+            int adminID = 0;
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "SELECT adminID FROM tblAdmin WHERE adminEmail = @email";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = HttpContext.Current.Session["loggedemail"];
+            connection.Open();
+            adminID = (int)cmd.ExecuteScalar();
+            return adminID;
+        }
+
         public string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["JapallumConnectionString"].ConnectionString;

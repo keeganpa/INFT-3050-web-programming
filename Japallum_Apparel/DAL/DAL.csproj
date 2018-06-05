@@ -126,6 +126,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderActions.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductActions.cs" />
     <Compile Include="Models\RetrieveAccount.cs" />
     <Compile Include="Models\RetrieveHistory.cs" />
     <Compile Include="Models\RetrieveProduct.cs" />

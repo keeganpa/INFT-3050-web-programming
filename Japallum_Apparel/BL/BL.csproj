@@ -117,8 +117,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\EmailProcedures.cs" />
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\LoginProcedures.cs" />
+    <Compile Include="Models\Postage.cs" />
     <Compile Include="Models\ProductProcedures.cs" />
     <Compile Include="Models\RegistrationProcedures.cs" />
     <Compile Include="Models\UserProcedures.cs" />

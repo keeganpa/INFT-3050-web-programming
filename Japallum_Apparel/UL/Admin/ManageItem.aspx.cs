@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL.Models;
 using System.Configuration;
+using BL.Models;
 
 namespace UL
 {
@@ -24,20 +25,50 @@ namespace UL
                     ConfigurationManager.AppSettings["SecurePath"] + "Admin/ManageItems.aspx";
                 Response.Redirect(url);
             }
+
+            //listener to add item
+            Add.Click += new EventHandler(this.addItem);
+        }
+
+        //method to add an item to the shop
+        public void addItem(Object sender, EventArgs e)
+        {
+            /*try
+            {*/
+                String size = txtSize.Text;
+                decimal price;
+                if (txtPrice.Text == "") { price = -1; } else { price = Convert.ToDecimal(txtPrice.Text); }
+                String shortDesc = txtDescription.Text;
+                String gender = txtGender.Text;
+                String imagePath = txtPath.Text;
+                int stock;
+                if (txtStock.Text == "") { stock = -1; } else { stock = int.Parse(txtStock.Text); }
+                if (size == "") { size = null; }
+                if (shortDesc == "") { shortDesc = null; }
+                if (gender == "") { gender = null; }
+                if (imagePath == "") { imagePath = null; }
+                ProductProcedures pP = new ProductProcedures();
+                pP.addItem(size, price, shortDesc, gender, imagePath, stock);
+                Response.Redirect("~/Admin/ManageItem.aspx");
+            /*}
+            catch
+            {
+
+            }*/
         }
 
         //method need by the gridview to construct its rows for each items
         public List<Clothes> GetSearchResult()
         {
             List<Clothes> tempClothes = new List<Clothes>();
-            List<Clothes> tempMens = (List<Clothes>)Session["MensClothing"];
-            List<Clothes> tempWomens = (List<Clothes>)Session["WomensClothing"];
-            List<Clothes> tempYouth = (List<Clothes>)Session["YouthClothing"];
+            ProductProcedures pP = new ProductProcedures();
+            List<Clothes> tempMens = (List<Clothes>)pP.getClothes("M");
+            List<Clothes> tempWomens = (List<Clothes>)pP.getClothes("F");
+            List<Clothes> tempYouth = (List<Clothes>)pP.getClothes("Y");
             tempClothes.AddRange(tempMens);
             tempClothes.AddRange(tempWomens);
             tempClothes.AddRange(tempYouth);
-            Session["adminSearch"] = tempClothes;
-            return (List<Clothes>)Session["adminSearch"];
+            return tempClothes;
         }
 
         //method to use action in gridview
