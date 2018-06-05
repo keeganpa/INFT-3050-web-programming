@@ -110,7 +110,7 @@ CREATE TABLE tblProduct(
 
 	shortDesc varchar(100)UNIQUE,
 
-	longDesc varchar(500)UNIQUE,
+	longDesc varchar(500),
 
 	prodGender char(3),
 
