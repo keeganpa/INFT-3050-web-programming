@@ -10,6 +10,9 @@ namespace BL.Models
 {
     public class LoginProcedures
     {
+        UserActions uA = new UserActions();
+        AdminActions aA = new AdminActions();
+
         public Boolean checkPassword(String password)
         {
             User tempUser = (User)HttpContext.Current.Session["currentSession"];
@@ -40,7 +43,6 @@ namespace BL.Models
         //the method triggered when someone try to log as a customer
         public int tryToLog(String email, String password, String indicator)
         {
-            //todo use DAL to get database id linked to email and password CUSTOMER
             String userOrAdmin = indicator;
             String tempEmail = email;
             String tempPassword = password;
@@ -48,17 +50,15 @@ namespace BL.Models
             if (IsValidEmail(tempEmail))
             {
                 //Is a valid email address
-                //Create instance of DAL CheckLogin
-                RetrieveAccount rA = new RetrieveAccount();
                 Boolean temp = false;
                 //Use a method to retieve User Data from database
                 if (userOrAdmin == "user")
                 {
-                    temp = rA.getUserAccount(tempEmail, tempPassword);
+                    temp = uA.getUserAccount(tempEmail, tempPassword);
                 }
                 else if (userOrAdmin == "admin")
                 {
-                    temp = rA.getAdminAccount(tempEmail, tempPassword);
+                    temp = aA.getAdminAccount(tempEmail, tempPassword);
                 }
                 //Pass email and password to DAL method to access account
                 if (temp == true)

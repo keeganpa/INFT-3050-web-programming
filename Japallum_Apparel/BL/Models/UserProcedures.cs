@@ -8,16 +8,15 @@ namespace BL.Models
 {
     public class UserProcedures
     {
-        RetrieveAccount accounts = new RetrieveAccount();
+        UserActions uA = new UserActions();
         public IEnumerable<User> displayUserList()
         {
-            List<User> users = (List<User>)accounts.getUserList();
+            List<User> users = (List<User>)uA.getUserList();
             return users;
         }
 
         public void changeStatus(Boolean active, int id)
         {
-            UserActions uA = new UserActions();
             uA.updateUserActive(active, id);
         }
     }

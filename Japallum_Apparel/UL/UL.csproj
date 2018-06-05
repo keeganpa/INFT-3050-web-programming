@@ -17,7 +17,7 @@
     <AssemblyName>UL</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressSSLPort>44338</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -132,6 +132,7 @@
     <Content Include="Customer\Contact.aspx">
       <BrowseToURL>~/Customer/Contact.aspx</BrowseToURL>
     </Content>
+    <Content Include="Customer\ForgotPassword.aspx" />
     <Content Include="Customer\Login.aspx" />
     <Content Include="Customer\Logout.aspx" />
     <Content Include="Customer\Main.aspx" />
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="Customer\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\MenProducts.aspx.cs">
       <DependentUpon>MenProducts.aspx</DependentUpon>

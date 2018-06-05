@@ -98,18 +98,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -127,9 +120,6 @@
     <Compile Include="Models\OrderActions.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductActions.cs" />
-    <Compile Include="Models\RetrieveAccount.cs" />
-    <Compile Include="Models\RetrieveHistory.cs" />
-    <Compile Include="Models\RetrieveProduct.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

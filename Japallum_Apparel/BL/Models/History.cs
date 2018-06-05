@@ -8,18 +8,19 @@ namespace BL.Models
 {
     public class History
     {
+        OrderActions oA = new OrderActions();
+        ProductActions pA = new ProductActions();
+
         //method to get the history of an user
         public List<Order> getHistory()
         {
-            RetrieveHistory hist = new RetrieveHistory();
-            return hist.getHistory();
+            return oA.getHistory();
         }
 
         //method to get the product of an order
         public List<Product> getProducts(int id)
         {
-            RetrieveHistory prod = new RetrieveHistory();
-            return prod.getProducts(id);
+            return pA.getProductsForHistory(id);
         }
     }
 }

@@ -10,15 +10,28 @@ namespace BL.Models
     {
         ProductActions pA = new ProductActions();
         AdminActions aA = new AdminActions();
-        RetrieveProduct rP = new RetrieveProduct();
         public List<Clothes> getClothes(String gen)
         {
-            List<Clothes> tempClothes = (List<Clothes>)rP.getGenderProducts(gen);
+            List<Clothes> tempClothes = (List<Clothes>)pA.getGenderProducts(gen);
             return tempClothes;
         }
 
-        public void addItem(String size, decimal price, String shortDesc, String gender, String imagePath, int stock)
+        //method triggered when we want to add an item to the DB
+        public void addItem(String size, String txtPrice, String shortDesc, String gender, String imagePath, String txtStock)
         {
+            //default value, -1 if not given
+            decimal price;
+            int stock;
+            if (txtPrice == "") { price = -1; } else { price = Convert.ToDecimal(txtPrice); }
+            if (txtStock == "") { stock = -1; } else { stock = int.Parse(txtStock); }
+
+            //we prefer to have null than "" for sql
+            if (size == "") { size = null; }
+            if (shortDesc == "") { shortDesc = null; }
+            if (gender == "") { gender = null; }
+            if (imagePath == "") { imagePath = null; }
+
+            //DAL use
             int adminID = aA.getAdminID();
             pA.addItem(size, price, shortDesc, gender, imagePath, stock, adminID);
         }

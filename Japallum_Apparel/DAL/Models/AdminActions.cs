@@ -29,6 +29,7 @@ namespace DAL.Models
             connection.Close();
         }
 
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public int getAdminID()
         {
             // get ID from customer that matches given variables
@@ -40,6 +41,39 @@ namespace DAL.Models
             connection.Open();
             adminID = (int)cmd.ExecuteScalar();
             return adminID;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public Boolean getAdminAccount(String email, String password)
+        {
+            //Check if username and email match database
+            //Get Admin data for matching email address from database
+            //Create new Admin object and apply data to it
+            //Put Admin object in the session
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "SELECT * FROM tblAdmin WHERE adminEmail = @email";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
+            connection.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            Admin tempAdmin = new Admin();
+            while (reader.Read())
+            {
+                tempAdmin.ID = Convert.ToInt32(reader["adminID"]);
+                tempAdmin.fName = reader["fName"].ToString();
+                tempAdmin.lName = reader["lName"].ToString();
+                tempAdmin.eAdd = reader["adminEmail"].ToString();
+                tempAdmin.Password = reader["adminPassword"].ToString();
+            }
+            if (tempAdmin.eAdd == email)
+            {
+                HttpContext.Current.Session["currentAdmin"] = tempAdmin;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string getConnectionString()

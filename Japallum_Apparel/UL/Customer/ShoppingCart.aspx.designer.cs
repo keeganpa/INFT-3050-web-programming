@@ -49,13 +49,22 @@ namespace UL {
         protected global::System.Web.UI.WebControls.GridView CartList;
         
         /// <summary>
-        /// PostageChoices control.
+        /// ddlPostage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView PostageChoices;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPostage;
+        
+        /// <summary>
+        /// postageSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource postageSelect;
         
         /// <summary>
         /// btnPayment control.

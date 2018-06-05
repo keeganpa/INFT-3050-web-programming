@@ -9,6 +9,8 @@ namespace BL.Models
 {
     public class EmailProcedures
     {
+        UserActions uA = new UserActions();
+
         //Method checks if valid email address
         public bool IsValidEmail(String email)
         {
@@ -34,10 +36,8 @@ namespace BL.Models
 
             if (IsValidEmail(tempEmail))
             {
-                
-                RetrieveAccount rA = new RetrieveAccount();
                 String tempPassword = "";
-                tempPassword = rA.getUserPassword(tempEmail, tempPassword);
+                tempPassword = uA.getUserPassword(tempEmail, tempPassword);
                 string message = "Hello! We are sending you this email to give you your password. Your password is " + tempPassword;
                 MailMessage emailMessage = new MailMessage("Japallum@Japallum.com", tempEmail, "Your Password", message);
                 SmtpClient mailClient = new SmtpClient();

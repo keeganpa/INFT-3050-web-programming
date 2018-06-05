@@ -12,6 +12,8 @@ namespace UL
 {
     public partial class manageItem : System.Web.UI.Page
     {
+        ProductProcedures pP = new ProductProcedures();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //you need to be logged for this page, this is the redirection if your not
@@ -33,35 +35,26 @@ namespace UL
         //method to add an item to the shop
         public void addItem(Object sender, EventArgs e)
         {
-            /*try
-            {*/
-                String size = txtSize.Text;
-                decimal price;
-                if (txtPrice.Text == "") { price = -1; } else { price = Convert.ToDecimal(txtPrice.Text); }
-                String shortDesc = txtDescription.Text;
-                String gender = txtGender.Text;
-                String imagePath = txtPath.Text;
-                int stock;
-                if (txtStock.Text == "") { stock = -1; } else { stock = int.Parse(txtStock.Text); }
-                if (size == "") { size = null; }
-                if (shortDesc == "") { shortDesc = null; }
-                if (gender == "") { gender = null; }
-                if (imagePath == "") { imagePath = null; }
-                ProductProcedures pP = new ProductProcedures();
-                pP.addItem(size, price, shortDesc, gender, imagePath, stock);
+            try
+            {
+                //BL use
+                pP.addItem(txtSize.Text, txtPrice.Text, txtDescription.Text, txtGender.Text, txtPath.Text, txtStock.Text);
+
+                //when it's done we reload the page to have empty field (like that the manager know he actually pushed the button add)
                 Response.Redirect("~/Admin/ManageItem.aspx");
-            /*}
+            }
             catch
             {
-
-            }*/
+                //if there is a bug nothing happen
+            }
         }
 
         //method need by the gridview to construct its rows for each items
         public List<Clothes> GetSearchResult()
         {
+            //we get clothes of each categories and add them one after the others
             List<Clothes> tempClothes = new List<Clothes>();
-            ProductProcedures pP = new ProductProcedures();
+            //using BL
             List<Clothes> tempMens = (List<Clothes>)pP.getClothes("M");
             List<Clothes> tempWomens = (List<Clothes>)pP.getClothes("F");
             List<Clothes> tempYouth = (List<Clothes>)pP.getClothes("Y");
