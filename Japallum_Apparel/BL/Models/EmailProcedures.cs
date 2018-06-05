@@ -48,5 +48,34 @@ namespace BL.Models
                 return false;
             }
         }
+
+        public string sendValidation(string Email)
+        {
+            string custAddress = Email;
+            string genCode = genRandom();
+            if (IsValidEmail(custAddress))
+            {
+                string message = "Your Validation code is " + genCode + " Please input this in to proceed";
+                MailMessage emailMessage = new MailMessage("Validation@Japallum.com", custAddress, "Validation Code", message);
+                SmtpClient mailCLient = new SmtpClient();
+                mailCLient.Send(emailMessage);
+            }
+            return genCode;
+        }
+
+        //Generates a random combination of 5 letters and numbers for the validation email
+        public string genRandom()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[5];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+            string finalString;
+            return finalString = new String(stringChars);
+        }
     }
 }
