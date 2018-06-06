@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using BL.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,7 +18,9 @@ namespace UL
             //Set the button listener and value
             btnPayment.Click += new EventHandler(this.GoToPayment);
             btnPayment.Text = "Payment: $" + getTotalAmount();
-
+            lblTotal.Text = "Total: $" + getTotalAmount();
+            lblSubtotal.Text = "Sub-Total: $" + getTotalAmount();
+            bindDropDownList();
             if (!Request.IsSecureConnection)
             {
                 string url =
@@ -31,13 +34,13 @@ namespace UL
         {
             return (List<Clothes>)Session["cart"];
         }
-
-/*
+        
         public List<Postage> GetPostageOptions()
         {
-            return (List<Postage>);
+            PostageProcedures pP = new PostageProcedures();
+            return pP.getPostage();
         }
-        */
+
         //method to use action in gridview
         //thanks https://stackoverflow.com/questions/14254880/how-to-get-row-data-by-clicking-a-button-in-a-row-in-an-asp-net-gridview for the help
         public void CartList_RowCommand(Object sender, GridViewCommandEventArgs e)
@@ -61,6 +64,15 @@ namespace UL
                 }*/
                 Response.Redirect("~/Customer/ShoppingCart.aspx");
             }
+        }
+
+        protected void bindDropDownList()
+        {
+            List<Postage> tempPostage = GetPostageOptions();
+            ddlPostage.DataSource = tempPostage;
+            ddlPostage.DataTextField = "postageDescription";
+            ddlPostage.DataValueField = "postageCost";
+            ddlPostage.DataBind();
         }
 
         //method to go to the payment page
@@ -91,6 +103,13 @@ namespace UL
                 }
             }
             return total;
+        }
+
+        protected void getPostageAmount(object sender, EventArgs e)
+        {
+            Double postage = Convert.ToDouble(ddlPostage.SelectedValue);
+            lblPostage.Text = "Postage: $" + postage;
+            lblSubtotal.Text = "Sub-Total: $" + (postage + getTotalAmount());
         }
     }
 }

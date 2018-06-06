@@ -118,6 +118,8 @@
     <Compile Include="Models\JunctionActions.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderActions.cs" />
+    <Compile Include="Models\Postage.cs" />
+    <Compile Include="Models\PostageActions.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductActions.cs" />
     <Compile Include="Models\User.cs" />

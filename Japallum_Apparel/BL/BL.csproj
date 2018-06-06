@@ -115,7 +115,7 @@
     <Compile Include="Models\EmailProcedures.cs" />
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\LoginProcedures.cs" />
-    <Compile Include="Models\Postage.cs" />
+    <Compile Include="Models\PostageProcedures.cs" />
     <Compile Include="Models\ProductProcedures.cs" />
     <Compile Include="Models\RegistrationProcedures.cs" />
     <Compile Include="Models\UserProcedures.cs" />
