@@ -42,6 +42,46 @@ namespace DAL.Models
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Product> searchItem(int productID, String prodSize, decimal price, String shortDesc, String longDesc, String gender, String imagePath, int prodStock)
+        {
+            // search item to database
+            List<Product> products = new List<Product>();
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String parameter = makeParameter(productID, prodSize, price, shortDesc, longDesc, gender, imagePath, prodStock);
+            String query = "SELECT * FROM tblProduct WHERE (" + parameter + ")";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            if (prodSize != "") { cmd.Parameters.Add("@prodSize", SqlDbType.Char, 3).Value = prodSize; }
+            if (price != -1) { cmd.Parameters.Add("@prodPrice", SqlDbType.Money).Value = price; }
+            if (shortDesc != "") { cmd.Parameters.Add("@shortDesc", SqlDbType.VarChar, 100).Value = shortDesc; }
+            if (longDesc != "") { cmd.Parameters.Add("@longDesc", SqlDbType.VarChar, 100).Value = longDesc; }
+            if (gender != "") { cmd.Parameters.Add("@prodGender", SqlDbType.Char, 3).Value = gender; }
+            if (imagePath != "") { cmd.Parameters.Add("@imageFile", SqlDbType.VarChar, 300).Value = imagePath; }
+            if (productID != -1) { cmd.Parameters.Add("@productID", SqlDbType.SmallInt).Value = productID; }
+            if (prodStock != -1) { cmd.Parameters.Add("@prodStock", SqlDbType.SmallInt).Value = prodStock; }
+            connection.Open();
+            System.Diagnostics.Debug.WriteLine(query);
+            SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Product product = new Product((int)reader["productID"],
+                                            (String)reader["prodSize"].ToString(),
+                                            (decimal)reader["prodPrice"],
+                                            (String)reader["shortDesc"].ToString(),
+                                            (String)reader["longDesc"].ToString(),
+                                            (String)reader["prodGender"].ToString(),
+                                            (Boolean)reader["active"],
+                                            (String)reader["imageFile"].ToString(),
+                                            (int)reader["prodStock"],
+                                            (int)reader["lastEdited"]);
+                System.Diagnostics.Debug.WriteLine("yolo");
+                System.Diagnostics.Debug.WriteLine(product);
+                products.Add(product);
+                }
+            connection.Close();
+            return products;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public Clothes getProduct(int ID)
         {
             SqlConnection connection = new SqlConnection(getConnectionString());
@@ -193,6 +233,60 @@ namespace DAL.Models
                 res = res + ", " + "@imagePath";
             }
             res = res + ", " + "@prodStock";
+            return res;
+        }
+
+        public String makeParameter(int id, String size, decimal price, String shortDesc, String longDesc, String gender, String imagePath, int prodStock)
+        {
+            String res = "";
+            Boolean first = true;
+            if (id != -1)
+            {
+                res = res + "productID = @productID";
+                first = false;
+            }
+            if (!(size == ""))
+            {
+                if (first == false) { res = res + " AND "; }
+                res = res + "prodSize = @prodSize";
+                first = false;
+            }
+            if (price != -1)
+            {
+                if (first == false) { res = res + " AND "; }
+                res = res + "prodPrice = @prodPrice";
+                first = false;
+            }
+            if (!(shortDesc == ""))
+            {
+                if (first == false) { res = res + " AND "; }
+                res = res + "shortDesc = @shortDesc";
+                first = false;
+            }
+            if (!(longDesc == ""))
+            {
+                if (first == false) { res = res + " AND "; }
+                res = res + "longDesc = @longDesc";
+                first = false;
+            }
+            if (!(gender == ""))
+            {
+                if (first == false) { res = res + " AND "; }
+                res = res + "prodGender = @prodGender";
+                first = false;
+            }
+            if (!(imagePath == ""))
+            {
+                if (first == false) { res = res + " AND "; }
+                res = res + "imageFile = @imageFile";
+                first = false;
+            }
+            if (prodStock != -1)
+            {
+                if (first == false) { res = res + " AND "; }
+                res = res + "prodStock = @prodStock";
+                first = false;
+            }
             return res;
         }
 

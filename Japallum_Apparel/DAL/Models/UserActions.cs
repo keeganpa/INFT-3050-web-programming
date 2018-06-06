@@ -43,16 +43,6 @@ namespace DAL.Models
             cmd.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = HttpContext.Current.Session["loggedemail"];
             connection.Open();
             userID = (int)cmd.ExecuteScalar();
-            //SqlDataReader dr = cmd.ExecuteReader();
-            //User tempUser = new User();
-            //String tempPassword = dr["customerPassword"].ToString();
-            /*using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    //userID = (int)reader["orderID"];
-                }
-            }*/
             return userID;
         }
 
