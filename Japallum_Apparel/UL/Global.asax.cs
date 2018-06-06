@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.UI;
+using System.Web.Routing;
 
 namespace UL
 {
@@ -12,6 +13,7 @@ namespace UL
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
             string JQueryVer = "1.7.1";
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition
             {
