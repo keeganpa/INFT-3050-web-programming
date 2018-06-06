@@ -16,6 +16,10 @@ namespace UL
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack) {
+                txtLongDescription.Attributes.Add("maxlength", txtLongDescription.MaxLength.ToString());
+            }
+
             //you need to be logged for this page, this is the redirection if your not
             if (Session["log"] == null || Session["log"] == "notlogged")
             {
@@ -38,14 +42,15 @@ namespace UL
             try
             {
                 //BL use
-                pP.addItem(txtSize.Text, txtPrice.Text, txtDescription.Text, txtGender.Text, txtPath.Text, txtStock.Text);
+                pP.addItem(txtSize.Text, txtPrice.Text, txtDescription.Text, txtLongDescription.Text, txtGender.Text, txtPath.Text, txtStock.Text);
 
                 //when it's done we reload the page to have empty field (like that the manager know he actually pushed the button add)
                 Response.Redirect("~/Admin/ManageItem.aspx");
             }
             catch
             {
-                //if there is a bug nothing happen
+                //if there is a bug this message appear
+                errorMessage.Text = "There were a problem adding the item, is you item short desciption unique or is it already in the database?";
             }
         }
 

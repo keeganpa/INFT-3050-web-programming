@@ -17,7 +17,7 @@ namespace BL.Models
         }
 
         //method triggered when we want to add an item to the DB
-        public void addItem(String size, String txtPrice, String shortDesc, String gender, String imagePath, String txtStock)
+        public void addItem(String size, String txtPrice, String shortDesc, String longDesc, String gender, String imagePath, String txtStock)
         {
             //default value, -1 if not given
             decimal price;
@@ -28,12 +28,13 @@ namespace BL.Models
             //we prefer to have null than "" for sql
             if (size == "") { size = null; }
             if (shortDesc == "") { shortDesc = null; }
+            if (longDesc == "") { longDesc = null; }
             if (gender == "") { gender = null; }
             if (imagePath == "") { imagePath = null; }
 
             //DAL use
             int adminID = aA.getAdminID();
-            pA.addItem(size, price, shortDesc, gender, imagePath, stock, adminID);
+            pA.addItem(size, price, shortDesc, longDesc, gender, imagePath, stock, adminID);
         }
     }
 }

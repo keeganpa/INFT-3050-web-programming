@@ -25,7 +25,7 @@
                     Size:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSize" runat="server" />
+                    <asp:TextBox ID="txtSize" runat="server" MaxLength="3"/>
                 </td>
             </tr>
             <!-- price textbox -->
@@ -43,7 +43,16 @@
                     Description:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtDescription" runat="server" />
+                    <asp:TextBox ID="txtDescription" runat="server" MaxLength="100"/>
+                </td>
+            </tr>
+            <!-- long description textbox -->
+            <tr>
+                <td>
+                    Long Description:
+                </td>
+                <td>
+                    <asp:TextBox ID="txtLongDescription" runat="server" TextMode="MultiLine" Rows="3" MaxLength="500"/>
                 </td>
             </tr>
             <!-- gender textbox -->
@@ -52,7 +61,7 @@
                     Gender:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtGender" runat="server" />
+                    <asp:TextBox ID="txtGender" runat="server" MaxLength="1"/>
                 </td>
             </tr>
             <!-- stock textbox -->
@@ -70,7 +79,7 @@
                     Path:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPath" runat="server" />
+                    <asp:TextBox ID="txtPath" runat="server" MaxLength="300"/>
                 </td>
             </tr>
             <!-- Buttons -->
@@ -94,6 +103,7 @@
                 <td colspan="3"></td>
             </tr>
         </table>
+        <div class="warning"><asp:Label Text="" ID="errorMessage" runat="server" /></div>
         <br />
         <br />
     

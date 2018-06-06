@@ -13,16 +13,16 @@ namespace DAL.Models
     public class ProductActions
     {
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public void addItem(String size, decimal price, String shortDesc, String gender, String imagePath, int prodStock, int date)
+        public void addItem(String size, decimal price, String shortDesc, String longDesc, String gender, String imagePath, int prodStock, int date)
         {
             // Add item to database
             // INSERT INTO tblProduct VALUES()
             Boolean active;
             if (price == -1 || prodStock == -1 || prodStock == 0) { active = false; } else { active = true; }
             SqlConnection connection = new SqlConnection(getConnectionString());
-            String column = makeColumn(size, price, shortDesc, gender, imagePath, prodStock);
+            String column = makeColumn(size, price, shortDesc, longDesc, gender, imagePath, prodStock);
             //System.Diagnostics.Debug.WriteLine(column);
-            String parameter = makeParameter(size, price, shortDesc, gender, imagePath, prodStock);
+            String parameter = makeParameter(size, price, shortDesc, longDesc, gender, imagePath, prodStock);
             //System.Diagnostics.Debug.WriteLine(parameter);
             String query = "INSERT into tblProduct (" + column + ", lastEdited, active) VALUES (" + parameter + ", @date, @active)";
             System.Diagnostics.Debug.WriteLine(query);
@@ -30,6 +30,7 @@ namespace DAL.Models
             if (size != null) { cmd.Parameters.Add("@size", SqlDbType.Char, 3).Value = size; }
             cmd.Parameters.Add("@price", SqlDbType.Money).Value = price;
             if (shortDesc != null) { cmd.Parameters.Add("@shortDesc", SqlDbType.VarChar, 100).Value = shortDesc; }
+            if (longDesc != null) { cmd.Parameters.Add("@longDesc", SqlDbType.VarChar, 100).Value = longDesc; }
             if (gender != null) { cmd.Parameters.Add("@gender", SqlDbType.Char, 3).Value = gender; }
             if (imagePath != null) { cmd.Parameters.Add("@imagePath", SqlDbType.VarChar, 300).Value = imagePath; }
             cmd.Parameters.Add("@date", SqlDbType.SmallInt).Value = date;
@@ -133,7 +134,7 @@ namespace DAL.Models
             return tempClothes;
         }
 
-        public String makeColumn(String size, decimal price, String shortDesc, String gender, String imagePath, int prodStock)
+        public String makeColumn(String size, decimal price, String shortDesc, String longDesc, String gender, String imagePath, int prodStock)
         {
             Boolean first = true;
             String res = "";
@@ -148,6 +149,10 @@ namespace DAL.Models
             {
                 res = res + ", " + "shortDesc";
             }
+            if (!(longDesc == null))
+            {
+                res = res + ", " + "longDesc";
+            }
             if (!(gender == null))
             {
                 res = res + ", " + "prodGender";
@@ -160,7 +165,7 @@ namespace DAL.Models
             return res;
         }
 
-        public String makeParameter(String size, decimal price, String shortDesc, String gender, String imagePath, int prodStock)
+        public String makeParameter(String size, decimal price, String shortDesc, String longDesc, String gender, String imagePath, int prodStock)
         {
             Boolean first = true;
             String res = "";
@@ -174,6 +179,10 @@ namespace DAL.Models
             if (!(shortDesc == null))
             {
                 res = res + ", " + "@shortDesc";
+            }
+            if (!(longDesc == null))
+            {
+                res = res + ", " + "@longDesc";
             }
             if (!(gender == null))
             {

@@ -180,4 +180,8 @@ a{
     background-color: #3e8e41;
 } 
 
-
+/*red centered error warning message for the bottom of the page*/
+.warning {
+    color: red;
+    text-align: center;
+}
