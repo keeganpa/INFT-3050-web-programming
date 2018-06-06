@@ -16,7 +16,7 @@ namespace BL.Models
             return tempClothes;
         }
 
-        //method triggered when we want to add an item to the DB
+        //method triggered when we want to add an item into the DB
         public void addItem(String size, String txtPrice, String shortDesc, String longDesc, String gender, String imagePath, String txtStock)
         {
             //default value, -1 if not given
@@ -35,6 +35,24 @@ namespace BL.Models
             //DAL use
             int adminID = aA.getAdminID();
             pA.addItem(size, price, shortDesc, longDesc, gender, imagePath, stock, adminID);
+        }
+
+        //method triggered when we want to search an item into the DB
+        public List<Product> searchItem(String txtID, String size, String txtPrice, String shortDesc, String longDesc, String gender, String imagePath, String txtStock)
+        {
+            //default value, -1 if not given
+            decimal price;
+            int stock;
+            int id;
+            if (txtPrice == "") { price = -1; } else { price = Convert.ToDecimal(txtPrice); }
+            if (txtStock == "") { stock = -1; } else { stock = int.Parse(txtStock); }
+            if (txtID == "") { id = -1; } else { id = int.Parse(txtID); }
+
+            //DAL use
+            List<Product> res = pA.searchItem(id, size, price, shortDesc, longDesc, gender, imagePath, stock);
+            System.Diagnostics.Debug.WriteLine("yolo");
+            System.Diagnostics.Debug.WriteLine(res[0]);
+            return res;
         }
     }
 }

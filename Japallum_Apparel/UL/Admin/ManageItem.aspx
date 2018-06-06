@@ -90,7 +90,7 @@
                 </td>
                 <td>
                     <!-- Button to search in database (with info above) -->
-                    <asp:Button ID="search" runat="server" Text="Search" Height="50px" Width="95%"/>
+                    <asp:Button ID="Search" runat="server" Text="Search" Height="50px" Width="95%"/>
                 </td>
             </tr>
             <tr>
@@ -111,7 +111,26 @@
 
     <!-- gridview to show search result -->
     <asp:GridView ID="SearchResult" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
-        ItemType="DAL.Models.Clothes" SelectMethod="GetSearchResult" onrowcommand="SearchResult_RowCommand">
+        ItemType="DAL.Models.Product" SelectMethod="GetSearchResults" onrowcommand="SearchResult_RowCommand">
+    <%-- set the content of each rows of the gridview (the list of data we need for each items) --%>
+    <Columns>
+        <asp:BoundField DataField="iD" HeaderText="ID"/>
+        <asp:ImageField DataImageUrlField="imagePath" HeaderText="image" ControlStyle-Width="100px" ControlStyle-Height = "100px"/>
+        <asp:BoundField DataField="size" HeaderText="size"/>
+        <asp:BoundField DataField="price" HeaderText="price in aud"/>
+        <asp:BoundField DataField="shortDesc" HeaderText="short description"/>
+        <asp:BoundField DataField="longDesc" HeaderText="long description"/>
+        <asp:BoundField DataField="gender" HeaderText="gender"/>
+        <asp:BoundField DataField="stock" HeaderText="stock"/>
+        <asp:BoundField DataField="active" HeaderText="active"/>
+        <asp:BoundField DataField="lastEdited" HeaderText="id admin"/>
+        <asp:ButtonField buttontype="Button" Text="activate/deactivate" commandname="Remove"/>
+    </Columns>
+    </asp:GridView>
+
+    <!-- gridview all products -->
+    <asp:GridView ID="AllProducts" runat="server" AutoGenerateColumns="False" GridLines="Horizontal" CellPadding="4"
+        ItemType="DAL.Models.Clothes" SelectMethod="GetAllProducts" onrowcommand="SearchResult_RowCommand">
     <%-- set the content of each rows of the gridview (the list of data we need for each items) --%>
     <Columns>
         <asp:BoundField DataField="iD" HeaderText="ID"/>

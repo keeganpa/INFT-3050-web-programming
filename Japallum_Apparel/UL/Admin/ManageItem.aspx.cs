@@ -32,8 +32,9 @@ namespace UL
                 Response.Redirect(url);
             }
 
-            //listener to add item
+            //listener to add item and search them
             Add.Click += new EventHandler(this.addItem);
+            Search.Click += new EventHandler(this.searchItem);
         }
 
         //method to add an item to the shop
@@ -54,8 +55,33 @@ namespace UL
             }
         }
 
+        //method to add an item to the shop
+        public void searchItem(Object sender, EventArgs e)
+        {
+            try
+            {
+            //BL use
+            Session["adminsearch"] = pP.searchItem(txtID.Text, txtSize.Text, txtPrice.Text, txtDescription.Text, txtLongDescription.Text, txtGender.Text, txtPath.Text, txtStock.Text);
+
+            //when it's done we reload the page to have empty field (like that the manager know he actually pushed the button add)
+            Response.Redirect("~/Admin/ManageItem.aspx");
+        }
+            catch
+            {
+                //if there is a bug this message appear
+                errorMessage.Text = "There were a problem searching the item, are you sure an item correspond to those data?";
+            }
+        }
+
         //method need by the gridview to construct its rows for each items
-        public List<Clothes> GetSearchResult()
+        public List<Product> GetSearchResults()
+        {
+            List<Product> tempProd = (List<Product>)Session["adminsearch"];
+            return tempProd;
+        }
+
+        //method need by the gridview to construct its rows for each items
+        public List<Clothes> GetAllProducts()
         {
             //we get clothes of each categories and add them one after the others
             List<Clothes> tempClothes = new List<Clothes>();
