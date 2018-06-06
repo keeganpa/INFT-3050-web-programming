@@ -18,7 +18,7 @@ namespace DAL.Models
             // Add user to database
             // INSERT INTO tblCustomer VALUES()
             SqlConnection connection = new SqlConnection(getConnectionString());
-            String query = "INSERT into tblCustomer VALUES (@fName, @lName, @rAddress, @bAdress, @emailAddress, @password, @active)";
+            String query = "INSERT into tblCustomer VALUES (@fName, @lName, @rAddress, @bAddress, @emailAddress, @password, @active)";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.Add("@fName", SqlDbType.VarChar, 60).Value = fName;
             cmd.Parameters.Add("@lName", SqlDbType.VarChar, 60).Value = lName;
@@ -68,17 +68,13 @@ namespace DAL.Models
             cmd.Parameters.Add("@email", SqlDbType.VarChar, 100).Value = email;
             connection.Open();
             SqlDataReader dr = cmd.ExecuteReader();
-            try
-            {
+            
                 while (dr.Read())
                 {
                     Password = dr["customerPassword"].ToString();
                 }
-            }
-            catch
-            {
-
-            }
+            
+            
             return Password;
         }
 

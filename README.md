@@ -18,7 +18,7 @@ Still needs doing
 	
 	- [x] Payment pages
 	
-	- [x]Admin pages
+	- [x] Admin pages
 
 - Email functions
 
@@ -26,7 +26,7 @@ Still needs doing
 
 	- [x] email validation
 
-	- Email copy of invoice
+	- [ ] Email copy of invoice
 
 - [x] Friendly URL’s where needed
 

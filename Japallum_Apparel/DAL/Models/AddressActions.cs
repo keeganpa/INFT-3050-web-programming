@@ -35,7 +35,7 @@ namespace DAL.Models
             // get ID from address that matches given variables
             int addressID = 0;
             SqlConnection connection = new SqlConnection(getConnectionString());
-            String query = "SELECT * FROM tblAddress WHERE streetNumber = @sNum AND streetName = @sName AND postCode = @pCode";
+            String query = "SELECT * FROM tblAddress WHERE streetNum = @sNum AND streetName = @sName AND postCode = @pCode";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.Add("@sNum", SqlDbType.VarChar, 50).Value = sNum;
             cmd.Parameters.Add("@sName", SqlDbType.VarChar, 255).Value = sName;
