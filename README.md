@@ -1,35 +1,35 @@
-﻿# INFT-3050-web-programming
+﻿### INFT-3050-web-programming
 
 Still needs doing
 
-- Business Layer.
+- [ ] Business Layer.
 
-- Data Access Layer.
+- [ ] Data Access Layer.
 
-- Error checking on any functions that may crash.
+- [ ] Error checking on any functions that may crash.
 
-- Error checking when passing between layers.
+- [ ] Error checking when passing between layers.
 
-- Commenting of code, remember to sign off changes for git.
+- [ ] Commenting of code, remember to sign off changes for git.
 
 - SSL 
 	
-	- Shopping cart
+	- [x] Shopping cart
 	
-	- payment pages
+	- [x] Payment pages
 	
-	- Admin pages
+	- [x]Admin pages
 
 - Email functions
 
-	- forgot password
+	- [x] Forgot password
 
-	- email validation
+	- [x] email validation
 
 	- Email copy of invoice
 
-- Friendly URL’s where needed
+- [x] Friendly URL’s where needed
 
-- Fully functioning admin section
+- [ ] Fully functioning admin section
 
 
