@@ -2,8 +2,23 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <!-- display the total amount to pay -->
-    <div class="text_container"><h1><asp:label ID="amount" runat="server"></asp:label></h1></div>
-
+    <div class="text_container">
+        <br />
+        <asp:Label ID="lblTotal" runat="server"></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="lblTax" runat="server"></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="lblPostage" runat="server"></asp:Label>
+        <br />
+        <br />
+        <asp:label ID="lblSubTotal" runat="server"></asp:label>
+        <br />
+        <br />
+        <h2><asp:Label ID="lblAmountToPay" runat="server"></asp:Label></h2>
+    </div>
+    <hr />
     <!-- from for the card data -->
     <div class="content">
         <table class="tableCentre">
@@ -117,5 +132,9 @@
     </div>
 
     <!-- button to pay and go to payment confirmation -->
-    <div style="text-align: center; margin-top: 20px;"><asp:Button ID="Pay" runat="server" Text="Pay"/></div>
+    <div style="text-align: center; margin-top: 20px;">
+        <asp:Button ID="Pay" runat="server" Text="Pay"/>
+        <br />
+        <br />
+    </div>
 </asp:Content>

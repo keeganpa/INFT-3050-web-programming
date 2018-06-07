@@ -28,8 +28,11 @@ namespace UL
                 Response.Redirect("Login.aspx");
             }
             ValidateOrder vO = new ValidateOrder();
-            amount.Text = "Amount to pay: $" + vO.getTotalAmount();
-
+            lblTotal.Text = "Total: $" + vO.getTotalAmount();
+            lblSubTotal.Text = "Sub-Total: $" + vO.getSubTotalAmount();
+            lblPostage.Text = "Postage: $" + vO.getPostageAmount();
+            lblTax.Text = "Tax: $" + vO.getTaxAmount();
+            lblAmountToPay.Text = "Amount to pay: $" + vO.getSubTotalAmount();
             //listener for the finalize payment button
             Pay.Click += new EventHandler(this.FinalizePayment);
         }
@@ -48,7 +51,10 @@ namespace UL
                     //- we redirect the customer to the payment confirmation page
                     ValidateOrder vO = new ValidateOrder();
                     vO.createOrder();
-                    Session["cart"] = new List<Clothes>();
+                    Session["cart"] = null;
+                    Session["postage"] = null;
+                    Session["total"] = null;
+                    Session["subTotal"] = null;
                     Response.Redirect("~/Customer/PaymentConfirmation.aspx");
                 }
             }

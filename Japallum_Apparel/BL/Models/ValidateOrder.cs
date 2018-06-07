@@ -27,33 +27,35 @@ namespace BL.Models
             {
                 jA.addJunction(orderID, clothes.ID, clothes.Price, 1);
             }
+
         }
 
         //compute the total amount in the cart
         public double getSubTotalAmount()
         {
-            double total = 0;
-            List<Clothes> clothes = (List<Clothes>)HttpContext.Current.Session["cart"];
-            //of course if the cart isn't initialized, we consider it's empty and the amount is 0
-            if (clothes == null)
-            {
-                total = 0;
-            }
-            else
-            {
-                for (int i = 0; i < clothes.Count; i++)
-                {
-                    total += clothes[i].Price;
-                }
-            }
-            return total;
+            double total = getTotalAmount();
+            double taxAmount = getTaxAmount();
+            double postage = getPostageAmount();
+            double subTotal = total + taxAmount + postage;
+            return subTotal;
         }
 
         public double getTotalAmount()
         {
-            double total = getSubTotalAmount();
-            total = total * (1 + tax);
+            double total = (Double)HttpContext.Current.Session["total"];
             return total;
+        }
+
+        public double getTaxAmount()
+        {
+            double taxAmount = getTotalAmount() * tax;
+            return taxAmount;
+        }
+
+        public double getPostageAmount()
+        {
+            double postage = (Double)HttpContext.Current.Session["postage"];
+            return postage;
         }
     }
 }

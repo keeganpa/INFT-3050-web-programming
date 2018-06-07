@@ -16,11 +16,8 @@ namespace UL
         protected void Page_Load(object sender, EventArgs e)
         {
             //Set the button listener and value
-            btnPayment.Click += new EventHandler(this.GoToPayment);
-            btnPayment.Text = "Payment: $" + getTotalAmount();
-            lblTotal.Text = "Total: $" + getTotalAmount();
-            lblSubtotal.Text = "Sub-Total: $" + getTotalAmount();
-            bindDropDownList();
+            btnCheckout.Click += new EventHandler(this.GoToCheckout);
+            btnAddMoreItems.Click += new EventHandler(this.GoToMain);
             if (!Request.IsSecureConnection)
             {
                 string url =
@@ -33,12 +30,6 @@ namespace UL
         public List<Clothes> GetShoppingCartItems()
         {
             return (List<Clothes>)Session["cart"];
-        }
-        
-        public List<Postage> GetPostageOptions()
-        {
-            PostageProcedures pP = new PostageProcedures();
-            return pP.getPostage();
         }
 
         //method to use action in gridview
@@ -66,50 +57,16 @@ namespace UL
             }
         }
 
-        protected void bindDropDownList()
-        {
-            List<Postage> tempPostage = GetPostageOptions();
-            ddlPostage.DataSource = tempPostage;
-            ddlPostage.DataTextField = "postageDescription";
-            ddlPostage.DataValueField = "postageCost";
-            ddlPostage.DataBind();
-        }
-
         //method to go to the payment page
         //doing nothing if there is nothing to pay
-        protected void GoToPayment(Object sender, EventArgs e)
+        protected void GoToCheckout(Object sender, EventArgs e)
         {
-            List<Clothes> clothes = (List<Clothes>)Session["cart"];
-            if (clothes != null && getTotalAmount() != 0)
-            {
-                Response.Redirect("~/Customer/Payment.aspx");
-            }
+            Response.Redirect("~/Customer/Checkout.aspx");
         }
 
-        //method to get the total amount of the cart
-        protected double getTotalAmount()
+        protected void GoToMain(Object sender, EventArgs e)
         {
-            double total = 0;
-            List<Clothes> clothes = (List<Clothes>)Session["cart"];
-            //if the cart isn't initialized we consider it's empty so the amount is 0
-            if (clothes == null)
-            {
-                total = 0;
-            } else
-            {
-                for (int i = 0; i < clothes.Count; i++)
-                {
-                    total += clothes[i].Price;
-                }
-            }
-            return total;
-        }
-
-        protected void getPostageAmount(object sender, EventArgs e)
-        {
-            Double postage = Convert.ToDouble(ddlPostage.SelectedValue);
-            lblPostage.Text = "Postage: $" + postage;
-            lblSubtotal.Text = "Sub-Total: $" + (postage + getTotalAmount());
+            Response.Redirect("~/Customer/Main.aspx");
         }
     }
 }

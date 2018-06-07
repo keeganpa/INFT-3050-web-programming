@@ -133,6 +133,7 @@
     </Content>
     <Content Include="Admin\AdminLogin.aspx" />
     <Content Include="Admin\AdminRegistration.aspx" />
+    <Content Include="Customer\Checkout.aspx" />
     <Content Include="Customer\Contact.aspx">
       <BrowseToURL>~/Customer/Contact.aspx</BrowseToURL>
     </Content>
@@ -239,6 +240,13 @@
     </Compile>
     <Compile Include="Admin\AdminRegistration.aspx.designer.cs">
       <DependentUpon>AdminRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
