@@ -16,6 +16,7 @@ namespace UL
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //to set up the maxlength of the multiline textbox because the MaxLength attribut won't work for this one
             if (!IsPostBack) {
                 txtLongDescription.Attributes.Add("maxlength", txtLongDescription.MaxLength.ToString());
             }
@@ -55,7 +56,7 @@ namespace UL
             }
         }
 
-        //method to add an item to the shop
+        //method to search an item from the shop
         public void searchItem(Object sender, EventArgs e)
         {
             try
@@ -68,7 +69,7 @@ namespace UL
         }
             catch
             {
-                //if there is a bug this message appear
+                //if there is a bug this message appear (there will be a bug if there is no item corresponding to the textbox)
                 errorMessage.Text = "There were a problem searching the item, are you sure an item correspond to those data?";
             }
         }

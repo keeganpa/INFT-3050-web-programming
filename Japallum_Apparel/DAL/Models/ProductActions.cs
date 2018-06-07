@@ -17,16 +17,18 @@ namespace DAL.Models
         {
             // Add item to database
             // INSERT INTO tblProduct VALUES()
+
+            //if the data given aren't enough to let the item available to client, the item must be inactive
             Boolean active;
             if (price == -1 || prodStock == -1 || prodStock == 0) { active = false; } else { active = true; }
-            SqlConnection connection = new SqlConnection(getConnectionString());
+
+            //setting connection string and sql request
+            SqlConnection connection = new SqlConnection(getConnectionString()); //getting connection string
             String column = makeColumn(size, price, shortDesc, longDesc, gender, imagePath, prodStock);
-            //System.Diagnostics.Debug.WriteLine(column);
             String parameter = makeParameter(size, price, shortDesc, longDesc, gender, imagePath, prodStock);
-            //System.Diagnostics.Debug.WriteLine(parameter);
-            String query = "INSERT into tblProduct (" + column + ", lastEdited, active) VALUES (" + parameter + ", @date, @active)";
-            System.Diagnostics.Debug.WriteLine(query);
+            String query = "INSERT into tblProduct (" + column + ", lastEdited, active) VALUES (" + parameter + ", @date, @active)"; //the sql request
             SqlCommand cmd = new SqlCommand(query, connection);
+            //paramaters
             if (size != null) { cmd.Parameters.Add("@size", SqlDbType.Char, 3).Value = size; }
             cmd.Parameters.Add("@price", SqlDbType.Money).Value = price;
             if (shortDesc != null) { cmd.Parameters.Add("@shortDesc", SqlDbType.VarChar, 100).Value = shortDesc; }
@@ -36,6 +38,8 @@ namespace DAL.Models
             cmd.Parameters.Add("@date", SqlDbType.SmallInt).Value = date;
             cmd.Parameters.Add("@prodStock", SqlDbType.SmallInt).Value = prodStock;
             cmd.Parameters.Add("@active", SqlDbType.Bit).Value = active;
+
+            //use command
             connection.Open();
             cmd.ExecuteNonQuery();
             connection.Close();
@@ -44,12 +48,15 @@ namespace DAL.Models
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Product> searchItem(int productID, String prodSize, decimal price, String shortDesc, String longDesc, String gender, String imagePath, int prodStock)
         {
-            // search item to database
+            //search item to database
             List<Product> products = new List<Product>();
-            SqlConnection connection = new SqlConnection(getConnectionString());
+
+            //setting connection string and sql request
+            SqlConnection connection = new SqlConnection(getConnectionString()); //getting connection string
             String parameter = makeParameter(productID, prodSize, price, shortDesc, longDesc, gender, imagePath, prodStock);
-            String query = "SELECT * FROM tblProduct WHERE (" + parameter + ")";
+            String query = "SELECT * FROM tblProduct WHERE (" + parameter + ")"; //the sql request
             SqlCommand cmd = new SqlCommand(query, connection);
+            //paramaters
             if (prodSize != "") { cmd.Parameters.Add("@prodSize", SqlDbType.Char, 3).Value = prodSize; }
             if (price != -1) { cmd.Parameters.Add("@prodPrice", SqlDbType.Money).Value = price; }
             if (shortDesc != "") { cmd.Parameters.Add("@shortDesc", SqlDbType.VarChar, 100).Value = shortDesc; }
@@ -58,11 +65,13 @@ namespace DAL.Models
             if (imagePath != "") { cmd.Parameters.Add("@imageFile", SqlDbType.VarChar, 300).Value = imagePath; }
             if (productID != -1) { cmd.Parameters.Add("@productID", SqlDbType.SmallInt).Value = productID; }
             if (prodStock != -1) { cmd.Parameters.Add("@prodStock", SqlDbType.SmallInt).Value = prodStock; }
+
+            //use command
             connection.Open();
-            System.Diagnostics.Debug.WriteLine(query);
             SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                //for each rows of the database corresponding to the request we create a product and add it to the list
                     Product product = new Product((int)reader["productID"],
                                             (String)reader["prodSize"].ToString(),
                                             (decimal)reader["prodPrice"],
@@ -73,8 +82,6 @@ namespace DAL.Models
                                             (String)reader["imageFile"].ToString(),
                                             (int)reader["prodStock"],
                                             (int)reader["lastEdited"]);
-                System.Diagnostics.Debug.WriteLine("yolo");
-                System.Diagnostics.Debug.WriteLine(product);
                 products.Add(product);
                 }
             connection.Close();
@@ -84,15 +91,21 @@ namespace DAL.Models
         [DataObjectMethod(DataObjectMethodType.Select)]
         public Clothes getProduct(int ID)
         {
+            //getting one clothes from its id
+            //setting connection string and sql request
             SqlConnection connection = new SqlConnection(getConnectionString());
             String query = "SELECT * FROM tblProduct WHERE productID = @ID";
             SqlCommand cmd = new SqlCommand(query, connection);
+            //paramaters
             cmd.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+
+            //use command
             connection.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             Clothes tempProduct = new Clothes();
             while (reader.Read())
             {
+                //for each rows of the database corresponding to the request we create a product and add it to the list
                 tempProduct.ID = Convert.ToInt32(reader["productID"]);
                 tempProduct.Size = reader["prodSize"].ToString();
                 tempProduct.Price = Convert.ToDouble(reader["prodPrize"]);
@@ -112,19 +125,24 @@ namespace DAL.Models
         public List<Product> getProductsForHistory(int id)
         {
             List<Product> products = new List<Product>();
+
+            //setting connection string and sql request
             String sql = "SELECT * FROM tblOrder JOIN (tblProduct JOIN junctionProd_Order AS junction ON tblProduct.productID = junction.productID)"
                         + "ON tblOrder.orderID = junction.orderID WHERE tblOrder.orderID = @id";
             var con = ConfigurationManager.ConnectionStrings["JapallumConnectionString"].ToString();
             using (var myCon = new SqlConnection(con))
             {
+                //paramaters
                 SqlCommand cmd = new SqlCommand(sql, myCon);
                 cmd.Parameters.AddWithValue("@id", id);
 
+                //use command
                 myCon.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
+                        //for each rows of the database corresponding to the request we create a product and add it to the list
                         Product product = new Product((int)reader["productID"],
                                                 (String)reader["prodSize"],
                                                 (decimal)reader["prodPrice"],
@@ -147,15 +165,21 @@ namespace DAL.Models
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Clothes> getGenderProducts(String gen)
         {
+            //setting connection string and sql request
             SqlConnection connection = new SqlConnection(getConnectionString());
             String query = "SELECT * FROM tblProduct WHERE prodGender = @gen";
+
+            //paramaters
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.Add("@gen", SqlDbType.Char, 3).Value = gen;
+            
+            //use command
             connection.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             List<Clothes> tempClothes = new List<Clothes>();
             while (reader.Read())
             {
+                //for each rows of the database corresponding to the request we create a clothes and add it to the list
                 int ID = Convert.ToInt32(reader["productID"]);
                 String Size = reader["prodSize"].ToString();
                 Double Price = Convert.ToDouble(reader["prodPrice"]);
@@ -176,6 +200,8 @@ namespace DAL.Models
 
         public String makeColumn(String size, decimal price, String shortDesc, String longDesc, String gender, String imagePath, int prodStock)
         {
+            //used to create a string which is a list of column to insert value for the sql string
+            //first is to know which column is the first, forthe first one we don't insert a coma in the string
             Boolean first = true;
             String res = "";
             if (!(size == null))
@@ -207,6 +233,8 @@ namespace DAL.Models
 
         public String makeParameter(String size, decimal price, String shortDesc, String longDesc, String gender, String imagePath, int prodStock)
         {
+            //used to create a string which is a list of parameter for the value to insert in the column of the new item in the sql string
+            //first is to know which column is the first, forthe first one we don't insert a coma in the string
             Boolean first = true;
             String res = "";
             if (!(size == null))
@@ -238,6 +266,8 @@ namespace DAL.Models
 
         public String makeParameter(int id, String size, decimal price, String shortDesc, String longDesc, String gender, String imagePath, int prodStock)
         {
+            //used to create a string which is a list of parameter for the value to search in the column of items in the sql string
+            //first is to know which column is the first, forthe first one we don't insert a coma in the string
             String res = "";
             Boolean first = true;
             if (id != -1)

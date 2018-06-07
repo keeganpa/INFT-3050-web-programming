@@ -12,14 +12,18 @@ namespace DAL.Models
     {
         public void addJunction(int orderID, int productID, double prodPrice, int quantity)
         {
-            // Add order to database
+            // Add junction between an order and its products
+            //setting connection string and sql request
             SqlConnection connection = new SqlConnection(getConnectionString());
             String query = "INSERT into junctionProd_Order (orderID, productID, prodPrice, quantity) VALUES (@orderID, @productID, @prodPrice, @quantity)";
+            //paramaters
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.Add("@orderID", SqlDbType.Int).Value = orderID;
             cmd.Parameters.Add("@productID", SqlDbType.Int).Value = productID;
             cmd.Parameters.Add("@prodPrice", SqlDbType.Money).Value = prodPrice;
             cmd.Parameters.Add("@quantity", SqlDbType.SmallInt).Value = quantity;
+
+            //use command
             connection.Open();
             System.Diagnostics.Debug.WriteLine(productID);
             cmd.ExecuteNonQuery();

@@ -114,7 +114,6 @@
     <Compile Include="Models\AdminActions.cs" />
     <Compile Include="Models\checkLogin.cs" />
     <Compile Include="Models\Clothes.cs" />
-    <Compile Include="Models\Junction.cs" />
     <Compile Include="Models\JunctionActions.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderActions.cs" />

@@ -17,7 +17,7 @@ namespace BL.Models
             return oA.getHistory();
         }
 
-        //method to get the product of an order
+        //method to get the products of an order
         public List<Product> getProducts(int id)
         {
             return pA.getProductsForHistory(id);
