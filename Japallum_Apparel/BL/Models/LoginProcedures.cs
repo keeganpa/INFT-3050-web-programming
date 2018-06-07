@@ -27,16 +27,22 @@ namespace BL.Models
         }
 
         //Method checks if valid email address
+        // checks if the string is empty or a null
+        //if its not then it will see if it can convert it to Email context
+        // if it cant then it returns false
         public bool IsValidEmail(String email)
         {
-            var addr = new System.Net.Mail.MailAddress(email);
-            if (addr.Address == email)
+            if (String.IsNullOrEmpty(email)) return false;
+            //tries to convert
+            try
             {
-                //Email is valid
+                MailAddress to = new MailAddress(email);
                 return true;
             }
-            //Email is invalid
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         //CUSTOMER SIDE

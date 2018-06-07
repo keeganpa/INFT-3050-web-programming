@@ -21,6 +21,7 @@ GO
 
 
 --Address Table
+USE JapallumDB
 
 CREATE TABLE tblAddress(
 

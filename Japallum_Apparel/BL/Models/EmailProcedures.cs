@@ -12,16 +12,23 @@ namespace BL.Models
         UserActions uA = new UserActions();
 
         //Method checks if valid email address
+        // checks if the string is empty or a null
+        //if its not then it will see if it can convert it to Email context
+        // if it cant then it returns false
         public bool IsValidEmail(String email)
         {
-            var addr = new System.Net.Mail.MailAddress(email);
-            if (addr.Address == email)
+            if (String.IsNullOrEmpty(email)) return false;
+            //tries to convert
+            try
             {
-                //Email is valid
+                MailAddress to = new MailAddress(email);
                 return true;
             }
-            //Email is invalid
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
+            
         }
 
         //Checks for if the email Address is valid,
@@ -110,7 +117,7 @@ namespace BL.Models
                 return "<html><head><title>Validation Code</title></head>"
                     + "<body><p>Your Validation Code is:</p>"
                     + "<h2>" + Code + "</h2>"
-                    + "<p> Please enter this before proceeding with your Registration</p></bofy</html>";
+                    + "<p> Please enter this before proceeding with your Registration</p></body></html>";
             }
             else
             {
