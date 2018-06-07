@@ -139,5 +139,10 @@ namespace BL.Models
                 return "Your Password is \n" + password + "\n This sort of practice is not meant to be done in a regular case.";
             }
         }
+
+        public getOrderDetails(DateTime date, double subTotal, double total, int customerID, int customerAddress, double tax)
+        {
+
+        }
     }
 }

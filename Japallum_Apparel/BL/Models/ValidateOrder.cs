@@ -16,6 +16,7 @@ namespace BL.Models
             AddressActions aA = new AddressActions();
             OrderActions oA = new OrderActions();
             JunctionActions jA = new JunctionActions();
+            EmailProcedures eP = new EmailProcedures();
 
             //create the order
             DateTime date = DateTime.Now;
@@ -24,6 +25,7 @@ namespace BL.Models
             int customerID = uA.getUserID();
             int customerAddress = aA.getAddressID((String)HttpContext.Current.Session["loggedemail"]);
             oA.addOrder(date, subTotal, total, customerID, customerAddress, tax);
+            eP.getOrderDetails(date, subTotal, total, customerID, customerAddress, tax);
             int orderID = oA.getOrderID(date, subTotal, total, customerID, customerAddress, tax);
 
             //for each clothes in the cart, we create a junction between the order and the product
