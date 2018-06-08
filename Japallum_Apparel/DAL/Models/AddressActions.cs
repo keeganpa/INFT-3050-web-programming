@@ -67,6 +67,29 @@ namespace DAL.Models
             return addressID;
         }
 
+
+        //Gets Data from databse for Order email by checking the addressID
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public void getUserAddress(int addressID, ref string strNum,ref string strNam,ref string suburb,ref string state,ref string postCode)
+        {
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "SELECT streetNum, streetName, suburb, addressState, postCode FROM tblAddress WHERE addressID = @aID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@aID", SqlDbType.Int).Value = addressID;
+            connection.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            int intPost = 0;
+            while (dr.Read())
+            {
+                strNum = dr["streetNum"].ToString();
+                strNam = dr["streetName"].ToString();
+                suburb = dr["suburb"].ToString();
+                state = dr["addressState"].ToString();
+                intPost = Convert.ToInt32(dr["postCode"]);
+            }
+            postCode = Convert.ToString(intPost);
+            return;
+        }
         public string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["JapallumConnectionString"].ConnectionString;

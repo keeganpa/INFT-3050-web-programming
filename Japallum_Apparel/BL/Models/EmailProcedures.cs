@@ -10,7 +10,7 @@ namespace BL.Models
     public class EmailProcedures
     {
         UserActions uA = new UserActions();
-
+        AddressActions aA = new AddressActions();
         //Method checks if valid email address
         // checks if the string is empty or a null
         //if its not then it will see if it can convert it to Email context
@@ -87,10 +87,41 @@ namespace BL.Models
                 AlternateView view = AlternateView.CreateAlternateViewFromString(html, null, "text/html");
 
                 emailMessage.AlternateViews.Add(view);
-                SmtpClient mailCLient = new SmtpClient();
-                mailCLient.Send(emailMessage);
+                SmtpClient mailClient = new SmtpClient();
+                mailClient.Send(emailMessage);
             }
             return genCode;
+        }
+        //Takes Given values
+        // Converts the ones it needs into string and retreives others through DAL methods
+        // then sends them to OrderEmail to be converted into email format and sent away
+        public void getOrderDetails(DateTime date, double subTotal, double total, int customerID, int customerAddress, double tax)
+        {
+            string emailDate = Convert.ToString(date);
+            string emailSub = Convert.ToString(subTotal);
+            string emailTotal = Convert.ToString(total);
+            string emailTax = Convert.ToString(tax);
+            string emailAddress = uA.getUserEmail(customerID);
+            string streetNum = "";
+            string streetName = "";
+            string suburb = "";
+            string state = "";
+            string postCode = "";
+            aA.getUserAddress(customerAddress,ref streetNum,ref streetName,ref suburb,ref state,ref postCode);
+
+            if (IsValidEmail(emailAddress))
+            {
+                MailMessage emailMessage = new MailMessage("Orders@Japallum.com", emailAddress);
+                emailMessage.Subject = "Your Order";
+                emailMessage.Body = getOrderEmail(emailDate, emailSub, emailTotal, emailTax, streetNum, streetName, suburb, state, postCode, false);
+
+                string html = getOrderEmail(emailDate, emailSub, emailTotal, emailTax, streetNum, streetName, suburb, state, postCode, true);
+                AlternateView view = AlternateView.CreateAlternateViewFromString(html, null, "text/html");
+
+                emailMessage.AlternateViews.Add(view);
+                SmtpClient mailClient = new SmtpClient();
+                mailClient.Send(emailMessage);
+            }
         }
 
         //Generates a random combination of 5 letters and numbers for the validation email
@@ -129,7 +160,7 @@ namespace BL.Models
         {
             if (isHtml)
             {
-                return "<html><head><title> Password</title></head>" +
+                return "<html><head><title>Password</title></head>" +
                     "<body><p>Your Password is:</p>" +
                     "<h2>" + password + "</h2>" +
                     "<p> Let it be noted this way of doing it is not meant to be done professionally</p></body></html>";
@@ -140,9 +171,26 @@ namespace BL.Models
             }
         }
 
-        public getOrderDetails(DateTime date, double subTotal, double total, int customerID, int customerAddress, double tax)
-        {
 
+        //Uses base address HTML elements as well ads a liottle bit of formatting to make it look good.
+        public string getOrderEmail(string date, string subTotal,string total, string tax,string streetNum,string streetName,string suburb,string state,string postCode,Boolean isHtml)
+        {
+            if (isHtml)
+            {
+                return "<html><head><title>Your Order</title></head>" +
+                    "<body><p>Here is the information for your recent Order with us on" + date + "<br />" +
+                    "It Cost: $" + subTotal + "<br /> Before the included tax of " + tax + "<br /> with an overall cost of: $" + total +
+                    "</p>"+
+                    "<p> Sent To: </p>" +
+                    "<address>" + streetNum +" "+ streetName + "<br>" + suburb + "<br>" + state + "<br>" + postCode + "</address>"+
+                    "<p> If you wish to see you Order in full or wish to speak with us,<br /> Please visit us at Japallum Apparel.</p>";
+            }
+            else
+            {
+                return "Order Placed on: " + date + "\n Subtotal: $" + subTotal + "\n Tax: " + tax + "\n Total: $" + total + "\n \n" +
+                    "It is being sent to: \n" + streetNum + " " + streetName + "\n" + suburb + "\n" + state + " \n" + postCode + "\n \n" +
+                    "Please visit us at Japallum Appaarel for more information";
+            }
         }
     }
 }

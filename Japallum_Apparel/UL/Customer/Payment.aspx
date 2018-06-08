@@ -112,22 +112,6 @@
             <tr>
                 <td colspan="3"></td>
             </tr>
-
-            <!-- password textbox with validator -->
-            <tr>
-                <td>
-                    Password
-                </td>
-                <!-- textbox -->
-                <td>
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" />
-                </td>
-                <!-- validator -->
-                <td>
-                    <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ControlToValidate="txtPassword"
-                        runat="server" />
-                </td>
-            </tr>
         </table>
     </div>
 

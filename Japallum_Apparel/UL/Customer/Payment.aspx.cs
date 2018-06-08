@@ -43,8 +43,6 @@ namespace UL
             if (IsValid)
             {
                 LoginProcedures lP = new LoginProcedures();
-                if (lP.checkPassword(txtPassword.Text))
-                {
                     //so if the password is correct:
                     //- we create an order in the database
                     //- we empty the cart
@@ -56,7 +54,7 @@ namespace UL
                     Session["total"] = null;
                     Session["subTotal"] = null;
                     Response.Redirect("~/Customer/PaymentConfirmation.aspx");
-                }
+                
             }
         }
     }

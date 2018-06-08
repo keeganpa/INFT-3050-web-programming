@@ -142,6 +142,23 @@ namespace DAL.Models
             return users;
         }
 
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public String getUserEmail(int uID)
+        {
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            string query = "SELECT customerEmail FROM tblCustomer WHERE customerID = @ID";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = uID;
+            connection.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            string uEmail = "";
+            while (dr.Read())
+            {
+                uEmail = dr["customerEmail"].ToString();
+            }
+            return uEmail;
+        }
+
         public string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["JapallumConnectionString"].ConnectionString;
