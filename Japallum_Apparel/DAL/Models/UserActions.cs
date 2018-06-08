@@ -117,6 +117,7 @@ namespace DAL.Models
             }
         }
 
+        // MEthod gets a list of users from the database
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<User> getUserList()
         {
@@ -128,6 +129,7 @@ namespace DAL.Models
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
+                // Creating a new user from database outputs
                 User user = new User(Convert.ToInt32(reader["customerID"]),
                                     reader["fName"].ToString(),
                                     reader["lName"].ToString(),
@@ -142,6 +144,7 @@ namespace DAL.Models
             return users;
         }
 
+        // Method used to get a users email from the database
         [DataObjectMethod(DataObjectMethodType.Select)]
         public String getUserEmail(int uID)
         {
@@ -159,6 +162,7 @@ namespace DAL.Models
             return uEmail;
         }
 
+        // method used to get the connection string from the database
         public string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["JapallumConnectionString"].ConnectionString;

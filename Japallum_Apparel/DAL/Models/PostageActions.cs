@@ -12,6 +12,7 @@ namespace DAL.Models
     [DataObject(true)]
     public class PostageActions
     {
+        // Method to add a postage entry to tblPostage
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void addPostage(String description, Double cost, Boolean active)
         {
@@ -26,6 +27,21 @@ namespace DAL.Models
             connection.Close();
         }
 
+        //Method used to change the postage active status
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public void updatePostageActive(Boolean active, int id)
+        {
+            SqlConnection connection = new SqlConnection(getConnectionString());
+            String query = "UPDATE tblPostage SET postageactive = @active WHERE postageID = @id";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.Add("@active", SqlDbType.Bit).Value = active;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        // Method used to get all postage entries from tblPostage
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Postage> getPostage()
         {
@@ -48,6 +64,7 @@ namespace DAL.Models
                 return postageOptions;
         }
 
+        // Method used to obtain connection string for database connection
         public string getConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["JapallumConnectionString"].ConnectionString;

@@ -19,6 +19,7 @@ namespace UL
             {
                 Response.Redirect("AdminLogin.aspx");
             }
+            // Makes sure it is a secure connection before proceeding
             if (!Request.IsSecureConnection)
             {
                 string url =

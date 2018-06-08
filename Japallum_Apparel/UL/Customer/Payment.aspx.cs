@@ -49,6 +49,7 @@ namespace UL
                     //- we redirect the customer to the payment confirmation page
                     ValidateOrder vO = new ValidateOrder();
                     vO.createOrder();
+                    // When order is complete we reset all session variables back to null for order
                     Session["cart"] = null;
                     Session["postage"] = null;
                     Session["total"] = null;

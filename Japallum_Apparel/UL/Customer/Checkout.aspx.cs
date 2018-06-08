@@ -41,6 +41,7 @@ namespace UL.Customer
             return (List<Clothes>)Session["cart"];
         }
 
+        // Method used in postage girdview to show postage options
         public List<Postage> GetPostageOptions()
         {
             PostageProcedures pP = new PostageProcedures();
@@ -58,6 +59,7 @@ namespace UL.Customer
                 int index = Convert.ToInt32(e.CommandArgument);
                 List<Postage> postageOptions = GetPostageOptions();
                 Session["postage"] = postageOptions[index].postageCost;
+                Response.Redirect("Checkout.aspx");
             }
         }
 
